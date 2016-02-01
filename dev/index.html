@@ -6,20 +6,156 @@
   </head>
   <body>
       
-      <h1>Heading 1</h1>
-      <h2>Heading 2</h2>
-      <h3>Heading 3</h3>
-      <h4>Heading 4</h4>
-      <h5>Heading 5</h5>
-      <h6>Heading 6</h6>
-      
       <div class="container">
-        <div class="row">
-          <div class="one col"></div>
-          <div class="two col"></div>
-          <div class="three col"></div>
-          <div class="six col"></div>
-        </div>
+        <section>
+          <h3 class="divider-heading">Headings</h3>
+          <h1>Heading 1</h1>
+          <h2>Heading 2</h2>
+          <h3>Heading 3</h3>
+          <h4>Heading 4</h4>
+          <h5>Heading 5</h5>
+          <h6>Heading 6</h6>
+        </section>
+        
+        <section>
+          <h3 class="divider-heading">Links</h3>
+          <a href="#">Link</a>
+        </section>
+        <section>
+          <h3 class="divider-heading">Lists</h3>
+          <div class="row">
+            <div class="six col">
+              <h4>Unordered lists</h4>
+              <div class="row">
+                <div class="six col">
+                    <ul>
+                      <li>First item</li>
+                      <li>Second item</li>
+                      <li>Third item</li>
+                    </ul>
+                </div>
+                <div class="six col">
+                    <ul class="underline">
+                      <li>First item</li>
+                      <li>Second item</li>
+                      <li>Third item</li>
+                    </ul>
+                    <p>Add the class <em>underline</em> to your list for a different style.</p>
+                </div>
+              </div>  
+            </div>
+            <div class="six col">
+                <h4>Ordered lists</h4>
+                  <div class="row">
+                    <div class="six col">
+                        <ol>
+                          <li>First item</li>
+                          <li>Second item</li>
+                          <li>Third item</li>
+                        </ol>
+                    </div>
+                    <div class="six col">
+                        <ol class="round">
+                          <li>First item</li>
+                          <li>Second item</li>
+                          <li>Third item</li>
+                        </ol>
+                        <p>Add the class <em>round</em> to your list to show the numbers in circles.</p>
+                    </div>
+                  </div>
+            </div>
+          </div>
+        </section>
+        
+        <section>
+          <h3 class="divider-heading">Grid System</h3>
+          <h4>Set width</h4>
+          <p>This is a flexible grid system built upon <strong>Flexbox</strong>. Simply add the class <em>row</em> to a containing div, and then give its children the class <em>col</em> followed by how many columns it should take up in width. You can use any number between one and twelve, where twelve fills the entire row. If the total number of columns is higher than twelve, the columns will automatically be contained to that row rather than keep their intended width.</p>
+          
+          <div class="row">
+            <div class="col code">
+              <code>
+                &lt;div class="row">
+                  &lt;div class="one col">One&lt;/div>
+                  &lt;div class="two col">Two&lt;/div>
+                  &lt;div class="three col">Three&lt;/div>
+                  &lt;div class="six col">Six&lt;/div>
+                &lt;/div>
+              </code>
+            </div>
+            
+            <div class="col code">
+              <code>
+                &lt;div class="row">
+                  &lt;div class="five col">Five&lt;/div>
+                  &lt;div class="seven col">Seven&lt;/div>
+                &lt;/div>
+              </code>
+            </div>
+            
+            <div class="col code">
+              <code>
+                &lt;div class="row">
+                  &lt;div class="twelve col">Twelve&lt;/div>
+                &lt;/div>
+              </code>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="one col grid">One</div>
+            <div class="two col grid">Two</div>
+            <div class="three col grid">Three</div>
+            <div class="six col grid">Six</div>
+          </div>
+          <div class="row">
+            <div class="five col grid">Five</div>
+            <div class="seven col grid">Seven</div>
+          </div>
+          <div class="row">
+            <div class="twelve col grid">Twelve</div>
+          </div>
+
+          <h4>Dynamic Columns</h4>
+          <p>If, however, you don't provide the columns with a number, they will adjust according to their content.</p>
+          
+          <div class="row">
+              <div class="col code">
+                  <code>
+                    &lt;div class="row">
+                      &lt;div class="col">Dynamic&lt;/div>
+                      &lt;div class="col">Dynamic&lt;/div>
+                      &lt;div class="col">Dynamic&lt;/div>
+                    &lt;/div>
+                  </code>
+            </div>
+            
+              <div class="col code">
+                  <code>
+                    &lt;div class="row">
+                      &lt;div class="col">Dynamic&lt;/div>
+                      &lt;div class="col">Dynamic&lt;/div>
+                      &lt;div class="col">Dynamic&lt;/div>
+                      &lt;div class="col">Dynamic&lt;/div>
+                      &lt;div class="col">Dynamic&lt;/div>
+                    &lt;/div>
+                  </code>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col grid">Dynamic</div>
+            <div class="col grid">Dynamic</div>
+            <div class="col grid">Dynamic</div>
+          </div>
+          <div class="row">
+            <div class="col grid">Dynamic</div>
+            <div class="col grid">Dynamic</div>
+            <div class="col grid">Dynamic</div>
+            <div class="col grid">Dynamic</div>
+            <div class="col grid">Dynamic</div>
+          </div>
+      </section>
       </div>
       
   </body>

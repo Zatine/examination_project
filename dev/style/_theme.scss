@@ -1,20 +1,23 @@
 /* Colors */
-$background-color: #222222;
+$background-color: #191919;
 $text-color: #dbdbdb;
-$primary-color: #0089ff;
+$primary-color: #0084bf;
 $secondary-color: #ff3bd2;
 $contrast-color: #ff7c2a;
 
 /* Calculated Colors */
-$highlight-primary: lighten($primary-color, 0.5);
-$highlight-secondary: lighten($secondary-color, 0.5);
-$highlight-contrast: lighten($contrast-color, 0.5);
+$highlight-primary: lighten($primary-color, 10);
+$highlight-secondary: lighten($secondary-color, 10);
+$highlight-contrast: lighten($contrast-color, 10);
 
-$darker-primary: darken($primary-color, 0.5);
-$darker-secondary: darken($secondary-color, 0.5);
-$darker-contrast: darken($contrast-color, 0.5);
+$darker-primary: darken($primary-color, 10);
+$darker-secondary: darken($secondary-color, 10);
+$darker-contrast: darken($contrast-color, 10);
 
 /* Fonts */
 $main-font: sans-serif;
 $heading-font: sans-serif;
 $heading-weight: normal;
+
+/* Container Width */
+$container-width: 1200px;

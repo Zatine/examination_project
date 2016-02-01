@@ -4,6 +4,16 @@
 @import 'helpers';
 @import 'components';
 
-.col{
+.grid{
   background-color: $primary-color;
+}
+
+section{
+  margin: 50px 0;
+}
+
+.code{
+  background-color: darken($background-color, 5);
+  color: #68af4e;
+  white-space: pre-line;
 }

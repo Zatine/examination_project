@@ -1,3 +1,7 @@
 .text-right{text-align: right;}
 .text-left{text-align: left;}
 .text-center{text-align: center;}
+
+.container{max-width: $container-width; margin: 0 auto; padding: 0 10px;}
+
+.divider-heading{border-bottom: 1px $contrast-color solid;}
