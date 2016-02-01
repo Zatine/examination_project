@@ -1,0 +1,30 @@
+{
+  "name": "examensarbete",
+  "version": "1.0.0",
+  "description": "Examination Project at Nackademin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zatine/examination_project.git"
+  },
+  "keywords": [
+    "framework",
+    "javascript",
+    "angular",
+    "sass"
+  ],
+  "author": "Mikaela Grundin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zatine/examination_project/issues"
+  },
+  "homepage": "https://github.com/Zatine/examination_project#readme",
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.0",
+    "gulp-ruby-sass": "^2.0.6"
+  }
+}

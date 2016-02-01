@@ -1,0 +1,57 @@
+.container{
+  .row{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    
+    &.to-bottom{
+        flex-direction: column;
+    }
+    
+    &.items-align-left{
+      justify-content: flex-start;
+    }
+    
+    &.items-align-right{
+      justify-content: flex-end;
+    }
+
+    &.items-align-spread{
+      justify-content: space-around;
+    }
+    
+    &.items-valign-top{
+      align-content: flex-start;
+    }
+    
+    &.items-valign-bottom{
+      align-content: flex-end;
+    }
+    
+    &.items-valign-middle{
+      align-content: center;
+    }
+    
+    &.items-valign-baseline{
+      align-content: baseline;
+    }
+
+    .col{
+      padding: 10px;
+      &.one{flex-grow:1;}
+      &.two{flex-grow:2;}
+      &.three{flex-grow:3;}
+      &.four{flex-grow:4;}
+      &.five{flex-grow:5;}
+      &.six{flex-grow:6;}
+      &.seven{flex-grow:7;}
+      &.eight{flex-grow:8;}
+      &.nine{flex-grow:9;}
+      &.ten{flex-grow:10;}
+      &.eleven{flex-grow:11;}
+      &.twelve{flex-grow:12;}
+    }
+  }
+}

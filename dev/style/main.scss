@@ -1,0 +1,9 @@
+@import 'theme';
+@import 'browser_fix';
+@import 'grid';
+@import 'helpers';
+@import 'components';
+
+.col{
+  background-color: $primary-color;
+}
