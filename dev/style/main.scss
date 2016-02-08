@@ -1,11 +1,12 @@
 @import 'theme';
+@import 'icons';
 @import 'browser_fix';
 @import 'grid';
 @import 'helpers';
 @import 'components';
 
 .grid{
-  background-color: $primary-color;
+  @include color-bg($primary-color);
 }
 
 section{
@@ -14,6 +15,6 @@ section{
 
 .code{
   background-color: darken($background-color, 5);
-  color: #68af4e;
+  color: $secondary-color;
   white-space: pre-line;
 }

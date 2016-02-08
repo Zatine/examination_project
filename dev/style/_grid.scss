@@ -1,5 +1,5 @@
 @function column-width($i){
-  @return (((((floor($container-width / 12) - 40)) * $i) + (40 * ($i - 1))) / $container-width) * 100%;
+  @return (((floor($container-width / 12)) * $i) / $container-width) * 100%;
 }
 
 @mixin column($number){

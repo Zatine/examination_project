@@ -1,8 +1,15 @@
+*{box-sizing: border-box;}
+
+html{
+  font-size: $font-base-size;
+}
+
 body{
   background-color: $background-color;
   color: $text-color;
 }
 
+/* HEADINGS */
 h1{font-size: 4em;}
 h2{font-size: 3.5em;}
 h3{font-size: 3em;}
@@ -14,11 +21,35 @@ h1, h2, h3, h4, h5, h6{
   margin: 15px 0;
 }
 
+/* LINKS */
 a{
   color: $primary-color;
   &:hover{color: $highlight-primary;}
 }
 
+/* BUTTONS */
+button{
+  background-color: $blend-color-high;
+  padding: 10px 20px;
+  border-radius: 3px;
+  &.primary{
+    @include color-bg($primary-color);
+  }
+  &.secondary{
+    @include color-bg($secondary-color);
+  }
+  &.contrast{
+    @include color-bg($contrast-color);
+  }
+  &:disabled{
+    background: none;
+    border: 1px solid $blend-color-high;
+    color: $blend-color-low;
+    cursor: not-allowed;
+  }
+}
+
+/* LISTS */
 ul, ol{
   margin: 10px 0;
 }
@@ -28,7 +59,7 @@ ul{
     padding: .6em;
     border-radius: .2em;
     margin: .2em 0;
-    background-color: lighten($background-color, 10);
+    background-color: $blend-color-high;
   }
   &.underline{
     li{
@@ -49,12 +80,12 @@ ol{
     margin: .2em 0;
     position: relative;
     border-radius: .2em;
-    background-color: lighten($background-color, 10);
+    background-color: $blend-color-high;
   }
   li:before{
+    @include color-bg($primary-color);
     content: counter(li);
     counter-increment: li;
-    background-color: $primary-color;
     position: absolute;
     left: -0.8em;
     top: 50%;
@@ -73,4 +104,129 @@ ol{
     border-radius: 50%;
     border: $background-color .3em solid;
   }
+}
+
+/* FORMS */
+
+@mixin input-buttons($bradius) {
+    display:none;
+    & + label span{
+      vertical-align: text-bottom;
+      display: inline-block;
+      border: 1px solid $blend-color-high;
+      border-radius: $bradius;
+      background-color: #ffffff;
+      cursor: pointer;
+      svg{
+        fill: $primary-color;
+        stroke: $darker-primary;
+        stroke-miterlimit:10;
+        display: none;
+      }
+    }
+    &:checked + label span svg{
+      display: block;
+    }
+    &:disabled + label span{
+      background-color: $blend-color-high;
+      cursor: not-allowed;
+    }
+}
+
+input, textarea, fieldset{
+  margin: 10px 0;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="password"],
+input[type="number"],
+input[type="search"],
+input[type="date"],
+input[type="url"],
+textarea{
+  border-radius: 5px;
+  border: 1px solid $blend-color-high;
+  padding: 10px;
+  width: 100%;
+  
+  &:disabled{
+    background-color: $blend-color-high;
+    cursor: not-allowed;
+  }
+}
+
+input[type="checkbox"]{
+  @include input-buttons(3px);
+  & + label span {
+    width: 19px;
+    height: 19px;
+    svg{
+      height: 20px;
+      width: 20px;
+      margin-top: -4px;
+      margin-left: 0px;
+    }
+  }
+}
+
+input[type="radio"]{
+  @include input-buttons(50%);
+  & + label span{
+    width: 17px;
+    height: 17px;
+    padding: 2px;
+  }
+}
+
+input[type="button"]{
+  @extend button;
+}
+
+textarea{
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100px;
+  font-family: $main-font;
+}
+fieldset{
+  border-radius: 5px;
+  border-color: $blend-color-high;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.form-section{
+  &.row input, textarea, fieldset{
+    margin: 0;
+  }
+  position: relative;
+  label{
+    display: block;
+    span.info{
+      display: block;
+      font-size: 0.8em;
+      color: $blend-color-low;
+    }
+  }
+}
+
+.input{
+  position: relative;
+  
+  &.icon-padding input{
+    padding-right: 20px;
+  }
+
+/*  &:after{
+    display: block;
+    position: absolute;
+    top: 40%;
+    right: 10px;
+  }
+
+  &.required:after{
+    content: "*";
+  }*/
 }

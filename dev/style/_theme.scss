@@ -1,11 +1,14 @@
 /* Colors */
-$background-color: #191919;
-$text-color: #dbdbdb;
+$background-color: #efefef;
+$text-color: #101010;
 $primary-color: #0084bf;
-$secondary-color: #ff3bd2;
-$contrast-color: #ff7c2a;
+$secondary-color: #68af4e;
 
 /* Calculated Colors */
+$contrast-color: invert($primary-color);
+$blend-color-high: mix($background-color, $text-color, 90);
+$blend-color-low: mix($background-color, $text-color, 60);
+
 $highlight-primary: lighten($primary-color, 10);
 $highlight-secondary: lighten($secondary-color, 10);
 $highlight-contrast: lighten($contrast-color, 10);
@@ -18,6 +21,7 @@ $darker-contrast: darken($contrast-color, 10);
 $main-font: sans-serif;
 $heading-font: sans-serif;
 $heading-weight: normal;
+$font-base-size: 16px;
 
 /* Container Width */
 $container-width: 1200px;

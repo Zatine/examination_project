@@ -1,7 +1,24 @@
 .text-right{text-align: right;}
 .text-left{text-align: left;}
 .text-center{text-align: center;}
+.text-mute{color: $blend-color-low;}
+
+.inline-block{
+  display: inline-block;
+  margin: 5px;
+}
 
 .container{max-width: $container-width; margin: 0 auto; padding: 0 10px;}
 
 .divider-heading{border-bottom: 1px $contrast-color solid;}
+
+@mixin color-bg($color){
+  @if(lightness($color) > 70){
+    background-color: $primary-color;
+    color: darken($color, 50);
+  }
+  @if(lightness($primary-color) < 70){
+    background-color: $color;
+    color: #fff;
+  }
+}
