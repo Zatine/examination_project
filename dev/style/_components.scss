@@ -133,18 +133,16 @@ ol{
     }
 }
 
-input, textarea, fieldset{
-  margin: 10px 0;
+input.ng-invalid.ng-touched{
+  border: 1px solid $error-color;
 }
 
-input[type="text"], 
-input[type="email"], 
-input[type="password"],
-input[type="number"],
-input[type="search"],
-input[type="date"],
-input[type="url"],
-textarea{
+input, textarea, fieldset{
+  margin: 10px 0;
+  font-family: $main-font;
+}
+
+input, textarea{
   border-radius: 5px;
   border: 1px solid $blend-color-high;
   padding: 10px;
@@ -195,6 +193,11 @@ fieldset{
   border-color: $blend-color-high;
   border-style: solid;
   border-width: 1px;
+  legend{
+    margin-bottom: 10px;
+    padding: 0 10px;
+    color: $blend-color-low;
+  }
 }
 
 .form-section{
@@ -208,6 +211,12 @@ fieldset{
       display: block;
       font-size: 0.8em;
       color: $blend-color-low;
+    }
+  }
+  .error{
+    p{
+      color: $error-color;
+      margin-bottom: 15px;
     }
   }
 }

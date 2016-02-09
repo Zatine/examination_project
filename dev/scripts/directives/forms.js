@@ -1,27 +1,67 @@
 app.directive('inputField', function(){
   return {
     restrict: 'E',
+    require: ['?^form'],
     replace: true,
     template: [
-                '<div class="form-section">',
-                  '<label>',
-                    '{{label}}',
-                    '<span class="info" ng-if="desc">{{desc}}</span>',
-                  '</label>',
-                  '<div class="input" ng-class="class">',
-                    '<input id="" type="{{type}}" ng-disabled="{{disabled}}"/>',
-                    '<i ng-if="icon" class="icon" ng-class="icon"></i>',
+                '<div class="form-section" ng-class="class.row">',
+                  '<div ng-class="class.left">',
+                    '<label for="{{id}}">',
+                      '{{label}}',
+                      '<span class="info" ng-if="desc">{{desc}}</span>',
+                    '</label>',
+                  '</div>',
+                  '<div ng-class="class.right">',
+                    '<div class="input" ng-class="class.icon">',
+                      '<input id="{{id}}" type="{{type}}" placeholder="{{placeholder}}" ng-model="model" form="{{form.$name}}" name="{{name}}" ng-required="required" maxlength="{{maxlength}}" ng-maxlength="maxlength" ng-minlength="minlength" ng-change="change()" ng-disabled="disabled" ng-blur="validate()">',
+                      '<div ng-show="errorMessage && form[name].$touched" class="error">',
+                        '<p ng-show="errorMessage.required">This field is required.</p>',
+                        '<p ng-show="errorMessage.minlength">This field is too short.</p>',
+                        '<p ng-show="errorMessage.maxlength">This field is too long.</p>',
+                        '<p ng-show="errorMessage.email">Invalid e-mail.</p>',
+                      '</div>',
+                      '<i ng-if="icon" class="icon" ng-class="icon"></i>',
+                    '</div>',
                   '</div>'
               ].join(''),
     scope:{
+      id: '=',
+      type: '=?',
+      placeholder: '=?',
       label: '=',
-      type: '=',
-      desc: '=',
-      disabled: '=',
-      icon: '='
+      desc: '=?',
+      icon: '=?',
+      grid: '=?',
+      maxlength: '=?ngMaxlength',
+      minlength: '=?ngMinlength',
+      readonly: '=?',
+      name: '=?',
+      required: '=?ngRequired',
+      change: '&?ngChange',
+      model: '=?ngModel'
     },
-    link: function(scope, elm, attrs){
-      scope.class = scope.icon ? 'icon-padding' : '';
+    link: function(scope, elm, attrs, ctrl){
+      scope.form = ctrl[0];
+      
+      if(scope.type === 'radio' || scope.type === 'submit' || scope.type === 'checkbox' || !scope.type){
+        scope.type = 'text';
+      }
+      scope.class = {
+                      icon: scope.icon ? 'icon-padding' : '',
+                      row: scope.grid ? 'row' : '',
+                      left: scope.grid ? 'four col' : '',
+                      right: scope.grid ? 'eight col' : ''
+                    };
+      
+      scope.name = scope.name || scope.label.replace(/ /g,"_").toLowerCase();
+      
+      if(attrs.disabled !== undefined) scope.disabled = true;
+      
+      if(scope.form){
+        scope.validate = function(){
+          scope.errorMessage = scope.form[scope.name].$error;
+        }
+      }
     }
   }
 })
@@ -29,9 +69,10 @@ app.directive('inputField', function(){
     return {
       restrict: 'E',
       replace: true,
+      require: ['?^form'],
       template: [
                   '<div class="inline-block">',
-                    '<input type="radio" id="{{id}}" name="{{name}}" value="{{value}}" ng-disabled="{{disabled}}">',
+                    '<input type="radio" id="{{id}}" name="{{name}}" value="{{value}}" ng-disabled="{{disabled}}" ng-model="model">',
                     '<label for="{{id}}">',
                     '<span><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40"/></svg></span>',
                     ' {{label}}',
@@ -42,10 +83,12 @@ app.directive('inputField', function(){
         label: '=',
         id: '=',
         name: '=',
-        disabled: '='
+        model: '=?ngModel'
       },
-      link: function(scope, elm, attrs){
+      link: function(scope, elm, attrs, ctrl){
+        scope.form = ctrl[0];
         scope.value = scope.label.replace(/ /g,"_").toLowerCase();
+        if(attrs.disabled !== undefined) scope.disabled = true;
       }
     }
   })

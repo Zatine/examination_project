@@ -7,7 +7,7 @@
   </head>
   <body ng-app="App">
       
-      <div class="container">
+      <div class="container" ng-controller="Documentation as vm">
         <section>
           <h3 class="divider-heading">Headings</h3>
           <h1>Heading 1</h1>
@@ -78,72 +78,83 @@
         
         <section>
             <h3 class="divider-heading">Forms</h3>
+                <h4>Input &amp; Textarea</h4>
+                <p>Inputs are created with the <strong>&lt;input-field></strong>-tag. You can use most of the attributes you normally would on an input-tag, such as <em>type</em>, <em>disabled</em> or <em>placeholder</em>. You can also use most of the Angular-specific attributes for inputs, for example <em>ng-model</em> or validation. Note that validation will only work if your input is inside of a <em>form</em>-element with a name-attribute on it, or an element with the <em>ng-form</em>-attribute.</p>
             <div class="row">
               <div class="four col">
-                <form>
-                    
-                    <input-field type="'text'" label="'Text'" desc="'Additional information'" icon="'search'"></input-field>
-                  
-                    <input-field type="'password'" label="'Password'"></input-field>
-                  
-                    <div class="form-section">
-                          <label>Textarea
-                          </label>
-                          <textarea></textarea>
-                    </div>
-                  
+            <ul>
+              <li><strong>label:</strong> What you want the label to say.</li>
+              <li><strong>desc:</strong> If you want additional text under the label, for example detailing how the user should answer.</li>
+              <li><strong>grid:</strong> Display the inputs and their labels next to instead of on top of each other.</li>
+              <li><strong>id:</strong> Needed for label functionality.</li>
+              <li><strong>icon:</strong> Which icon to add to the right side of the input.</li>
+            </ul>
+            </div>
+              <div class="four col">
+                <form name="standard">
                     <fieldset>
-                      <legend>Radio Buttons</legend>
-                      <radio-button label="'Option 1'" id="'op1'" name="'first_example'"></radio-button>
-                      <radio-button label="'Option 2'" id="'op2'" name="'first_example'"></radio-button>
-                      <radio-button label="'Option 3'" id="'op3'" name="'first_example'"></radio-button>
-                    </fieldset>
-                  
-                  <checkbox label="'Check 1'" id="'ch1'" name="'check'"></checkbox>
-                  <checkbox label="'Check 2'" id="'ch2'" name="'check'"></checkbox>
-                  <checkbox label="'Check 3'" id="'ch3'" name="'check'"></checkbox>
+                      <legend>Standard</legend>
+                      <input-field 
+                                    label="'Password'" 
+                                    desc="'At least 6 characters'" 
+                                    icon="'search'" 
+                                    id="'pw1'" 
+                                    type="'password'" 
+                                    ng-required="true" 
+                                    ng-minlength="6" 
+                                    ng-maxlength="10"
+                      ></input-field>
+                      <input-field 
+                                    label="'E-mail'" 
+                                    icon="'search'" 
+                                    id="'email'" 
+                                    type="'email'" 
+                                    ng-model="mail" 
+                      ></input-field>
+                      
+                      <!--<form-section label="'Textarea'" id="'ta1'">
+                          <textarea id="ta1"></textarea>
+                      </form-section>-->
+
+                  </fieldset>
                 </form>
               </div>
-              <div class="five col">
-                <form>
-                    <div class="row form-section">
-                      <div class="four col">
-                       <label for="i1">
-                          Text
-                          <span class="info">Additional information</span>
-                        </label>
-                      </div>
-                      <div class="eight col">
-                        <div class="input">
-                          <input id="i1" type="text">
-                        </div>
-                      </div>   
-                    </div>
-                  
-                    <div class="row form-section">
-                        <div class="four col">
-                          <label>
-                            Textarea
-                          </label>
-                        </div>
-                        <div class="eight col">
-                          <textarea></textarea>
-                        </div>
-                    </div>
-                  
+              <div class="four col">
+                <form name="grid">
                     <fieldset>
-                      <legend>Radio Buttons</legend>
-                        <radio-button label="'Option 1'" id="'op1b'" name="'second_example'"></radio-button>
-                      <radio-button label="'Option 2'" id="'op2b'" name="'second_example'"></radio-button>
-                      <radio-button label="'Option 3'" id="'op3b'" name="'second_example'"></radio-button>
+                      <legend>Grid</legend>
+                      
+                      <input-field 
+                                    label="'Text'" 
+                                    desc="'Additional info'" 
+                                    icon="'search'" 
+                                    id="'in1'"
+                                    ng-required="true"
+                                    grid="true"
+                      ></input-field>
+                     <!--
+                  
+                      <form-section label="'Textarea'" desc="'Additional text'" grid="true" id="'ta2'">
+                          <textarea placeholder="Placeholder" id="ta2"></textarea>
+                      </form-section>-->
+                        
                   </fieldset>
-                        <checkbox label="'Check 1'" id="'chb1'" name="'check2'"></checkbox>
-                        <checkbox label="'Check 2'" id="'chb2'" name="'check2'"></checkbox>
-                        <checkbox label="'Check 3'" id="'chb3'" name="'check2'"></checkbox>
 
                 </form>
               </div>
             </div>
+          <div class="row">
+            <div class="five col">
+              
+<!--                        <radio-button checked label="'Option 1'" id="'op1'" name="'first_example'"></radio-button>
+                        <radio-button label="'Option 2'" id="'op2'" name="'first_example'"></radio-button>
+                        <radio-button label="'Option 3'" id="'op3'" name="'first_example'"></radio-button>
+
+                    <checkbox label="'Check 1'" id="'ch1'" name="'check'"></checkbox>
+                    <checkbox label="'Check 2'" id="'ch2'" name="'check'"></checkbox>
+                    <checkbox label="'Check 3'" id="'ch3'" name="'check'"></checkbox>-->
+            </div>
+          </div>
         </section>
         
         <section>

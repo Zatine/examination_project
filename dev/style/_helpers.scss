@@ -1,3 +1,6 @@
+$error-color: #b20000;
+$error-bg: mix($background-color, $error-color, 90);
+
 .text-right{text-align: right;}
 .text-left{text-align: left;}
 .text-center{text-align: center;}
