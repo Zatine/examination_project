@@ -1,4 +1,4 @@
-app.directive('inputField', function(){
+app.directive('formSection', function(){
   return {
     restrict: 'E',
     require: ['?^form'],
@@ -13,8 +13,9 @@ app.directive('inputField', function(){
                   '</div>',
                   '<div ng-show="hide" class="error"><p>Invalid input type.</p></div>',
                   '<div ng-class="class.right" ng-hide="hide">',
-                    '<div class="input" ng-class="class.icon">',
-                      '<input id="{{id}}" type="{{type}}" placeholder="{{placeholder}}" ng-model="model" form="{{form.$name}}" name="{{name}}" ng-required="required" maxlength="{{maxlength}}" ng-maxlength="maxlength" ng-minlength="minlength" ng-change="change()" ng-disabled="disabled" ng-blur="validate()" ng-readonly="readonly">',
+                    '<div class="input" ng-class="class.icon" ng-switch="field">',
+                      '<input ng-switch-when="input" id="{{id}}" type="{{type}}" placeholder="{{placeholder}}" ng-model="model" form="{{form.$name}}" name="{{name}}" ng-required="required" maxlength="{{maxlength}}" ng-maxlength="maxlength" ng-minlength="minlength" ng-change="change()" ng-disabled="disabled" ng-blur="validate()" ng-readonly="readonly">',
+                      '<textarea ng-switch-when="textarea" id="{{id}}" placeholder="{{placeholder}}" ng-model="model" form="{{form.$name}}" name="{{name}}" ng-required="required" maxlength="{{maxlength}}" ng-maxlength="maxlength" ng-minlength="minlength" ng-change="change()" ng-disabled="disabled" ng-blur="validate()" ng-readonly="readonly"></textarea>',
                       '<div ng-show="errorMessage && form[name].$touched" class="error">',
                         '<p ng-show="errorMessage.required">This field is required.</p>',
                         '<p ng-show="errorMessage.minlength">This field is too short.</p>',
@@ -39,12 +40,13 @@ app.directive('inputField', function(){
       name: '=?',
       required: '=?ngRequired',
       change: '&?ngChange',
-      model: '=?ngModel'
+      model: '=?ngModel',
+      field: '@'
     },
     link: function(scope, elm, attrs, ctrl){
+      elm.removeAttr('id');
       scope.form = ctrl[0];
       var disallowed = ['radio', 'submit', 'checkbox', 'file', 'color', 'image'];
-      
       if(disallowed.indexOf(scope.type) !== -1){
           scope.hide = true;
       }
@@ -83,15 +85,17 @@ app.directive('inputField', function(){
                   '</div>'
                 ].join(''),
       scope: {
-        label: '=',
-        id: '=',
-        name: '=',
+        label: '@',
+        id: '@',
+        name: '@',
         model: '=?ngModel'
       },
       link: function(scope, elm, attrs, ctrl){
+        elm.removeAttr('id');
         scope.form = ctrl[0];
         scope.value = scope.label.replace(/ /g,"_").toLowerCase();
         if(attrs.disabled !== undefined) scope.disabled = true;
+        if(attrs.checked !== undefined) scope.model = scope.value;
       }
     }
   })
@@ -99,6 +103,7 @@ app.directive('inputField', function(){
     return {
       replace: true,
       restrict: 'E',
+      require: ['?^form'],
       template: [
                   '<div class="inline-block">',
                     '<input type="checkbox" id="{{id}}" name="{{name}}" value="{{value}}" ng-disabled="{{disabled}}">',
@@ -109,13 +114,16 @@ app.directive('inputField', function(){
                   '</div'
                 ].join(''),
       scope: {
-        label: '=',
-        id: '=',
-        name: '=',
-        disabled: '='
+        label: '@',
+        id: '@',
+        name: '@',
+        model: '=?ngModel'
       },
       link: function(scope, elm, attrs){
+        elm.removeAttr('id');
+        scope.form = ctrl[0];
         scope.value = scope.label.replace(/ /g,"_").toLowerCase();
+        if(attrs.disabled !== undefined) scope.disabled = true;
       }
     }
   });

@@ -78,14 +78,15 @@
         
         <section>
             <h3 class="divider-heading">Forms</h3>
-                <h4>Input &amp; Textarea</h4>
-                <p>Inputs are created with the <strong>&lt;input-field></strong>-tag. You can use most of the attributes you normally would on an input-tag, such as <em>type</em>, <em>disabled</em> or <em>placeholder</em>. You can also use most of the Angular-specific attributes for inputs, for example <em>ng-model</em> or validation. Note that validation will only work if your input is inside of a <em>form</em>-element with a name-attribute on it, or an element with the <em>ng-form</em>-attribute. Other attributes you can use are:</p>
+                <h4>Inputs &amp; Textareas</h4>
+                <p>Inputs and Textareas are created with the <strong>&lt;form-section></strong>-element. You need to define whether it's an input or textarea you want with the field-attribute. You can use most of the attributes you normally would on an their respective tags, such as <em>type</em>, <em>disabled</em> or <em>placeholder</em>. You can also use most of the Angular-specific attributes for inputs, for example <em>ng-model</em> or validation. Note that validation will only work if your input is inside of a <em>form</em>-element with a name-attribute on it, or an element with the <em>ng-form</em>-attribute. Other attributes you can use are:</p>
             <div class="row">
               <div class="four col">
             <ul>
+              <li><strong>field:</strong> <em>Important for the directive to work.</em> 'Input' or 'Textarea' for different elements.</li>
               <li><strong>label:</strong> What you want the label to say.</li>
               <li><strong>desc:</strong> If you want additional text under the label, for example detailing how the user should answer.</li>
-              <li><strong>grid:</strong> Display the inputs and their labels next to instead of on top of each other.</li>
+              <li><strong>grid:</strong> True or false. Display the inputs and their labels next to instead of on top of each other.</li>
               <li><strong>id:</strong> Needed for label functionality.</li>
               <li><strong>icon:</strong> Which icon to add to the right side of the input.</li>
             </ul>
@@ -94,7 +95,8 @@
                 <form name="standard">
                     <fieldset>
                       <legend>Standard</legend>
-                      <input-field 
+                      <form-section 
+                                    field="input"
                                     label="Password" 
                                     desc="At least 6 characters" 
                                     icon="search" 
@@ -103,17 +105,19 @@
                                     ng-minlength="6" 
                                     ng-maxlength="10"
                                     type="text"
-                      ></input-field>
-                      <input-field 
-                                    ng-required="true" 
+                      ></form-section>
+                      <form-section 
+                                    field="input" 
                                     label="E-mail" 
                                     id="email" 
                                     type="email"
-                      ></input-field>
+                      ></form-section>
                       
-                      <!--<form-section label="'Textarea'" id="'ta1'">
-                          <textarea id="ta1"></textarea>
-                      </form-section>-->
+                      <form-section 
+                                    field="textarea"
+                                    label="Textarea"
+                                    id="ta1"
+                      ></form-section>
 
                   </fieldset>
                 </form>
@@ -123,19 +127,22 @@
                     <fieldset>
                       <legend>Grid</legend>
                       
-                      <input-field 
+                      <form-section 
                                     label="Text" 
                                     desc="Additional info" 
                                     icon="search" 
                                     id="in1"
                                     ng-required="true"
                                     grid="true"
-                      ></input-field>
-                     <!--
-                  
-                      <form-section label="'Textarea'" desc="'Additional text'" grid="true" id="'ta2'">
-                          <textarea placeholder="Placeholder" id="ta2"></textarea>
-                      </form-section>-->
+                                    field="input"
+                      ></form-section>
+                      
+                      <form-section 
+                                    field="textarea"
+                                    label="Textarea"
+                                    id="ta2"
+                                    grid="true"
+                      ></form-section>
                         
                   </fieldset>
 
@@ -143,15 +150,21 @@
               </div>
             </div>
           <div class="row">
-            <div class="five col">
-              
-<!--                        <radio-button checked label="'Option 1'" id="'op1'" name="'first_example'"></radio-button>
-                        <radio-button label="'Option 2'" id="'op2'" name="'first_example'"></radio-button>
-                        <radio-button label="'Option 3'" id="'op3'" name="'first_example'"></radio-button>
-
-                    <checkbox label="'Check 1'" id="'ch1'" name="'check'"></checkbox>
-                    <checkbox label="'Check 2'" id="'ch2'" name="'check'"></checkbox>
-                    <checkbox label="'Check 3'" id="'ch3'" name="'check'"></checkbox>-->
+            <div class="four col">
+                <form name="radiocheck">
+                  <fieldset>
+                    <legend>Radio Buttons</legend>
+                        <radio-button checked label="Option 1" id="op1" name="'first_example'"></radio-button>
+                        <radio-button label="Option 2" id="op2" name="'first_example'"></radio-button>
+                        <radio-button label="Option 3" id="op3" name="'first_example'"></radio-button>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Checkboxes</legend>
+                      <checkbox label="Check 1" id="ch1" name="check"></checkbox>
+                      <checkbox label="Check 2" id="ch2" name="check"></checkbox>
+                      <checkbox label="Check 3" id="ch3" name="check"></checkbox>
+                    </fieldset>
+                </form>
             </div>
           </div>
         </section>
