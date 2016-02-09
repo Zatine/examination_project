@@ -11,9 +11,10 @@ app.directive('inputField', function(){
                       '<span class="info" ng-if="desc">{{desc}}</span>',
                     '</label>',
                   '</div>',
-                  '<div ng-class="class.right">',
+                  '<div ng-show="hide" class="error"><p>Invalid input type.</p></div>',
+                  '<div ng-class="class.right" ng-hide="hide">',
                     '<div class="input" ng-class="class.icon">',
-                      '<input id="{{id}}" type="{{type}}" placeholder="{{placeholder}}" ng-model="model" form="{{form.$name}}" name="{{name}}" ng-required="required" maxlength="{{maxlength}}" ng-maxlength="maxlength" ng-minlength="minlength" ng-change="change()" ng-disabled="disabled" ng-blur="validate()">',
+                      '<input id="{{id}}" type="{{type}}" placeholder="{{placeholder}}" ng-model="model" form="{{form.$name}}" name="{{name}}" ng-required="required" maxlength="{{maxlength}}" ng-maxlength="maxlength" ng-minlength="minlength" ng-change="change()" ng-disabled="disabled" ng-blur="validate()" ng-readonly="readonly">',
                       '<div ng-show="errorMessage && form[name].$touched" class="error">',
                         '<p ng-show="errorMessage.required">This field is required.</p>',
                         '<p ng-show="errorMessage.minlength">This field is too short.</p>',
@@ -25,12 +26,12 @@ app.directive('inputField', function(){
                   '</div>'
               ].join(''),
     scope:{
-      id: '=',
-      type: '=?',
-      placeholder: '=?',
-      label: '=',
-      desc: '=?',
-      icon: '=?',
+      id: '@',
+      type: '@?',
+      placeholder: '@?',
+      label: '@',
+      desc: '@?',
+      icon: '@?',
       grid: '=?',
       maxlength: '=?ngMaxlength',
       minlength: '=?ngMinlength',
@@ -42,10 +43,12 @@ app.directive('inputField', function(){
     },
     link: function(scope, elm, attrs, ctrl){
       scope.form = ctrl[0];
+      var disallowed = ['radio', 'submit', 'checkbox', 'file', 'color', 'image'];
       
-      if(scope.type === 'radio' || scope.type === 'submit' || scope.type === 'checkbox' || !scope.type){
-        scope.type = 'text';
+      if(disallowed.indexOf(scope.type) !== -1){
+          scope.hide = true;
       }
+
       scope.class = {
                       icon: scope.icon ? 'icon-padding' : '',
                       row: scope.grid ? 'row' : '',

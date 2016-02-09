@@ -79,7 +79,7 @@
         <section>
             <h3 class="divider-heading">Forms</h3>
                 <h4>Input &amp; Textarea</h4>
-                <p>Inputs are created with the <strong>&lt;input-field></strong>-tag. You can use most of the attributes you normally would on an input-tag, such as <em>type</em>, <em>disabled</em> or <em>placeholder</em>. You can also use most of the Angular-specific attributes for inputs, for example <em>ng-model</em> or validation. Note that validation will only work if your input is inside of a <em>form</em>-element with a name-attribute on it, or an element with the <em>ng-form</em>-attribute.</p>
+                <p>Inputs are created with the <strong>&lt;input-field></strong>-tag. You can use most of the attributes you normally would on an input-tag, such as <em>type</em>, <em>disabled</em> or <em>placeholder</em>. You can also use most of the Angular-specific attributes for inputs, for example <em>ng-model</em> or validation. Note that validation will only work if your input is inside of a <em>form</em>-element with a name-attribute on it, or an element with the <em>ng-form</em>-attribute. Other attributes you can use are:</p>
             <div class="row">
               <div class="four col">
             <ul>
@@ -95,21 +95,20 @@
                     <fieldset>
                       <legend>Standard</legend>
                       <input-field 
-                                    label="'Password'" 
-                                    desc="'At least 6 characters'" 
-                                    icon="'search'" 
-                                    id="'pw1'" 
-                                    type="'password'" 
+                                    label="Password" 
+                                    desc="At least 6 characters" 
+                                    icon="search" 
+                                    id="pw1" 
                                     ng-required="true" 
                                     ng-minlength="6" 
                                     ng-maxlength="10"
+                                    type="text"
                       ></input-field>
                       <input-field 
-                                    label="'E-mail'" 
-                                    icon="'search'" 
-                                    id="'email'" 
-                                    type="'email'" 
-                                    ng-model="mail" 
+                                    ng-required="true" 
+                                    label="E-mail" 
+                                    id="email" 
+                                    type="email"
                       ></input-field>
                       
                       <!--<form-section label="'Textarea'" id="'ta1'">
@@ -125,10 +124,10 @@
                       <legend>Grid</legend>
                       
                       <input-field 
-                                    label="'Text'" 
-                                    desc="'Additional info'" 
-                                    icon="'search'" 
-                                    id="'in1'"
+                                    label="Text" 
+                                    desc="Additional info" 
+                                    icon="search" 
+                                    id="in1"
                                     ng-required="true"
                                     grid="true"
                       ></input-field>
