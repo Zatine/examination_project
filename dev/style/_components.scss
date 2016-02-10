@@ -162,22 +162,17 @@ select{
 .dropdown{
   position: relative;
   height: 50px;
-  & label{
-    position: absolute;
-    top: 35%;
-    right: 3%;
-    height: 15px;
-    width: 15px;
-    z-index: 1;
-    svg{
-      fill: $primary-color;
-    }
-  }
   ul{
     @extend input;
     background-color: #fff;
     padding: 0;
     cursor: default;
+    &.disabled{
+      background-color: $blend-color-high;
+      cursor: not-allowed;
+      li:first-child{color: $blend-color-low;}
+      svg{fill: $blend-color-low;}
+    }
     li{
       margin: 0;
       background: none;
@@ -192,6 +187,17 @@ select{
           background:none;
         }
       }
+    label{
+      position: absolute;
+      top: 35%;
+      right: 3%;
+      height: 15px;
+      width: 15px;
+      z-index: 1;
+      svg{
+        fill: $primary-color;
+      }
+    }
     }
   }
   select{
@@ -207,6 +213,11 @@ select{
     @extend select;
     background: #fff;
     display: block;
+    &.disabled{
+      background-color: $blend-color-high;
+      color: $blend-color-low;
+      li{cursor: not-allowed;}
+    }
     li{
       background: none;
       border-radius: 0;

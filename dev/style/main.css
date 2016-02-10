@@ -312,19 +312,17 @@ input, select, .multiple ul, .dropdown ul, textarea {
 .dropdown {
   position: relative;
   height: 50px; }
-  .dropdown label {
-    position: absolute;
-    top: 35%;
-    right: 3%;
-    height: 15px;
-    width: 15px;
-    z-index: 1; }
-    .dropdown label svg {
-      fill: #0084bf; }
   .dropdown ul {
     background-color: #fff;
     padding: 0;
     cursor: default; }
+    .dropdown ul.disabled {
+      background-color: #dedede;
+      cursor: not-allowed; }
+      .dropdown ul.disabled li:first-child {
+        color: #999999; }
+      .dropdown ul.disabled svg {
+        fill: #999999; }
     .dropdown ul li {
       margin: 0;
       background: none;
@@ -337,6 +335,15 @@ input, select, .multiple ul, .dropdown ul, textarea {
         position: relative; }
         .dropdown ul li:first-child:hover {
           background: none; }
+      .dropdown ul li label {
+        position: absolute;
+        top: 35%;
+        right: 3%;
+        height: 15px;
+        width: 15px;
+        z-index: 1; }
+        .dropdown ul li label svg {
+          fill: #0084bf; }
   .dropdown select, .dropdown .multiple ul, .multiple .dropdown ul {
     display: none; }
 
@@ -345,6 +352,11 @@ input, select, .multiple ul, .dropdown ul, textarea {
 .multiple ul {
   background: #fff;
   display: block; }
+  .multiple ul.disabled {
+    background-color: #dedede;
+    color: #999999; }
+    .multiple ul.disabled li {
+      cursor: not-allowed; }
   .multiple ul li {
     background: none;
     border-radius: 0;

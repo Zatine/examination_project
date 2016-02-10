@@ -138,8 +138,8 @@ app.directive('formSection', function(){
       template: [
                   '<div ng-switch="multiple">',
                   '<div class="dropdown" ng-switch-when="false">',
-                    '<select form="{{formName}}" ng-options="option as option.name for option in options" ng-model="model" id="{{id}}" name="{{name}}"></select>',
-                    '<ul>',
+                    '<select form="{{formName}}" ng-options="option as option.name for option in options" ng-model="model" id="{{id}}" name="{{name}}" ng-disabled="{{disabled}}"></select>',
+                    '<ul ng-class="ulClass">',
                       '<li ng-click="toggleMenu()">',
                       '<label><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45.88 32.24"><polygon class="a" points="9.98 0.66 23.11 20.19 37.17 0.5 44.92 0.5 23.11 31.38 0.98 0.59 9.98 0.66"/></svg></label>',
                       '{{model.name}}</li>',
@@ -147,8 +147,8 @@ app.directive('formSection', function(){
                       '</ul>',
                     '</div>',
                     '<div class="multiple" ng-switch-when="true">',
-                    '<select form="{{formName}}" ng-options="option.name for option in options" ng-model="model" id="{{id}}" name="{{name}}" multiple></select>',
-                    '<ul>',
+                    '<select form="{{formName}}" ng-options="option.name for option in options" ng-model="model" id="{{id}}" name="{{name}}" multiple ng-disabled="{{disabled}}"></select>',
+                    '<ul ng-class="ulClass">',
                       '<li ng-repeat="option in options" ng-click="toggleOption(option)" ng-class="option.class">{{option.name}}</li>',
                     '</ul>',
                   '</div>'
@@ -164,18 +164,22 @@ app.directive('formSection', function(){
       link: function(scope, elm, attrs, ctrl){
         scope.multiple = false;
         if(ctrl[0]) scope.formName = ctrl[0].$name; scope.form = ctrl[0];
-        if(attrs.disabled !== undefined) scope.disabled = true;
+        if(attrs.disabled !== undefined) {scope.disabled = true; scope.ulClass = 'disabled';}
         if(attrs.multiple !== undefined) scope.multiple = true;
         scope.model = scope.multiple ? [] : (scope.model || scope.options[0]);
         scope.menu = false;
         
-        scope.toggleMenu = function(){scope.menu = !scope.menu;};
+        scope.toggleMenu = function(){
+          if(scope.disabled) return;
+          scope.menu = !scope.menu;
+        };
         scope.setModel = function(option){
           scope.model = option;
           scope.menu = false;
         }
         
         scope.toggleOption = function(option){
+          if(scope.disabled) return;
           if(scope.model.indexOf(option) !== -1) {scope.model.splice(scope.model.indexOf(option), 1); option.class = '';}
           else {scope.model.push(option); option.class = 'selected';}
         }
