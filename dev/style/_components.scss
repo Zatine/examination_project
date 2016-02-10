@@ -32,20 +32,21 @@ button{
   background-color: $blend-color-high;
   padding: 10px 20px;
   border-radius: 3px;
-  &:hover{
-    background-color: lighten($blend-color-high, 5);
+  transition: .3s;
+  &:active{
+    background-color: darken($blend-color-high, 10);
   }
   &.primary{
     @include color-bg($primary-color);
-    &:hover{background-color: $highlight-primary;}
+    &:active{background-color: $darker-primary;}
   }
   &.secondary{
     @include color-bg($secondary-color);
-    &:hover{background-color: $highlight-secondary;}
+    &:active{background-color: $darker-secondary;}
   }
   &.contrast{
     @include color-bg($contrast-color);
-    &:hover{background-color: $highlight-contrast;}
+    &:active{background-color: $darker-contrast;}
   }
   &:disabled{
     background: none;
@@ -143,16 +144,18 @@ input.ng-invalid.ng-touched{
   border: 1px solid $error-color;
 }
 
-input, textarea, fieldset{
-  margin: 10px 0;
+input, textarea, fieldset, select{
+  margin-bottom: 10px;
   font-family: $main-font;
 }
 
-input, textarea{
+input, textarea, select{
   border-radius: 5px;
   border: $border-width solid $blend-color-high;
   padding: 10px;
   width: 100%;
+  font-size: $font-base-size;
+  font-family: $main-font;
   
   &:disabled{
     background-color: $blend-color-high;
@@ -160,14 +163,9 @@ input, textarea{
   }
 }
 
-
-select{
-  @extend input;
-}
-
 .dropdown{
   position: relative;
-  max-height: 50px;
+  height: 47px;
   ul{
     @extend input;
     background-color: #fff;
@@ -295,6 +293,7 @@ fieldset{
   position: relative;
   label{
     display: block;
+    margin-bottom: 10px;
     span.info{
       display: block;
       font-size: 0.8em;
