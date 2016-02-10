@@ -3,7 +3,9 @@
   <head>
     <title>Examination Project</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style/main.css" type="text/css">
+    <!--inject:css-->
+    <link rel="stylesheet" href="/style/main.css">
+    <!--endinject-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
   </head>
   <body ng-app="App">
@@ -308,7 +310,10 @@
       </section>
       </div>
       
-    <script src="scripts/app.js"></script>
-    <script src="scripts/directives/forms.js"></script>
+    
+        <!--inject:js-->
+        <script src="/scripts/app.js"></script>
+        <script src="/scripts/directives/forms.js"></script>
+        <!--endinject-->
   </body>
 </html>
