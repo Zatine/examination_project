@@ -52,8 +52,7 @@ input[type="button"],
 select[type="button"],
 .multiple ul[type="button"],
 .dropdown ul[type="button"] {
-  color: inherit;
-  transition: .3s; }
+  color: inherit; }
 
 a {
   text-decoration: none; }
@@ -72,7 +71,8 @@ button, input[type="button"], select[type="button"], .multiple ul[type="button"]
   border: 0; }
 
 :focus {
-  outline: 0; }
+  outline: 0;
+  box-shadow: 0 0 0 1px #dedede; }
 
 img {
   max-width: 100%;
@@ -229,15 +229,23 @@ button, input[type="button"], select[type="button"], .multiple ul[type="button"]
   background-color: #dedede;
   padding: 10px 20px;
   border-radius: 3px; }
+  button:hover, input[type="button"]:hover, select[type="button"]:hover, .multiple ul[type="button"]:hover, .dropdown ul[type="button"]:hover {
+    background-color: #ebebeb; }
   button.primary, input.primary[type="button"], select.primary[type="button"], .multiple ul.primary[type="button"], .dropdown ul.primary[type="button"] {
     background-color: #0084bf;
     color: #fff; }
+    button.primary:hover, input.primary[type="button"]:hover, select.primary[type="button"]:hover, .multiple ul.primary[type="button"]:hover, .dropdown ul.primary[type="button"]:hover {
+      background-color: #00a7f2; }
   button.secondary, input.secondary[type="button"], select.secondary[type="button"], .multiple ul.secondary[type="button"], .dropdown ul.secondary[type="button"] {
     background-color: #68af4e;
     color: #fff; }
+    button.secondary:hover, input.secondary[type="button"]:hover, select.secondary[type="button"]:hover, .multiple ul.secondary[type="button"]:hover, .dropdown ul.secondary[type="button"]:hover {
+      background-color: #86bf71; }
   button.contrast, input.contrast[type="button"], select.contrast[type="button"], .multiple ul.contrast[type="button"], .dropdown ul.contrast[type="button"] {
     background-color: #ff7b40;
     color: #fff; }
+    button.contrast:hover, input.contrast[type="button"]:hover, select.contrast[type="button"]:hover, .multiple ul.contrast[type="button"]:hover, .dropdown ul.contrast[type="button"]:hover {
+      background-color: #ff9e73; }
   button:disabled, input[type="button"]:disabled, select[type="button"]:disabled, .multiple ul[type="button"]:disabled, .dropdown ul[type="button"]:disabled {
     background: none;
     border: 1px solid #dedede;
@@ -311,7 +319,7 @@ input, select, .multiple ul, .dropdown ul, textarea {
 
 .dropdown {
   position: relative;
-  height: 50px; }
+  max-height: 50px; }
   .dropdown ul {
     background-color: #fff;
     padding: 0;
@@ -327,7 +335,7 @@ input, select, .multiple ul, .dropdown ul, textarea {
       margin: 0;
       background: none;
       border-radius: 0; }
-      .dropdown ul li:hover {
+      .dropdown ul li:hover, .dropdown ul li.active {
         background-color: #00a7f2;
         color: #fff; }
       .dropdown ul li:first-child {
@@ -353,7 +361,7 @@ input, select, .multiple ul, .dropdown ul, textarea {
   background: #fff;
   display: block; }
   .multiple ul.disabled {
-    background-color: #dedede;
+    background-color: #999999;
     color: #999999; }
     .multiple ul.disabled li {
       cursor: not-allowed; }
@@ -362,8 +370,16 @@ input, select, .multiple ul, .dropdown ul, textarea {
     border-radius: 0;
     cursor: pointer;
     margin: 0; }
+    .multiple ul li.active {
+      background-color: #0084bf;
+      color: #5f5f5f;
+      background-color: #dedede;
+      color: #fff; }
     .multiple ul li.selected {
       background-color: #00a7f2;
+      color: #fff; }
+    .multiple ul li.selected.active {
+      background-color: #0084bf;
       color: #fff; }
 
 input[type="checkbox"], select[type="checkbox"], .multiple ul[type="checkbox"], .dropdown ul[type="checkbox"] {
