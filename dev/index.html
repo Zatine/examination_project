@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Examination Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style/main.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
   </head>
@@ -78,8 +79,12 @@
         
         <section>
             <h3 class="divider-heading">Forms</h3>
+          <div class="row">
+            <div class="twelve col">
                 <h4>Inputs &amp; Textareas</h4>
                 <p>Inputs and Textareas are created with the <strong>&lt;form-section></strong>-element. You need to define whether it's an input or textarea you want with the field-attribute. You can use most of the attributes you normally would on an their respective tags, such as <em>type</em>, <em>disabled</em> or <em>placeholder</em>. You can also use most of the Angular-specific attributes for inputs, for example <em>ng-model</em> or validation. Note that validation will only work if your input is inside of a <em>form</em>-element with a name-attribute on it, or an element with the <em>ng-form</em>-attribute. Other attributes you can use are:</p>
+              </div>
+            </div>
             <div class="row">
               <div class="four col">
             <ul>
@@ -150,21 +155,64 @@
               </div>
             </div>
           <div class="row">
+            <div class="twelve col">
+          <h4>Radio Buttons and Checkboxes</h4>
+          <p>To make styling of these elements possible in the first place some CSS "hacks" are required. It is therefore recommended to start with these predefined directives and style them on your own from there if required. Instead of creating input-elements with different types you can now use the <strong>&lt;radio-button></strong> and <strong>&lt;checkbox></strong> elements. You can use the checked and disabled-attributes on these elements as you normally would, and they also work with ng-model.</p>
+            </div>
+          </div>
+          <div class="row">
             <div class="four col">
-                <form name="radiocheck">
+                <ul>
+                  <li><strong>id:</strong> Needs to be provided in order for the buttons to work. Important to use a unique ID for the element.</li>
+                  <li><strong>label:</strong> What you want the label to say.</li>
+                </ul>
+            </div>
+            <div class="four col">
+                <form name="radio">
                   <fieldset>
                     <legend>Radio Buttons</legend>
-                        <radio-button checked label="Option 1" id="op1" name="'first_example'"></radio-button>
-                        <radio-button label="Option 2" id="op2" name="'first_example'"></radio-button>
-                        <radio-button label="Option 3" id="op3" name="'first_example'"></radio-button>
-                    </fieldset>
-                    <fieldset>
-                      <legend>Checkboxes</legend>
-                      <checkbox label="Check 1" id="ch1" name="check"></checkbox>
-                      <checkbox label="Check 2" id="ch2" name="check"></checkbox>
-                      <checkbox label="Check 3" id="ch3" name="check"></checkbox>
+                        <radio-button checked label="Option 1" id="op1" name="first_example" ng-model="vm.formData.radio"></radio-button>
+                        <radio-button label="Option 2" id="op2" name="first_example" ng-model="vm.formData.radio"></radio-button>
+                        <radio-button label="Option 3" id="op3" name="first_example" ng-model="vm.formData.radio"></radio-button>
                     </fieldset>
                 </form>
+            </div>
+            <div class="four col">
+                <form name="check">
+                    <fieldset>
+                      <legend>Checkboxes</legend>
+                      <checkbox label="Check 1" id="ch1" name="checkboxes" ng-model="vm.formData.value1" checked></checkbox>
+                      <checkbox label="Check 2" id="ch2" name="checkboxes" ng-model="vm.formData.value2"></checkbox>
+                      <checkbox label="Check 3" id="ch3" name="checkboxes" ng-model="vm.formData.value3"></checkbox>
+                    </fieldset>
+                </form>
+            </div>
+          </div>
+          <div class="row">
+            <div class="twelve col">
+              <h4>Select</h4>
+              <p>You can use either regular select-elements (to the right) or the custom ones built for this Framework. Instead of select, you use the <strong>&lt;dropdown></strong>-element. The dropdown-element simulates a menu through lists, but it also contains a hidden regular select with all the values you might need for a form. You can use <em>multiple</em> or <em>disabled</em> as on a regular select-element.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="four col">
+                <ul>
+                  <li><strong>options:</strong> Must be provided to render anything. Should be an array of objects. The name-property is what will be displayed to the user.</li>
+                </ul>
+            </div>
+            <div class="four col">
+              <h5>Custom</h5>
+              <dropdown options="vm.options"></dropdown>
+              <dropdown multiple options="vm.options"></dropdown>
+            </div>
+            <div class="four col">
+              <h5>Regular</h5>
+              <select>
+                <option ng-repeat="option in vm.options">{{option.name}}</option>
+              </select>
+              <select multiple>
+                <option ng-repeat="option in vm.options">{{option.name}}</option>
+              </select>
             </div>
           </div>
         </section>

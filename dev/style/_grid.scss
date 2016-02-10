@@ -20,7 +20,6 @@
     justify-content: flex-start;
     flex-wrap: nowrap;
     align-items: stretch;
-    margin: 0 -10px;  
   
     &.to-bottom{flex-direction: column;}    
     &.item-align-center{justify-content: center;}    
@@ -34,6 +33,8 @@
     .col{
       margin: 10px;
       flex-grow: 1;
+      &:first-child{margin-left: 0;}
+      &:last-child{margin-right: 0;}
       
       &.one{@include column(1);}
       &.two{@include column(2);}

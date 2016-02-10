@@ -1,6 +1,8 @@
 /* Colors */
 /* Calculated Colors */
 /* Fonts */
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,600,700&subset=latin,latin-ext);
+/* Borders */
 /* Container Width */
 /* Minimal normalize/reset-styling provided by Jayden Seric, http://jaydenseric.com/blog/forget-normalize-or-resets-lay-your-own-css-foundation */
 html {
@@ -38,22 +40,25 @@ h4,
 h5,
 h6 {
   font-size: inherit;
-  font-family: sans-serif;
-  font-weight: normal; }
+  font-family: "Raleway", sans-serif;
+  font-weight: 600; }
 
 strong {
   font-weight: bold; }
 
 a,
 button,
-input[type="button"] {
+input[type="button"],
+select[type="button"],
+.multiple ul[type="button"],
+.dropdown ul[type="button"] {
   color: inherit;
   transition: .3s; }
 
 a {
   text-decoration: none; }
 
-button, input[type="button"] {
+button, input[type="button"], select[type="button"], .multiple ul[type="button"], .dropdown ul[type="button"] {
   overflow: visible;
   border: 0;
   font: inherit;
@@ -84,8 +89,7 @@ img {
     flex-direction: row;
     justify-content: flex-start;
     flex-wrap: nowrap;
-    align-items: stretch;
-    margin: 0 -10px; }
+    align-items: stretch; }
     .row.to-bottom {
       flex-direction: column; }
     .row.item-align-center {
@@ -105,6 +109,10 @@ img {
     .row .col {
       margin: 10px;
       flex-grow: 1; }
+      .row .col:first-child {
+        margin-left: 0; }
+      .row .col:last-child {
+        margin-right: 0; }
       .row .col.one {
         flex-basis: 8.33333%;
         max-width: 8.33333%;
@@ -164,7 +172,7 @@ img {
   text-align: center; }
 
 .text-mute {
-  color: #969696; }
+  color: #999999; }
 
 .inline-block {
   display: inline-block;
@@ -185,7 +193,7 @@ html {
   font-size: 16px; }
 
 body {
-  background-color: #efefef;
+  background-color: #f5f5f5;
   color: #101010; }
 
 /* HEADINGS */
@@ -217,23 +225,23 @@ a {
     color: #00a7f2; }
 
 /* BUTTONS */
-button, input[type="button"] {
-  background-color: #d9d9d9;
+button, input[type="button"], select[type="button"], .multiple ul[type="button"], .dropdown ul[type="button"] {
+  background-color: #dedede;
   padding: 10px 20px;
   border-radius: 3px; }
-  button.primary, input.primary[type="button"] {
+  button.primary, input.primary[type="button"], select.primary[type="button"], .multiple ul.primary[type="button"], .dropdown ul.primary[type="button"] {
     background-color: #0084bf;
     color: #fff; }
-  button.secondary, input.secondary[type="button"] {
+  button.secondary, input.secondary[type="button"], select.secondary[type="button"], .multiple ul.secondary[type="button"], .dropdown ul.secondary[type="button"] {
     background-color: #68af4e;
     color: #fff; }
-  button.contrast, input.contrast[type="button"] {
+  button.contrast, input.contrast[type="button"], select.contrast[type="button"], .multiple ul.contrast[type="button"], .dropdown ul.contrast[type="button"] {
     background-color: #ff7b40;
     color: #fff; }
-  button:disabled, input[type="button"]:disabled {
+  button:disabled, input[type="button"]:disabled, select[type="button"]:disabled, .multiple ul[type="button"]:disabled, .dropdown ul[type="button"]:disabled {
     background: none;
-    border: 1px solid #d9d9d9;
-    color: #969696;
+    border: 1px solid #dedede;
+    color: #999999;
     cursor: not-allowed; }
 
 /* LISTS */
@@ -244,7 +252,7 @@ ul li {
   padding: .6em;
   border-radius: .2em;
   margin: .2em 0;
-  background-color: #d9d9d9; }
+  background-color: #dedede; }
 ul.underline li {
   border-radius: 0;
   background: none;
@@ -261,7 +269,7 @@ ol {
     margin: .2em 0;
     position: relative;
     border-radius: .2em;
-    background-color: #d9d9d9; }
+    background-color: #dedede; }
   ol li:before {
     background-color: #0084bf;
     color: #fff;
@@ -276,81 +284,126 @@ ol {
     width: 2em;
     text-align: center;
     line-height: 2em;
-    border-right: #efefef 0.3em solid; }
+    border-right: #f5f5f5 0.3em solid; }
   ol.round li:before {
     left: -1em;
     margin-top: -1.3em;
     padding: 1px;
     border-radius: 50%;
-    border: #efefef 0.3em solid; }
+    border: #f5f5f5 0.3em solid; }
 
 /* FORMS */
-input.ng-invalid.ng-touched {
+input.ng-invalid.ng-touched, select.ng-invalid.ng-touched, .multiple ul.ng-invalid.ng-touched, .dropdown ul.ng-invalid.ng-touched {
   border: 1px solid #b20000; }
 
-input, textarea, fieldset {
+input, select, .multiple ul, .dropdown ul, textarea, fieldset {
   margin: 10px 0;
   font-family: sans-serif; }
 
-input, textarea {
+input, select, .multiple ul, .dropdown ul, textarea {
   border-radius: 5px;
-  border: 1px solid #d9d9d9;
+  border: 1px solid #dedede;
   padding: 10px;
   width: 100%; }
-  input:disabled, textarea:disabled {
-    background-color: #d9d9d9;
+  input:disabled, select:disabled, .multiple ul:disabled, .dropdown ul:disabled, textarea:disabled {
+    background-color: #dedede;
     cursor: not-allowed; }
 
-input[type="checkbox"] {
+.dropdown {
+  position: relative;
+  height: 50px; }
+  .dropdown label {
+    position: absolute;
+    top: 35%;
+    right: 3%;
+    height: 15px;
+    width: 15px;
+    z-index: 1; }
+    .dropdown label svg {
+      fill: #0084bf; }
+  .dropdown ul {
+    background-color: #fff;
+    padding: 0;
+    cursor: default; }
+    .dropdown ul li {
+      margin: 0;
+      background: none;
+      border-radius: 0; }
+      .dropdown ul li:hover {
+        background-color: #00a7f2;
+        color: #fff; }
+      .dropdown ul li:first-child {
+        color: #101010;
+        position: relative; }
+        .dropdown ul li:first-child:hover {
+          background: none; }
+  .dropdown select, .dropdown .multiple ul, .multiple .dropdown ul {
+    display: none; }
+
+.multiple select, .multiple ul {
   display: none; }
-  input[type="checkbox"] + label span {
+.multiple ul {
+  background: #fff;
+  display: block; }
+  .multiple ul li {
+    background: none;
+    border-radius: 0;
+    cursor: pointer;
+    margin: 0; }
+    .multiple ul li.selected {
+      background-color: #00a7f2;
+      color: #fff; }
+
+input[type="checkbox"], select[type="checkbox"], .multiple ul[type="checkbox"], .dropdown ul[type="checkbox"] {
+  display: none; }
+  input[type="checkbox"] + label span, select[type="checkbox"] + label span, .multiple ul[type="checkbox"] + label span, .dropdown ul[type="checkbox"] + label span {
     vertical-align: text-bottom;
     display: inline-block;
-    border: 1px solid #d9d9d9;
+    border: 1px solid #dedede;
     border-radius: 3px;
     background-color: #ffffff;
     cursor: pointer; }
-    input[type="checkbox"] + label span svg {
+    input[type="checkbox"] + label span svg, select[type="checkbox"] + label span svg, .multiple ul[type="checkbox"] + label span svg, .dropdown ul[type="checkbox"] + label span svg {
       fill: #0084bf;
       stroke: #00618c;
       stroke-miterlimit: 10;
       display: none; }
-  input[type="checkbox"]:checked + label span svg {
+  input[type="checkbox"]:checked + label span svg, select[type="checkbox"]:checked + label span svg, .multiple ul[type="checkbox"]:checked + label span svg, .dropdown ul[type="checkbox"]:checked + label span svg {
     display: block; }
-  input[type="checkbox"]:disabled + label span {
-    background-color: #d9d9d9;
+  input[type="checkbox"]:disabled + label span, select[type="checkbox"]:disabled + label span, .multiple ul[type="checkbox"]:disabled + label span, .dropdown ul[type="checkbox"]:disabled + label span {
+    background-color: #dedede;
     cursor: not-allowed; }
-  input[type="checkbox"] + label span {
+  input[type="checkbox"] + label span, select[type="checkbox"] + label span, .multiple ul[type="checkbox"] + label span, .dropdown ul[type="checkbox"] + label span {
     width: 19px;
     height: 19px; }
-    input[type="checkbox"] + label span svg {
+    input[type="checkbox"] + label span svg, select[type="checkbox"] + label span svg, .multiple ul[type="checkbox"] + label span svg, .dropdown ul[type="checkbox"] + label span svg {
       height: 20px;
       width: 20px;
       margin-top: -4px;
       margin-left: 0px; }
 
-input[type="radio"] {
+input[type="radio"], select[type="radio"], .multiple ul[type="radio"], .dropdown ul[type="radio"] {
   display: none; }
-  input[type="radio"] + label span {
+  input[type="radio"] + label span, select[type="radio"] + label span, .multiple ul[type="radio"] + label span, .dropdown ul[type="radio"] + label span {
     vertical-align: text-bottom;
     display: inline-block;
-    border: 1px solid #d9d9d9;
+    border: 1px solid #dedede;
     border-radius: 50%;
     background-color: #ffffff;
     cursor: pointer; }
-    input[type="radio"] + label span svg {
+    input[type="radio"] + label span svg, select[type="radio"] + label span svg, .multiple ul[type="radio"] + label span svg, .dropdown ul[type="radio"] + label span svg {
       fill: #0084bf;
       stroke: #00618c;
       stroke-miterlimit: 10;
       display: none; }
-  input[type="radio"]:checked + label span svg {
+  input[type="radio"]:checked + label span svg, select[type="radio"]:checked + label span svg, .multiple ul[type="radio"]:checked + label span svg, .dropdown ul[type="radio"]:checked + label span svg {
     display: block; }
-  input[type="radio"]:disabled + label span {
-    background-color: #d9d9d9;
+  input[type="radio"]:disabled + label span, select[type="radio"]:disabled + label span, .multiple ul[type="radio"]:disabled + label span, .dropdown ul[type="radio"]:disabled + label span {
+    background-color: #dedede;
     cursor: not-allowed; }
-  input[type="radio"] + label span {
-    width: 17px;
-    height: 17px;
+  input[type="radio"] + label span, select[type="radio"] + label span, .multiple ul[type="radio"] + label span, .dropdown ul[type="radio"] + label span {
+    width: 19px;
+    height: 19px;
     padding: 2px; }
 
 textarea {
@@ -362,24 +415,24 @@ textarea {
 
 fieldset {
   border-radius: 5px;
-  border-color: #d9d9d9;
+  border-color: #dedede;
   border-style: solid;
   border-width: 1px; }
   fieldset legend {
     margin-bottom: 10px;
     padding: 0 10px;
-    color: #969696; }
+    color: #999999; }
 
 .form-section {
   position: relative; }
-  .form-section.row input, .form-section textarea, .form-section fieldset {
+  .form-section.row input, .form-section.row select, .form-section.row .multiple ul, .multiple .form-section.row ul, .form-section.row .dropdown ul, .dropdown .form-section.row ul, .form-section textarea, .form-section fieldset {
     margin: 0; }
   .form-section label {
     display: block; }
     .form-section label span.info {
       display: block;
       font-size: 0.8em;
-      color: #969696; }
+      color: #999999; }
   .form-section .error p {
     color: #b20000;
     margin-bottom: 15px; }
@@ -396,7 +449,7 @@ fieldset {
     &.required:after{
       content: "*";
     }*/ }
-  .input.icon-padding input {
+  .input.icon-padding input, .input.icon-padding select, .input.icon-padding .multiple ul, .multiple .input.icon-padding ul, .input.icon-padding .dropdown ul, .dropdown .input.icon-padding ul {
     padding-right: 20px; }
 
 .grid {
@@ -407,6 +460,6 @@ section {
   margin: 50px 0; }
 
 .code {
-  background-color: #e2e2e2;
+  background-color: #e8e8e8;
   color: #68af4e;
   white-space: pre-line; }

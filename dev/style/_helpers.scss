@@ -13,7 +13,7 @@ $error-bg: mix($background-color, $error-color, 90);
 
 .container{max-width: $container-width; margin: 0 auto; padding: 0 10px;}
 
-.divider-heading{border-bottom: 1px $contrast-color solid;}
+.divider-heading{border-bottom: $border-width $contrast-color solid;}
 
 @mixin color-bg($color){
   @if(lightness($color) > 70){

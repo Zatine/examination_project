@@ -1,5 +1,5 @@
 /* Colors */
-$background-color: #efefef;
+$background-color: #f5f5f5;
 $text-color: #101010;
 $primary-color: #0084bf;
 $secondary-color: #68af4e;
@@ -18,10 +18,14 @@ $darker-secondary: darken($secondary-color, 10);
 $darker-contrast: darken($contrast-color, 10);
 
 /* Fonts */
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,600,700&subset=latin,latin-ext);
 $main-font: sans-serif;
-$heading-font: sans-serif;
-$heading-weight: normal;
+$heading-font: 'Raleway', sans-serif;
+$heading-weight: 600;
 $font-base-size: 16px;
+
+/* Borders */
+$border-width: 1px;
 
 /* Container Width */
 $container-width: 1200px;

@@ -43,7 +43,7 @@ button{
   }
   &:disabled{
     background: none;
-    border: 1px solid $blend-color-high;
+    border: $border-width solid $blend-color-high;
     color: $blend-color-low;
     cursor: not-allowed;
   }
@@ -65,7 +65,7 @@ ul{
     li{
       border-radius: 0;
       background: none;
-      border-bottom: 1px solid $primary-color;
+      border-bottom: $border-width solid $primary-color;
     }
   }
 }
@@ -113,7 +113,7 @@ ol{
     & + label span{
       vertical-align: text-bottom;
       display: inline-block;
-      border: 1px solid $blend-color-high;
+      border: $border-width solid $blend-color-high;
       border-radius: $bradius;
       background-color: #ffffff;
       cursor: pointer;
@@ -144,13 +144,78 @@ input, textarea, fieldset{
 
 input, textarea{
   border-radius: 5px;
-  border: 1px solid $blend-color-high;
+  border: $border-width solid $blend-color-high;
   padding: 10px;
   width: 100%;
   
   &:disabled{
     background-color: $blend-color-high;
     cursor: not-allowed;
+  }
+}
+
+
+select{
+  @extend input;
+}
+
+.dropdown{
+  position: relative;
+  height: 50px;
+  & label{
+    position: absolute;
+    top: 35%;
+    right: 3%;
+    height: 15px;
+    width: 15px;
+    z-index: 1;
+    svg{
+      fill: $primary-color;
+    }
+  }
+  ul{
+    @extend input;
+    background-color: #fff;
+    padding: 0;
+    cursor: default;
+    li{
+      margin: 0;
+      background: none;
+      border-radius: 0;
+      &:hover{
+        @include color-bg($highlight-primary);
+      }
+      &:first-child{
+        color: $text-color;
+        position: relative;
+        &:hover{
+          background:none;
+        }
+      }
+    }
+  }
+  select{
+      display: none;
+  }
+}
+
+.multiple{
+  select{
+    display: none;
+  }
+  ul{
+    @extend select;
+    background: #fff;
+    display: block;
+    li{
+      background: none;
+      border-radius: 0;
+      cursor: pointer;
+      margin: 0;
+      &.selected{
+        @include color-bg($highlight-primary);
+      }
+    }
   }
 }
 
@@ -171,8 +236,8 @@ input[type="checkbox"]{
 input[type="radio"]{
   @include input-buttons(50%);
   & + label span{
-    width: 17px;
-    height: 17px;
+    width: 19px;
+    height: 19px;
     padding: 2px;
   }
 }
@@ -192,7 +257,7 @@ fieldset{
   border-radius: 5px;
   border-color: $blend-color-high;
   border-style: solid;
-  border-width: 1px;
+  border-width: $border-width;
   legend{
     margin-bottom: 10px;
     padding: 0 10px;
