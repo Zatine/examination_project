@@ -34,8 +34,8 @@
     .col{
       flex-grow: 1;
       min-height: 1px;
-      &:first-child{margin-left: 0;}
-      &:last-child{margin-right: 0;}
+      &:first-child{padding-left: 0;}
+      &:last-child{padding-right: 0;}
       display: flex;
       
       &.one{@include column(1);}

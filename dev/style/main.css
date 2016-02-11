@@ -146,9 +146,9 @@ video {
       display: -ms-flexbox;
       display: flex; }
       .row .col:first-child {
-        margin-left: 0; }
+        padding-left: 0; }
       .row .col:last-child {
-        margin-right: 0; }
+        padding-right: 0; }
       .row .col.one {
         width: 8.33333%;
         max-width: 8.33333%;
@@ -390,6 +390,11 @@ video {
   background-color: #101010;
   color: #fff;
   padding: 10px 5px; }
+
+.card {
+  box-shadow: 0px 2px 2px rgba(153, 153, 153, 0.3);
+  border-radius: 5px;
+  border: 1px solid #dedede; }
 
 .video-wrapper {
   position: relative;
