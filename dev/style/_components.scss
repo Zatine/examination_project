@@ -28,25 +28,24 @@ a{
 }
 
 /* BUTTONS */
+@mixin button-style($color){
+    @include color-bg($color);
+    &:hover{background-color: darken($color, 5);}
+    &:active{background-color: darken($color, 15);}
+}
 button{
-  background-color: $blend-color-high;
   padding: 10px 20px;
   border-radius: 3px;
   transition: .3s;
-  &:active{
-    background-color: darken($blend-color-high, 10);
-  }
+  @include button-style($blend-color-high);
   &.primary{
-    @include color-bg($primary-color);
-    &:active{background-color: $darker-primary;}
+    @include button-style($primary-color);
   }
   &.secondary{
-    @include color-bg($secondary-color);
-    &:active{background-color: $darker-secondary;}
+    @include button-style($secondary-color);
   }
   &.contrast{
-    @include color-bg($contrast-color);
-    &:active{background-color: $darker-contrast;}
+    @include button-style($contrast-color);
   }
   &:disabled{
     background: none;

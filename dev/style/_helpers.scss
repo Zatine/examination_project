@@ -17,11 +17,12 @@ $error-bg: mix($background-color, $error-color, 90);
 
 @mixin color-bg($color){
   @if(lightness($color) > 70){
-    background-color: $primary-color;
+    background-color: $color;
     color: darken($color, 50);
   }
-  @if(lightness($primary-color) < 70){
+  @if(lightness($color) < 70){
     background-color: $color;
     color: #fff;
   }
 }
+  
