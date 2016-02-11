@@ -5,7 +5,9 @@
 @mixin column($number){
     width: column-width($number);
     max-width: column-width($number);
-    flex: 1 0 0;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 0;
 }
 
 .row{
