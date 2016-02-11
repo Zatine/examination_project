@@ -4,7 +4,11 @@ $error-bg: mix($background-color, $error-color, 90);
 .text-right{text-align: right;}
 .text-left{text-align: left;}
 .text-center{text-align: center;}
-.text-mute{color: $blend-color-low;}
+
+.mute{color: $blend-color-low;}
+.big{font-size: 1.4em;}
+.normal{font-size:1em;}
+.small{font-size:0.8em;}
 
 .inline-block{
   display: inline-block;
@@ -14,6 +18,20 @@ $error-bg: mix($background-color, $error-color, 90);
 .container{max-width: $container-width; margin: 0 auto; padding: 0 10px;}
 
 .divider-heading{border-bottom: $border-width $contrast-color solid;}
+
+.video-wrapper{
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
 
 @mixin color-bg($color){
   @if(lightness($color) > 70){
@@ -25,4 +43,3 @@ $error-bg: mix($background-color, $error-color, 90);
     color: #fff;
   }
 }
-  
