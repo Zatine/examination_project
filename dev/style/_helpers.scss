@@ -17,8 +17,6 @@ $error-bg: mix($background-color, $error-color, 90);
 
 .container{max-width: $container-width; margin: 0 auto; padding: 0 10px;}
 
-.divider-heading{border-bottom: $border-width $contrast-color solid;}
-
 .video-wrapper{
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */

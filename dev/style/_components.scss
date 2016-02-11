@@ -19,6 +19,11 @@ h6{font-size: 1.5em;}
 
 h1, h2, h3, h4, h5, h6{
   margin: 15px 0;
+  &.underline{border-bottom: $border-width $contrast-color solid;}
+  &.underline-dashed{border-bottom: ($border-width + 1px) $contrast-color dashed;}
+  &.underline-dotted{border-bottom: ($border-width + 1px) $contrast-color dotted;}
+  &.underline-double{border-bottom: ($border-width + 2px) $contrast-color double;}
+  &.underline-ridge{border-bottom: ($border-width + 3px) $contrast-color ridge;}
 }
 
 p{

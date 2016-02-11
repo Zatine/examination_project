@@ -1,12 +1,17 @@
 var gulp = require('gulp'),
     sass = require('gulp-ruby-sass'),
     inject = require('gulp-inject'),
+    autoprefixer = require('gulp-autoprefixer'),
     browserSync = require('browser-sync').create();
 
 
 gulp.task('sass', function () {
   return sass('dev/style/main.scss')
     .on('error', sass.logError)
+    .pipe(autoprefixer({
+      browsers: ['>5%', 'IE 10'],
+      cascade: false
+    }))
     .pipe(gulp.dest('dev/style'));
 });
 

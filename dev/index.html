@@ -12,7 +12,7 @@
       
       <div class="container" ng-controller="Documentation as vm">
         <section>
-          <h3 class="divider-heading">Headings</h3>
+          <h3 class="underline">Headings</h3>
           <h1>Heading 1</h1>
           <h2>Heading 2</h2>
           <h3>Heading 3</h3>
@@ -22,11 +22,11 @@
         </section>
         
         <section>
-          <h3 class="divider-heading">Links</h3>
+          <h3 class="underline">Links</h3>
           <a href="#">Link</a>
         </section>
         <section>
-          <h3 class="divider-heading">Buttons</h3>
+          <h3 class="underline">Buttons</h3>
           <button>Button</button>
           <button class="primary">Primary</button>
           <button class="secondary">Secondary</button>
@@ -34,61 +34,61 @@
           <button disabled>Disabled</button>
         </section>
         <section>
-          <h3 class="divider-heading">Lists</h3>
-          <div class="row">
-            <div class="six col">
+          <h3 class="underline">Lists</h3>
+          <row>
+            <column six>
               <h4>Unordered lists</h4>
-              <div class="row">
-                <div class="six col">
+              <row>
+                <column six>
                     <ul>
                       <li>First item</li>
                       <li>Second item</li>
                       <li>Third item</li>
                     </ul>
-                </div>
-                <div class="six col">
+                </column>
+                <column six>
                     <ul class="underline">
                       <li>First item</li>
                       <li>Second item</li>
                       <li>Third item</li>
                     </ul>
                     <p class="mute">Add the class <em>underline</em> to your list for a different style.</p>
-                </div>
-              </div>  
-            </div>
-            <div class="six col">
+                </column>
+              </row>  
+            </column>
+            <column six>
                 <h4>Ordered lists</h4>
-                  <div class="row">
-                    <div class="six col">
+                  <row>
+                    <column six>
                         <ol>
                           <li>First item</li>
                           <li>Second item</li>
                           <li>Third item</li>
                         </ol>
-                    </div>
-                    <div class="six col">
+                    </column>
+                    <column six>
                         <ol class="round">
                           <li>First item</li>
                           <li>Second item</li>
                           <li>Third item</li>
                         </ol>
                         <p class="mute">Add the class <em>round</em> to your list to show the numbers in circles.</p>
-                    </div>
-                  </div>
-            </div>
-          </div>
+                    </column>
+                  </row>
+            </column>
+          </row>
         </section>
         
         <section>
-            <h3 class="divider-heading">Forms</h3>
-          <div class="row">
-            <div class="twelve col">
+            <h3 class="underline">Forms</h3>
+          <row>
+            <column twelve>
                 <h4>Inputs &amp; Textareas</h4>
                 <p>Inputs and Textareas are created with the <strong>&lt;form-section></strong>-element. You need to define whether it's an input or textarea you want with the field-attribute. You can use most of the attributes you normally would on an their respective tags, such as <em>type</em>, <em>disabled</em> or <em>placeholder</em>. You can also use most of the Angular-specific attributes for inputs, for example <em>ng-model</em> or validation. Note that validation will only work if your input is inside of a <em>form</em>-element with a name-attribute on it, or an element with the <em>ng-form</em>-attribute. Other attributes you can use are:</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="four col">
+              </column>
+            </row>
+            <row>
+              <column four>
             <ul>
               <li><strong>field:</strong> <em>Important for the directive to work.</em> 'Input' or 'Textarea' for different elements.</li>
               <li><strong>label:</strong> What you want the label to say.</li>
@@ -97,8 +97,8 @@
               <li><strong>id:</strong> Needed for label functionality.</li>
               <li><strong>icon:</strong> Which icon to add to the right side of the input.</li>
             </ul>
-            </div>
-              <div class="four col">
+            </column>
+              <column four>
                 <form name="standard">
                     <fieldset>
                       <legend>Standard</legend>
@@ -128,8 +128,8 @@
 
                   </fieldset>
                 </form>
-              </div>
-              <div class="four col">
+              </column>
+              <column four>
                 <form name="grid">
                     <fieldset>
                       <legend>Grid</legend>
@@ -153,22 +153,22 @@
                         
                   </fieldset>
                 </form>
-              </div>
-            </div>
-          <div class="row">
-            <div class="twelve col">
+              </column>
+            </row>
+          <row>
+            <column twelve>
           <h4>Radio Buttons and Checkboxes</h4>
           <p>To make styling of these elements possible in the first place some CSS "hacks" are required. It is therefore recommended to start with these predefined directives and style them on your own from there if required. Instead of creating input-elements with different types you can now use the <strong>&lt;radio-button></strong> and <strong>&lt;checkbox></strong> elements. You can use the checked and disabled-attributes on these elements as you normally would, and they also work with ng-model.</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="four col">
+            </column>
+          </row>
+          <row>
+            <column four>
                 <ul>
                   <li><strong>id:</strong> Needs to be provided in order for the buttons to work. Important to use a unique ID for the element.</li>
                   <li><strong>label:</strong> What you want the label to say.</li>
                 </ul>
-            </div>
-            <div class="four col">
+            </column>
+            <column four>
                 <form name="radio">
                   <fieldset>
                     <legend>Radio Buttons</legend>
@@ -177,8 +177,8 @@
                         <radio-button label="Option 3" id="op3" name="first_example" ng-model="vm.formData.radio"></radio-button>
                     </fieldset>
                 </form>
-            </div>
-            <div class="four col">
+            </column>
+            <column four>
                 <form name="check">
                     <fieldset>
                       <legend>Checkboxes</legend>
@@ -187,26 +187,26 @@
                       <checkbox label="Check 3" id="ch3" name="checkboxes" ng-model="vm.formData.value3"></checkbox>
                     </fieldset>
                 </form>
-            </div>
-          </div>
-          <div class="row">
-            <div class="twelve col">
+            </column>
+          </row>
+          <row>
+            <column twelve>
               <h4>Select</h4>
-              <p>You can use either regular select-elements (to the right) or the custom ones built for this Framework. Instead of select, you use the <strong>&lt;dropdown></strong>-element. The dropdown-element simulates a menu through lists, which allows for extensive styling, but it also contains a hidden regular select with all the values you might need for a form. You can use <em>multiple</em> or <em>disabled</em> as on a regular select-element.</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="four col">
+              <p>You can use either regular select-elements (to the right) or the custom ones built for this Framework. Instead of select, you use the <strong>&lt;dropdown></strong>-element. The dropdown-element simulates a menu through lists, which allows for extensive styling and looks the same across different browsers, but it also contains a hidden regular select with all the values you might need for a form. You can use <em>multiple</em> or <em>disabled</em> as on a regular select-element.</p>
+            </column>
+          </row>
+          <row>
+            <column four>
                 <ul>
                   <li><strong>options:</strong> Must be provided to render anything. Should be an array of objects. The name-property is what will be displayed to the user.</li>
                 </ul>
-            </div>
-            <div class="four col">
+            </column>
+            <column four>
               <h5>Custom</h5>
               <dropdown options="vm.options"></dropdown>
               <dropdown multiple options="vm.options"></dropdown>
-            </div>
-            <div class="four col">
+            </column>
+            <column four>
               <h5>Regular</h5>
               <select>
                 <option ng-repeat="option in vm.options">{{option.name}}</option>
@@ -214,111 +214,108 @@
               <select multiple>
                 <option ng-repeat="option in vm.options">{{option.name}}</option>
               </select>
-            </div>
-          </div>
+            </column>
+          </row>
         </section>
         
         <section>
-          <h3 class="divider-heading">Grid System</h3>
+          <h3 class="underline">Grid System</h3>
           <h4>Set width</h4>
-          <p>This is a flexible grid system built upon <strong>Flexbox</strong>. Simply add the class <em>row</em> to a containing div, and then give its children the class <em>col</em> followed by how many columns it should take up in width. You can use any number between one and twelve, where twelve fills the entire row. If the total number of columns is higher than twelve, the columns will automatically be contained to that row rather than keep their intended width.</p>
+          <p>This is a flexible grid system built upon <strong>Flexbox</strong>. This means it is only fully functional in browsers later than Internet Explorer 9. A Fallback solution is planned but not implemented. Simply create a <em>row</em>-element, and then populate it with <em>column</em>-elements. If you need it to take up a certain amount of width, add any number between one and twelve as an attribute. Twelve fills the entire row. If the total number of columns is higher than twelve, the columns will automatically be contained to that row rather than keep their intended width.</p>
           
-          <div class="row">
-            <div class="col code">
-              <code>
-                &lt;div class="row">
-                  &lt;div class="one col">One&lt;/div>
-                  &lt;div class="two col">Two&lt;/div>
-                  &lt;div class="three col">Three&lt;/div>
-                  &lt;div class="six col">Six&lt;/div>
-                &lt;/div>
+          <row>
+            <column class="code">
+              <code>&lt;row>
+                  &lt;column one>One&lt;/column>
+                  &lt;column two>Two&lt;/column>
+                  &lt;column three>Three&lt;/column>
+                  &lt;column six>Six&lt;/column>
+                &lt;/row>
               </code>
-            </div>
+            </column>
             
-            <div class="col code">
-              <code>
-                &lt;div class="row">
-                  &lt;div class="five col">Five&lt;/div>
-                  &lt;div class="seven col">Seven&lt;/div>
-                &lt;/div>
+            <column class="code">
+              <code>&lt;row>
+                  &lt;column five>Five&lt;/column>
+                  &lt;column seven>Seven&lt;/column>
+                &lt;/row>
               </code>
-            </div>
+            </column>
             
-            <div class="col code">
-              <code>
-                &lt;div class="row">
-                  &lt;div class="twelve col">Twelve&lt;/div>
-                &lt;/div>
+            <column class="code">
+              <code>&lt;row>
+                  &lt;column twelve>Twelve&lt;/column>
+                &lt;/row>
               </code>
-            </div>
-          </div>
+            </column>
+          </row>
 
-          <div class="row">
-            <div class="one col grid">One</div>
-            <div class="two col grid">Two</div>
-            <div class="three col grid">Three</div>
-            <div class="six col grid">Six</div>
-          </div>
-          <div class="row">
-            <div class="five col grid">Five</div>
-            <div class="seven col grid">Seven</div>
-          </div>
-          <div class="row">
-            <div class="twelve col grid">Twelve</div>
-          </div>
+          <row>
+            <column one class="grid">One</column>
+            <column two class="grid">Two</column>
+            <column three class="grid">Three</column>
+            <column six class="grid">Six</column>
+          </row>
+          <row>
+            <column five class="grid">Five</column>
+            <column twelve class="grid">Seven</column>
+          </row>
+          <row>
+            <column twelve class="grid">Twelve</column>
+          </row>
 
           <h4>Dynamic Columns</h4>
           <p>If, however, you don't provide the columns with a number, they will adjust according to their content.</p>
           
-          <div class="row">
-              <div class="col code">
+          <row>
+              <column class="code">
                   <code>
-                    &lt;div class="row">
-                      &lt;div class="col">Dynamic&lt;/div>
-                      &lt;div class="col">Dynamic&lt;/div>
-                      &lt;div class="col">Dynamic&lt;/div>
-                    &lt;/div>
+                    &lt;row>
+                      &lt;column>Dynamic&lt;/column>
+                      &lt;column>Dynamic&lt;/column>
+                      &lt;column>Dynamic&lt;/column>
+                    &lt;/row>
                   </code>
-            </div>
+            </column>
             
-              <div class="col code">
+              <column class="code">
                   <code>
-                    &lt;div class="row">
-                      &lt;div class="col">Dynamic&lt;/div>
-                      &lt;div class="col">Dynamic&lt;/div>
-                      &lt;div class="col">Dynamic&lt;/div>
-                      &lt;div class="col">Dynamic&lt;/div>
-                      &lt;div class="col">Dynamic&lt;/div>
-                    &lt;/div>
+                    &lt;row>
+                      &lt;column>Dynamic&lt;/column>
+                      &lt;column>Dynamic&lt;/column>
+                      &lt;column>Dynamic&lt;/column>
+                      &lt;column>Dynamic&lt;/column>
+                      &lt;column>Dynamic&lt;/column>
+                    &lt;/row>
                   </code>
-            </div>
-          </div>
+            </column>
+          </row>
 
-          <div class="row">
-            <div class="col grid">Dynamic</div>
-            <div class="col grid">Dynamic</div>
-            <div class="col grid">Dynamic</div>
-          </div>
-          <div class="row">
-            <div class="col grid">Dynamic</div>
-            <div class="col grid">Dynamic</div>
-            <div class="col grid">Dynamic</div>
-            <div class="col grid">Dynamic</div>
-            <div class="col grid">Dynamic</div>
-          </div>
+          <row>
+            <column class="grid">Dynamic</column>
+            <column class="grid">Dynamic</column>
+            <column class="grid">Dynamic</column>
+          </row>
+          <row>
+            <column class="grid">Dynamic</column>
+            <column class="grid">Dynamic</column>
+            <column class="grid">Dynamic</column>
+            <column class="grid">Dynamic</column>
+            <column class="grid">Dynamic</column>
+          </row>
       </section>
         
         <section>
-          <h3 class="divider-heading">Helper Classes</h3>
-          <div class="row">
-            <div class="four col">
+          <h3 class="underline">Helper Classes</h3>
+          <row>
+            <column four>
               <h5>Responsive Embeds</h5>
             <p>For easy ability to make a video embed responsive, surround your embed with a div of the class <em>video-wrapper</em>. The video will never take up more than the width of it's container.</p>
               <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/9bZkp7q19f0" frameborder="0" allowfullscreen></iframe>
+              <!--<iframe src="https://www.youtube.com/embed/9bZkp7q19f0" frameborder="0" allowfullscreen></iframe>-->
               </div>
-            </div>
-            <div class="four col">
+            </column>
+            <column four>
               <h5>Text</h5>
               <h6>Alignment</h6>
               <p>Use these classes for easy alignment of text.</p>
@@ -333,21 +330,24 @@
               <p class="big">Use the <em>big</em>-class for a bigger font.</p>
               <p class="normal">Use the <em>normal</em>-class for the original fontsize.</p>
               <p class="small">Use the <em>small</em>-class for a smaller font.</p>
-            </div>
-            <div class="four col">
+            </column>
+            <column four>
               <h5>Container</h5>
               <p>Add this class to a wrapping element to set a maximum width for your content. The width is determined in <em>theme.scss</em>.</p>
               <h5>Inline-block</h5>
               <p>Add this class to an element to automatically display it as an inline-block.</p>
-            </div>
-          </div>
+            </column>
+          </row>
         </section>
+        
       </div>
+    
       
     
         <!--inject:js-->
         <script src="/scripts/app.js"></script>
         <script src="/scripts/directives/forms.js"></script>
+        <script src="/scripts/directives/grid.js"></script>
         <!--endinject-->
   </body>
 </html>
