@@ -13,12 +13,41 @@
       <div class="container" ng-controller="Documentation as vm">
         <section>
           <h3 class="underline">Headings</h3>
-          <h1>Heading 1</h1>
-          <h2>Heading 2</h2>
-          <h3>Heading 3</h3>
-          <h4>Heading 4</h4>
-          <h5>Heading 5</h5>
-          <h6>Heading 6</h6>
+          <row>
+            <column four>
+              <h4>Sizes</h4>
+              <h1>Heading 1</h1>
+              <h2>Heading 2</h2>
+              <h3>Heading 3</h3>
+              <h4>Heading 4</h4>
+              <h5>Heading 5</h5>
+              <h6>Heading 6</h6>
+            </column>
+            <column four>
+              <h4>Underline</h4>
+              <p>Add the <em>underline</em>-class to a heading to give it some style. You can add the classes below for different styles, and also primary, secondary or contrast for the different colors defined in your theme.</p>
+              <h6 class="underline primary">Underline</h6>
+              <h6 class="underline dashed secondary">Underline-dashed</h6>
+              <h6 class="underline double primary">Underline-double</h6>
+            </column>
+            <column four>
+              <h4>Frame</h4>
+              <p>Same as for the underline-classes.</p>
+              <h6 class="frame primary">Frame</h6>
+              <h6 class="frame dashed secondary">Frame-dashed</h6>
+              <h6 class="frame double contrast">Frame-double</h6>
+            </column>
+          </row>
+          <row>
+            <column four>
+              <h4>Special classes</h4>
+              <p>These classes can be used on any heading or text-element. The line-classes will only work if contained to one line of text, but the colored-words has no limit.</p>
+              <h6 class="line">Line</h6>
+              <h6 class="line-left">Line-left</h6>
+              <h6 class="line-right">Line-right</h6>
+              <h6 class="colored-words">Use colored-words to get this effect</h6>
+            </column>
+          </row>
         </section>
         
         <section>
@@ -312,7 +341,7 @@
               <h5>Responsive Embeds</h5>
             <p>For easy ability to make a video embed responsive, surround your embed with a div of the class <em>video-wrapper</em>. The video will never take up more than the width of it's container.</p>
               <div class="video-wrapper">
-              <!--<iframe src="https://www.youtube.com/embed/9bZkp7q19f0" frameborder="0" allowfullscreen></iframe>-->
+              <iframe src="https://www.youtube.com/embed/9bZkp7q19f0" frameborder="0" allowfullscreen></iframe>
               </div>
             </column>
             <column four>
@@ -342,12 +371,11 @@
         
       </div>
     
-      
-    
         <!--inject:js-->
         <script src="/scripts/app.js"></script>
         <script src="/scripts/directives/forms.js"></script>
         <script src="/scripts/directives/grid.js"></script>
+        <script src="/scripts/directives/styles.js"></script>
         <!--endinject-->
   </body>
 </html>

@@ -1,0 +1,57 @@
+@mixin color-bg($color){
+  @if(lightness($color) > 70){
+    background-color: $color;
+    color: darken($color, 50);
+  }
+  @if(lightness($color) < 70){
+    background-color: $color;
+    color: #fff;
+  }
+}
+
+@mixin button-style($color){
+    @include color-bg($color);
+    &:hover{background-color: darken($color, 5);}
+    &:active{background-color: darken($color, 15);}
+}
+
+@mixin input-buttons{
+    display:none;
+    & + label span{
+      vertical-align: text-bottom;
+      display: inline-block;
+      border: $border-width solid $blend-color-high;
+      background-color: #ffffff;
+      cursor: pointer;
+      svg{
+        fill: $primary-color;
+        stroke: $darker-primary;
+        stroke-miterlimit:10;
+        display: none;
+      }
+    }
+    &:checked + label span svg{
+      display: block;
+    }
+    &:disabled + label span{
+      background-color: $blend-color-high;
+      cursor: not-allowed;
+    }
+}
+
+@mixin line-through($left, $right){
+    display: table;
+    overflow: hidden; 
+    padding: 5px 0;
+    white-space: nowrap;
+    
+    &:before, &:after{
+      border-top: 1px solid $blend-color-low;
+      content: ' ';
+      display: table-cell;
+      position: relative;
+      top: 0.5em;
+    }
+    &:before { width: $left; right: 2.5%;}
+    &:after { width: $right; left: 2.5%;}
+}

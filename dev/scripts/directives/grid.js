@@ -3,12 +3,7 @@ app.directive('row', function(){
     restrict: 'E',
     replace: true,
     transclude: true,
-    template: '<div class="row" data-ng-transclude></div>',
-    scope:{
-    },
-    link: function(scope, elm, attrs){
-
-    }
+    template: '<div class="row" data-ng-transclude></div>'
   }
 })
 .directive('column', function(){

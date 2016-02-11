@@ -4,6 +4,9 @@ $text-color: #101010;
 $primary-color: #0084bf;
 $secondary-color: #68af4e;
 
+$error-color: #b20000;
+$error-bg: mix($background-color, $error-color, 90);
+
 /* Calculated Colors */
 $contrast-color: invert($primary-color);
 $blend-color-high: mix($background-color, $text-color, 90);

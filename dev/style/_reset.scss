@@ -64,6 +64,9 @@ button {
   outline: 0;
   box-shadow: 0 0 0 1px $blend-color-high;
 }
+::selection{
+  @include color-bg($primary-color);
+}
 img {
     max-width: 100%;
     height: auto;

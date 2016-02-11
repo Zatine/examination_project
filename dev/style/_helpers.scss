@@ -1,6 +1,3 @@
-$error-color: #b20000;
-$error-bg: mix($background-color, $error-color, 90);
-
 .text-right{text-align: right;}
 .text-left{text-align: left;}
 .text-center{text-align: center;}
@@ -17,6 +14,26 @@ $error-bg: mix($background-color, $error-color, 90);
 
 .container{max-width: $container-width; margin: 0 auto; padding: 0 10px;}
 
+.color-span{
+  @include color-bg($primary-color); 
+  padding: 5px 10px; 
+  line-height: 1.9em;
+  .contrast &{
+    @include color-bg($contrast-color);
+  }
+  .secondary &{
+    @include color-bg($contrast-color);
+  }
+}
+.line{@include line-through(45%, 45%);}
+.line-left{@include line-through(0, 100%);}
+.line-right{@include line-through(100%, 0);}
+
+.primary-bg{@include color-bg($primary-color); padding: 10px 5px;}
+.secondary-bg{@include color-bg($secondary-color); padding: 10px 5px;}
+.contrast-bg{@include color-bg($contrast-color); padding: 10px 5px;}
+.invert-bg{@include color-bg($text-color); padding: 10px 5px;}
+
 .video-wrapper{
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
@@ -28,16 +45,5 @@ $error-bg: mix($background-color, $error-color, 90);
     left: 0;
     width: 100%;
     height: 100%;
-  }
-}
-
-@mixin color-bg($color){
-  @if(lightness($color) > 70){
-    background-color: $color;
-    color: darken($color, 50);
-  }
-  @if(lightness($color) < 70){
-    background-color: $color;
-    color: #fff;
   }
 }

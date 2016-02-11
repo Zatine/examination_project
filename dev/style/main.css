@@ -72,6 +72,14 @@ button, input[type="button"], .dropdown ul[type="button"] {
   outline: 0;
   box-shadow: 0 0 0 1px #dedede; }
 
+::-moz-selection {
+  background-color: #0084bf;
+  color: #fff; }
+
+::selection {
+  background-color: #0084bf;
+  color: #fff; }
+
 img {
   max-width: 100%;
   height: auto;
@@ -297,6 +305,92 @@ video {
   margin: 0 auto;
   padding: 0 10px; }
 
+.color-span {
+  background-color: #0084bf;
+  color: #fff;
+  padding: 5px 10px;
+  line-height: 1.9em; }
+  .contrast .color-span {
+    background-color: #ff7b40;
+    color: #fff; }
+  .secondary .color-span {
+    background-color: #ff7b40;
+    color: #fff; }
+
+.line {
+  display: table;
+  overflow: hidden;
+  padding: 5px 0;
+  white-space: nowrap; }
+  .line:before, .line:after {
+    border-top: 1px solid #999999;
+    content: ' ';
+    display: table-cell;
+    position: relative;
+    top: 0.5em; }
+  .line:before {
+    width: 45%;
+    right: 2.5%; }
+  .line:after {
+    width: 45%;
+    left: 2.5%; }
+
+.line-left {
+  display: table;
+  overflow: hidden;
+  padding: 5px 0;
+  white-space: nowrap; }
+  .line-left:before, .line-left:after {
+    border-top: 1px solid #999999;
+    content: ' ';
+    display: table-cell;
+    position: relative;
+    top: 0.5em; }
+  .line-left:before {
+    width: 0;
+    right: 2.5%; }
+  .line-left:after {
+    width: 100%;
+    left: 2.5%; }
+
+.line-right {
+  display: table;
+  overflow: hidden;
+  padding: 5px 0;
+  white-space: nowrap; }
+  .line-right:before, .line-right:after {
+    border-top: 1px solid #999999;
+    content: ' ';
+    display: table-cell;
+    position: relative;
+    top: 0.5em; }
+  .line-right:before {
+    width: 100%;
+    right: 2.5%; }
+  .line-right:after {
+    width: 0;
+    left: 2.5%; }
+
+.primary-bg {
+  background-color: #0084bf;
+  color: #fff;
+  padding: 10px 5px; }
+
+.secondary-bg {
+  background-color: #68af4e;
+  color: #fff;
+  padding: 10px 5px; }
+
+.contrast-bg {
+  background-color: #ff7b40;
+  color: #fff;
+  padding: 10px 5px; }
+
+.invert-bg {
+  background-color: #101010;
+  color: #fff;
+  padding: 10px 5px; }
+
 .video-wrapper {
   position: relative;
   padding-bottom: 56.25%;
@@ -342,15 +436,35 @@ h6 {
 h1, h2, h3, h4, h5, h6 {
   margin: 15px 0; }
   h1.underline, h2.underline, h3.underline, h4.underline, h5.underline, h6.underline {
-    border-bottom: 1px #ff7b40 solid; }
-  h1.underline-dashed, h2.underline-dashed, h3.underline-dashed, h4.underline-dashed, h5.underline-dashed, h6.underline-dashed {
-    border-bottom: 2px #ff7b40 dashed; }
-  h1.underline-dotted, h2.underline-dotted, h3.underline-dotted, h4.underline-dotted, h5.underline-dotted, h6.underline-dotted {
-    border-bottom: 2px #ff7b40 dotted; }
-  h1.underline-double, h2.underline-double, h3.underline-double, h4.underline-double, h5.underline-double, h6.underline-double {
-    border-bottom: 3px #ff7b40 double; }
-  h1.underline-ridge, h2.underline-ridge, h3.underline-ridge, h4.underline-ridge, h5.underline-ridge, h6.underline-ridge {
-    border-bottom: 4px #ff7b40 ridge; }
+    border-color: #999999;
+    border-bottom-style: solid;
+    border-bottom-width: 1px; }
+    h1.underline.dashed, h2.underline.dashed, h3.underline.dashed, h4.underline.dashed, h5.underline.dashed, h6.underline.dashed {
+      border-bottom-style: dashed;
+      border-bottom-width: 2px; }
+    h1.underline.double, h2.underline.double, h3.underline.double, h4.underline.double, h5.underline.double, h6.underline.double {
+      border-bottom-style: double;
+      border-bottom-width: 3px; }
+  h1.frame, h2.frame, h3.frame, h4.frame, h5.frame, h6.frame {
+    padding: 10px 0;
+    border-style: solid;
+    border-width: 1px;
+    border-left: none;
+    border-right: none; }
+    h1.frame.dashed, h2.frame.dashed, h3.frame.dashed, h4.frame.dashed, h5.frame.dashed, h6.frame.dashed {
+      border-width: 2px;
+      border-top-style: dashed;
+      border-bottom-style: dashed; }
+    h1.frame.double, h2.frame.double, h3.frame.double, h4.frame.double, h5.frame.double, h6.frame.double {
+      border-width: 4px;
+      border-top-style: double;
+      border-bottom-style: double; }
+  h1.primary, h2.primary, h3.primary, h4.primary, h5.primary, h6.primary {
+    border-color: #0084bf; }
+  h1.secondary, h2.secondary, h3.secondary, h4.secondary, h5.secondary, h6.secondary {
+    border-color: #68af4e; }
+  h1.contrast, h2.contrast, h3.contrast, h4.contrast, h5.contrast, h6.contrast {
+    border-color: #ff7b40; }
 
 p {
   margin: 10px 0; }
@@ -547,7 +661,7 @@ fieldset {
   background: #fff;
   display: block; }
   .multiple ul.disabled {
-    background-color: #999999;
+    background-color: #dedede;
     color: #999999; }
     .multiple ul.disabled li {
       cursor: not-allowed; }
@@ -573,7 +687,6 @@ input[type="checkbox"], .dropdown ul[type="checkbox"] {
     vertical-align: text-bottom;
     display: inline-block;
     border: 1px solid #dedede;
-    border-radius: 3px;
     background-color: #ffffff;
     cursor: pointer; }
     input[type="checkbox"] + label span svg, .dropdown ul[type="checkbox"] + label span svg {
@@ -587,6 +700,7 @@ input[type="checkbox"], .dropdown ul[type="checkbox"] {
     background-color: #dedede;
     cursor: not-allowed; }
   input[type="checkbox"] + label span, .dropdown ul[type="checkbox"] + label span {
+    border-radius: 3px;
     width: 19px;
     height: 19px; }
     input[type="checkbox"] + label span svg, .dropdown ul[type="checkbox"] + label span svg {
@@ -601,7 +715,6 @@ input[type="radio"], .dropdown ul[type="radio"] {
     vertical-align: text-bottom;
     display: inline-block;
     border: 1px solid #dedede;
-    border-radius: 50%;
     background-color: #ffffff;
     cursor: pointer; }
     input[type="radio"] + label span svg, .dropdown ul[type="radio"] + label span svg {
@@ -615,6 +728,7 @@ input[type="radio"], .dropdown ul[type="radio"] {
     background-color: #dedede;
     cursor: not-allowed; }
   input[type="radio"] + label span, .dropdown ul[type="radio"] + label span {
+    border-radius: 50%;
     width: 19px;
     height: 19px;
     padding: 2px; }

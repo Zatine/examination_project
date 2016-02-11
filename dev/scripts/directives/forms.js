@@ -78,7 +78,7 @@ app.directive('formSection', function(){
       require: ['?^form'],
       template: [
                   '<div class="inline-block">',
-                    '<input type="radio" id="{{id}}" name="{{name}}" value="{{value}}" ng-disabled="{{disabled}}" ng-model="model" form="{{formName}}">',
+                    '<input type="radio" id="{{id}}" name="{{name}}" value="{{value}}" ng-disabled="disabled" ng-model="model" form="{{formName}}">',
                     '<label for="{{id}}">',
                     '<span tabindex="0"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40"/></svg></span>',
                     ' {{label}}',
@@ -101,7 +101,7 @@ app.directive('formSection', function(){
         if(attrs.checked !== undefined) scope.model = scope.value;
         
         elm.bind('keypress', function(event){
-          if(event.keyCode !== 13) return true;
+          if(event.keyCode !== 13 || scope.disabled) return true;
           scope.model = scope.value;
           if(!scope.$$phase) scope.$apply();
         });
@@ -115,8 +115,8 @@ app.directive('formSection', function(){
       require: ['?^form'],
       template: [
                   '<div class="inline-block">',
-                    '<input type="checkbox" id="{{id}}" name="{{name}}" value="{{value}}" ng-disabled="{{disabled}}" form="{{formName}}" ng-model="model">',
-                    '<label for="{{id}}">',
+                    '<input type="checkbox" id="{{id}}" name="{{name}}" value="{{value}}" ng-disabled="disabled" form="{{formName}}" ng-model="model">',
+                    '<label for="{{id}}" ng-class="{\'disabled\': disabled}">',
                     '<span tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.66 48.75"><path d="M2.41,30.3l5.21-7.16A0.81,0.81,0,0,1,8.86,23l9.43,8a0.81,0.81,0,0,0,1.24-.15L40.9,1.37a0.81,0.81,0,0,1,1.19-.19l6.61,5a0.81,0.81,0,0,1,.17,1.06l-28,37.9a0.81,0.81,0,0,1-1.22.17l-17.12-14A0.81,0.81,0,0,1,2.41,30.3Z"/></svg></span>',
                     ' {{label}}',
                     '</label>',
@@ -137,7 +137,7 @@ app.directive('formSection', function(){
         scope.model = scope.model ? scope.model : false;
         
         elm.bind('keypress', function(event){
-          if(event.keyCode !== 13) return true;
+          if(event.keyCode !== 13 || scope.disabled) return true;
           scope.model = !scope.model;
           if(!scope.$$phase) scope.$apply();
         });
@@ -251,7 +251,7 @@ app.directive('formSection', function(){
         
         elm.bind('keydown', function(event){
           if(event.keyCode !== 38 && event.keyCode !== 40 && event.keyCode !== 13) return true;
-          
+          if(scope.disabled) return;
           event.preventDefault();
           
           navigateMenu(event);

@@ -19,11 +19,41 @@ h6{font-size: 1.5em;}
 
 h1, h2, h3, h4, h5, h6{
   margin: 15px 0;
-  &.underline{border-bottom: $border-width $contrast-color solid;}
-  &.underline-dashed{border-bottom: ($border-width + 1px) $contrast-color dashed;}
-  &.underline-dotted{border-bottom: ($border-width + 1px) $contrast-color dotted;}
-  &.underline-double{border-bottom: ($border-width + 2px) $contrast-color double;}
-  &.underline-ridge{border-bottom: ($border-width + 3px) $contrast-color ridge;}
+  
+  &.underline{
+    border-color: $blend-color-low;
+    border-bottom-style: solid;
+    border-bottom-width: $border-width;
+    
+    &.dashed{
+      border-bottom-style: dashed;
+      border-bottom-width: ($border-width + 1px);}
+    &.double{
+      border-bottom-style: double;
+      border-bottom-width: ($border-width + 2px);}
+  }
+  
+  &.frame{
+    padding: 10px 0;
+    border-style: solid;
+    border-width: $border-width;
+      &.dashed{
+        border-width: $border-width + 1px;
+        border-top-style: dashed;
+        border-bottom-style: dashed;
+      }
+      &.double{
+        border-width: $border-width + 3px;
+        border-top-style: double;
+        border-bottom-style: double;
+      }
+    border-left: none;
+    border-right: none;
+  }
+  
+    &.primary{border-color: $primary-color;}
+    &.secondary{border-color: $secondary-color;}
+    &.contrast{border-color: $contrast-color;}
 }
 
 p{
@@ -37,11 +67,6 @@ a{
 }
 
 /* BUTTONS */
-@mixin button-style($color){
-    @include color-bg($color);
-    &:hover{background-color: darken($color, 5);}
-    &:active{background-color: darken($color, 15);}
-}
 button{
   padding: 10px 20px;
   border-radius: 3px;
@@ -254,7 +279,7 @@ fieldset{
     background: #fff;
     display: block;
     &.disabled{
-      background-color: $blend-color-low;
+      background-color: $blend-color-high;
       color: $blend-color-low;
       li{cursor: not-allowed;}
     }
@@ -277,34 +302,10 @@ fieldset{
 }
 
 /* Radio Buttons and Checkboxes */
-@mixin input-buttons($bradius) {
-    display:none;
-    & + label span{
-      vertical-align: text-bottom;
-      display: inline-block;
-      border: $border-width solid $blend-color-high;
-      border-radius: $bradius;
-      background-color: #ffffff;
-      cursor: pointer;
-      svg{
-        fill: $primary-color;
-        stroke: $darker-primary;
-        stroke-miterlimit:10;
-        display: none;
-      }
-    }
-    &:checked + label span svg{
-      display: block;
-    }
-    &:disabled + label span{
-      background-color: $blend-color-high;
-      cursor: not-allowed;
-    }
-}
-
 input[type="checkbox"]{
-  @include input-buttons(3px);
+  @include input-buttons;
   & + label span {
+    border-radius: 3px;
     width: 19px;
     height: 19px;
     svg{
@@ -317,8 +318,9 @@ input[type="checkbox"]{
 }
 
 input[type="radio"]{
-  @include input-buttons(50%);
+  @include input-buttons;
   & + label span{
+    border-radius: 50%;
     width: 19px;
     height: 19px;
     padding: 2px;
