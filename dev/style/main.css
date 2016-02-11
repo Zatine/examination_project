@@ -309,24 +309,60 @@ ol {
     border: #f5f5f5 0.3em solid; }
 
 /* FORMS */
-input.ng-invalid.ng-touched, .dropdown ul.ng-invalid.ng-touched {
-  border: 1px solid #b20000; }
-
 input, .dropdown ul, textarea, fieldset, select, .multiple ul {
   margin-bottom: 10px;
   font-family: sans-serif; }
 
+/* Input, Textarea */
 input, .dropdown ul, textarea, select, .multiple ul {
   border-radius: 5px;
   border: 1px solid #dedede;
   padding: 10px;
   width: 100%;
+  max-width: 100%;
   font-size: 16px;
   font-family: sans-serif; }
   input:disabled, .dropdown ul:disabled, textarea:disabled, select:disabled, .multiple ul:disabled {
     background-color: #dedede;
     cursor: not-allowed; }
+  input.ng-invalid.ng-touched, .dropdown ul.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched, select.ng-invalid.ng-touched, .multiple ul.ng-invalid.ng-touched {
+    border: 1px solid #b20000; }
 
+textarea {
+  min-height: 100px;
+  resize: vertical; }
+
+.form-section {
+  position: relative; }
+  .form-section.row input, .form-section.row .dropdown ul, .dropdown .form-section.row ul, .form-section.row textarea, .form-section.row fieldset {
+    margin: 0; }
+  .form-section label {
+    display: block;
+    margin-bottom: 10px; }
+    .form-section label span.info {
+      display: block;
+      font-size: 0.8em;
+      color: #999999; }
+  .form-section .error p {
+    color: #b20000;
+    margin-bottom: 15px; }
+  .form-section .input {
+    position: relative; }
+    .form-section .input.icon-padding input, .form-section .input.icon-padding .dropdown ul, .dropdown .form-section .input.icon-padding ul {
+      padding-right: 20px; }
+
+/* Fieldset */
+fieldset {
+  border-radius: 5px;
+  border-color: #dedede;
+  border-style: solid;
+  border-width: 1px; }
+  fieldset legend {
+    margin-bottom: 10px;
+    padding: 0 10px;
+    color: #999999; }
+
+/* Select */
 .dropdown {
   position: relative;
   height: 47px; }
@@ -390,6 +426,7 @@ input, .dropdown ul, textarea, select, .multiple ul {
       background-color: #0084bf;
       color: #fff; }
 
+/* Radio Buttons and Checkboxes */
 input[type="checkbox"], .dropdown ul[type="checkbox"] {
   display: none; }
   input[type="checkbox"] + label span, .dropdown ul[type="checkbox"] + label span {
@@ -442,53 +479,7 @@ input[type="radio"], .dropdown ul[type="radio"] {
     height: 19px;
     padding: 2px; }
 
-textarea {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  min-height: 100px;
-  font-family: sans-serif; }
-
-fieldset {
-  border-radius: 5px;
-  border-color: #dedede;
-  border-style: solid;
-  border-width: 1px; }
-  fieldset legend {
-    margin-bottom: 10px;
-    padding: 0 10px;
-    color: #999999; }
-
-.form-section {
-  position: relative; }
-  .form-section.row input, .form-section.row .dropdown ul, .dropdown .form-section.row ul, .form-section textarea, .form-section fieldset {
-    margin: 0; }
-  .form-section label {
-    display: block;
-    margin-bottom: 10px; }
-    .form-section label span.info {
-      display: block;
-      font-size: 0.8em;
-      color: #999999; }
-  .form-section .error p {
-    color: #b20000;
-    margin-bottom: 15px; }
-
-.input {
-  position: relative;
-  /*  &:after{
-      display: block;
-      position: absolute;
-      top: 40%;
-      right: 10px;
-    }
-  
-    &.required:after{
-      content: "*";
-    }*/ }
-  .input.icon-padding input, .input.icon-padding .dropdown ul, .dropdown .input.icon-padding ul {
-    padding-right: 20px; }
-
+/* Submit */
 .grid {
   background-color: #0084bf;
   color: #fff; }

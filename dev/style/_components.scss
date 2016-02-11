@@ -114,54 +114,82 @@ ol{
 
 /* FORMS */
 
-@mixin input-buttons($bradius) {
-    display:none;
-    & + label span{
-      vertical-align: text-bottom;
-      display: inline-block;
-      border: $border-width solid $blend-color-high;
-      border-radius: $bradius;
-      background-color: #ffffff;
-      cursor: pointer;
-      svg{
-        fill: $primary-color;
-        stroke: $darker-primary;
-        stroke-miterlimit:10;
-        display: none;
-      }
-    }
-    &:checked + label span svg{
-      display: block;
-    }
-    &:disabled + label span{
-      background-color: $blend-color-high;
-      cursor: not-allowed;
-    }
-}
-
-input.ng-invalid.ng-touched{
-  border: 1px solid $error-color;
-}
-
 input, textarea, fieldset, select{
   margin-bottom: 10px;
   font-family: $main-font;
 }
 
+/* Input, Textarea */
 input, textarea, select{
   border-radius: 5px;
   border: $border-width solid $blend-color-high;
   padding: 10px;
   width: 100%;
+  max-width: 100%;
   font-size: $font-base-size;
   font-family: $main-font;
   
   &:disabled{
     background-color: $blend-color-high;
     cursor: not-allowed;
+  }  
+  
+  &.ng-invalid.ng-touched{
+    border: 1px solid $error-color;
   }
 }
 
+textarea{
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-section{
+  position: relative;
+  &.row {
+    input, textarea, fieldset{
+      margin: 0;
+    }
+  }
+  label{
+    display: block;
+    margin-bottom: 10px;
+    span.info{
+      display: block;
+      font-size: 0.8em;
+      color: $blend-color-low;
+    }
+  }
+  .error{
+    p{
+      color: $error-color;
+      margin-bottom: 15px;
+    }
+  }
+  
+  .input{
+    position: relative;
+
+    &.icon-padding input{
+      padding-right: 20px;
+    }
+  }
+}
+
+/* Fieldset */
+fieldset{
+  border-radius: 5px;
+  border-color: $blend-color-high;
+  border-style: solid;
+  border-width: $border-width;
+  legend{
+    margin-bottom: 10px;
+    padding: 0 10px;
+    color: $blend-color-low;
+  }
+}
+
+/* Select */
 .dropdown{
   position: relative;
   height: 47px;
@@ -239,6 +267,32 @@ input, textarea, select{
   }
 }
 
+/* Radio Buttons and Checkboxes */
+@mixin input-buttons($bradius) {
+    display:none;
+    & + label span{
+      vertical-align: text-bottom;
+      display: inline-block;
+      border: $border-width solid $blend-color-high;
+      border-radius: $bradius;
+      background-color: #ffffff;
+      cursor: pointer;
+      svg{
+        fill: $primary-color;
+        stroke: $darker-primary;
+        stroke-miterlimit:10;
+        display: none;
+      }
+    }
+    &:checked + label span svg{
+      display: block;
+    }
+    &:disabled + label span{
+      background-color: $blend-color-high;
+      cursor: not-allowed;
+    }
+}
+
 input[type="checkbox"]{
   @include input-buttons(3px);
   & + label span {
@@ -262,66 +316,7 @@ input[type="radio"]{
   }
 }
 
+/* Submit */
 input[type="button"]{
   @extend button;
-}
-
-textarea{
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  min-height: 100px;
-  font-family: $main-font;
-}
-fieldset{
-  border-radius: 5px;
-  border-color: $blend-color-high;
-  border-style: solid;
-  border-width: $border-width;
-  legend{
-    margin-bottom: 10px;
-    padding: 0 10px;
-    color: $blend-color-low;
-  }
-}
-
-.form-section{
-  &.row input, textarea, fieldset{
-    margin: 0;
-  }
-  position: relative;
-  label{
-    display: block;
-    margin-bottom: 10px;
-    span.info{
-      display: block;
-      font-size: 0.8em;
-      color: $blend-color-low;
-    }
-  }
-  .error{
-    p{
-      color: $error-color;
-      margin-bottom: 15px;
-    }
-  }
-}
-
-.input{
-  position: relative;
-  
-  &.icon-padding input{
-    padding-right: 20px;
-  }
-
-/*  &:after{
-    display: block;
-    position: absolute;
-    top: 40%;
-    right: 10px;
-  }
-
-  &.required:after{
-    content: "*";
-  }*/
 }
