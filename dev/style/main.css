@@ -392,7 +392,7 @@ video {
   padding: 10px 5px; }
 
 .card {
-  box-shadow: 0px 2px 2px rgba(153, 153, 153, 0.3);
+  box-shadow: 0px 1px 2px rgba(153, 153, 153, 0.2);
   border-radius: 5px;
   border: 1px solid #dedede; }
 
@@ -739,6 +739,32 @@ input[type="radio"], .dropdown ul[type="radio"] {
     padding: 2px; }
 
 /* Submit */
+/* TABLES */
+table {
+  text-align: left;
+  border-spacing: 0; }
+  table caption {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-align: left;
+    color: #999999;
+    font-weight: normal; }
+  table thead th, table thead td {
+    background-color: #0084bf;
+    color: #fff;
+    font-weight: normal; }
+  table th, table td {
+    padding: 15px;
+    border-bottom: 1px #dedede solid; }
+  table tfoot {
+    color: #999999; }
+    table tfoot th, table tfoot td {
+      border: none; }
+    table tfoot tr:hover {
+      background: none; }
+  table tr:nth-child(even) {
+    background: #ececec; }
+
 .grid {
   background-color: #0084bf;
   color: #fff; }

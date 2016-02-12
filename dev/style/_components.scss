@@ -331,3 +331,40 @@ input[type="radio"]{
 input[type="button"]{
   @extend button;
 }
+
+/* TABLES */
+table{
+  text-align: left;
+  border-spacing: 0;
+  caption{
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-align: left;
+    color: $blend-color-low;
+    font-weight: normal;
+  }
+  thead{
+    th, td{
+      @include color-bg($primary-color);
+      font-weight: normal;
+    }
+  }
+  
+  th, td{
+    padding: 15px;
+    border-bottom: $border-width $blend-color-high solid;
+  }
+  
+  tfoot{
+    color: $blend-color-low;
+    th, td{
+      border: none;
+    }
+    tr:hover{
+      background: none;
+    }
+  }
+  tr:nth-child(even){
+    background: mix($blend-color-high, $background-color, 40);
+  }
+}

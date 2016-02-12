@@ -15,7 +15,7 @@
           <h3 class="underline">Headings</h3>
           <row>
             <column four class="card">
-              <h4>Sizes</h4>
+              <h4 class="card-header">Size</h4>
               <h1>Heading 1</h1>
               <h2>Heading 2</h2>
               <h3>Heading 3</h3>
@@ -23,15 +23,15 @@
               <h5>Heading 5</h5>
               <h6>Heading 6</h6>
             </column>
-            <column four>
-              <h4>Underline</h4>
+            <column four class="card">
+              <h4 class="card-header">Underline</h4>
               <p>Add the <em>underline</em>-class to a heading to give it some style. You can add the classes below for different styles, and also primary, secondary or contrast for the different colors defined in your theme.</p>
               <h6 class="underline primary">Underline</h6>
               <h6 class="underline dashed secondary">Underline dashed</h6>
               <h6 class="underline double contrast">Underline double</h6>
             </column>
-            <column four>
-              <h4>Frame</h4>
+            <column four class="card">
+              <h4 class="card-header">Frame</h4>
               <p>Same as for the underline-classes.</p>
               <h6 class="frame contrast">Frame</h6>
               <h6 class="frame dashed primary">Frame dashed</h6>
@@ -39,7 +39,7 @@
             </column>
           </row>
           <row>
-            <column four>
+            <column four class="card">
               <h4>Special classes</h4>
               <p>These classes can be used on any heading or text-element. The line-classes will only work if contained to one line of text, but the colored-words has no limit.</p>
               <h6 class="line">Line</h6>
@@ -104,6 +104,45 @@
                         <p class="mute">Add the class <em>round</em> to your list to show the numbers in circles.</p>
                     </column>
                   </row>
+            </column>
+          </row>
+        </section>
+        <section>
+          <h3 class="underline">Tables</h3>
+          <row>
+            <column six>
+              <table>
+                <caption>Example Table</caption>
+                <thead>
+                  <tr>
+                    <th>Table Header</th>
+                    <th>Another Header</th>
+                    <th>A Third One</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <td>Footer content</td>
+                  </tr>
+                </tfoot>
+                <tbody>
+                  <tr>
+                    <td>Data</td>
+                    <td>More Data</td>
+                    <td>Even more</td>
+                  </tr>
+                  <tr>
+                    <td>Data</td>
+                    <td>More Data</td>
+                    <td>Even more</td>
+                  </tr>
+                  <tr>
+                    <td>Data</td>
+                    <td>More Data</td>
+                    <td>Even more</td>
+                  </tr>
+                </tbody>  
+              </table>
             </column>
           </row>
         </section>
@@ -231,18 +270,22 @@
                 </ul>
             </column>
             <column four>
-              <h5>Custom</h5>
-              <dropdown options="vm.options"></dropdown>
-              <dropdown multiple options="vm.options"></dropdown>
+              <fieldset>
+                <legend>Custom</legend>
+                <dropdown options="vm.options"></dropdown>
+                <dropdown multiple options="vm.options"></dropdown>
+              </fieldset>
             </column>
             <column four>
-              <h5>Regular</h5>
-              <select>
-                <option ng-repeat="option in vm.options">{{option.name}}</option>
-              </select>
-              <select multiple>
-                <option ng-repeat="option in vm.options">{{option.name}}</option>
-              </select>
+              <fieldset>
+                  <legend>Regular</legend>
+                  <select>
+                    <option ng-repeat="option in vm.options">{{option.name}}</option>
+                  </select>
+                  <select multiple>
+                    <option ng-repeat="option in vm.options">{{option.name}}</option>
+                  </select>
+              </fieldset>
             </column>
           </row>
         </section>
@@ -337,14 +380,14 @@
         <section>
           <h3 class="underline">Helper Classes</h3>
           <row>
-            <column four>
+            <column four class="card">
               <h5>Responsive Embeds</h5>
             <p>For easy ability to make a video embed responsive, surround your embed with a div of the class <em>video-wrapper</em>. The video will never take up more than the width of it's container.</p>
               <div class="video-wrapper">
               <iframe src="https://www.youtube.com/embed/9bZkp7q19f0" frameborder="0" allowfullscreen></iframe>
               </div>
             </column>
-            <column four>
+            <column four class="card">
               <h5>Text</h5>
               <h6>Alignment</h6>
               <p>Use these classes for easy alignment of text.</p>
@@ -360,10 +403,11 @@
               <p class="normal">Use the <em>normal</em>-class for the original fontsize.</p>
               <p class="small">Use the <em>small</em>-class for a smaller font.</p>
             </column>
-            <column four>
-              <h5>Container</h5>
+            <column four class="card">
+              <h5>Other</h5>
+              <h6>Container</h6>
               <p>Add this class to a wrapping element to set a maximum width for your content. The width is determined in <em>theme.scss</em>.</p>
-              <h5>Inline-block</h5>
+              <h6>Inline-block</h6>
               <p>Add this class to an element to automatically display it as an inline-block.</p>
             </column>
           </row>
