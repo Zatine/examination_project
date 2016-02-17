@@ -4,6 +4,7 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,600,700&subset=latin,latin-ext);
 /* Borders */
 /* Container Width */
+/* Various */
 /* Minimal normalize/reset-styling provided by Jayden Seric, http://jaydenseric.com/blog/forget-normalize-or-resets-lay-your-own-css-foundation */
 html {
   -ms-text-size-adjust: 100%;
@@ -14,6 +15,9 @@ body {
   font: 16px/1 sans-serif;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased; }
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important; }
 
 h1,
 h2,
@@ -409,6 +413,55 @@ video {
     width: 100%;
     height: 100%; }
 
+.arrow {
+  position: relative;
+  background: #0084bf; }
+  .arrow:after, .arrow:before {
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 9;
+    position: absolute;
+    pointer-events: none; }
+  .arrow:after {
+    border-color: transparent;
+    border-width: 15px; }
+  .arrow:before {
+    border-color: transparent;
+    border-width: 21px; }
+  .arrow.up:after, .arrow.up:before {
+    left: 50%;
+    bottom: 100%;
+    border-bottom-color: #0084bf; }
+  .arrow.up:after {
+    margin-left: -15px; }
+  .arrow.up:before {
+    margin-left: -21px; }
+  .arrow.down:after, .arrow.down:before {
+    left: 50%;
+    top: 100%;
+    border-top-color: #0084bf; }
+  .arrow.down:after {
+    margin-left: -15px; }
+  .arrow.down:before {
+    margin-left: -21px; }
+  .arrow.right:after, .arrow.right:before {
+    left: 100%;
+    top: 50%;
+    border-left-color: #0084bf; }
+  .arrow.right:after {
+    margin-top: -15px; }
+  .arrow.right:before {
+    margin-top: -21px; }
+  .arrow.left:after, .arrow.left:before {
+    right: 100%;
+    top: 50%;
+    border-right-color: #0084bf; }
+  .arrow.left:after {
+    margin-top: -15px; }
+  .arrow.left:before {
+    margin-top: -21px; }
+
 * {
   box-sizing: border-box; }
 
@@ -476,7 +529,9 @@ p {
 
 /* LINKS */
 a {
-  color: #0084bf; }
+  color: #0084bf;
+  -webkit-transition: .3s;
+  transition: .3s; }
   a:hover {
     color: #00a7f2; }
 
@@ -570,7 +625,9 @@ ol {
 /* FORMS */
 input, .dropdown ul, textarea, fieldset, select, .multiple ul {
   margin-bottom: 10px;
-  font-family: sans-serif; }
+  font-family: sans-serif;
+  -webkit-transition: .3s;
+  transition: .3s; }
 
 /* Input, Textarea */
 input, .dropdown ul, textarea, select, .multiple ul {

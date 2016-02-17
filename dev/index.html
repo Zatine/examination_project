@@ -8,9 +8,19 @@
     <!--endinject-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
   </head>
-  <body ng-app="App">
+  <body ng-app="App" ng-cloak>
       
       <div class="container" ng-controller="Documentation as vm">
+        <section>
+          <h3 class="underline">Container Styling</h3>
+          <p>Use these classes on a containing element to achieve desired effect. You can use them on small elements or full-width sections. Change the size of the arrows in the <em>theme.scss</em>.</p>
+          <row>
+            <column four><div class="arrow up primary-bg text-center"><h4>arrow up</h4></div></column>
+            <column four><div class="arrow down primary-bg text-center"><h4>arrow down</h4></div></column>
+            <column four><div class="arrow left primary-bg text-center"><h4>arrow left</h4></div></column>
+            <column four><div class="arrow right primary-bg text-center"><h4>arrow right</h4></div></column>
+          </row>
+        </section>
         <section>
           <h3 class="underline">Headings</h3>
           <row>

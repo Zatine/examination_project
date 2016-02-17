@@ -63,6 +63,7 @@ p{
 /* LINKS */
 a{
   color: $primary-color;
+  transition: .3s;
   &:hover{color: $highlight-primary;}
 }
 
@@ -151,6 +152,7 @@ ol{
 input, textarea, fieldset, select{
   margin-bottom: 10px;
   font-family: $main-font;
+  transition: .3s;
 }
 
 /* Input, Textarea */
