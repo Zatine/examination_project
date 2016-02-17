@@ -55,3 +55,203 @@
     &:before { width: $left; right: 2.5%;}
     &:after { width: $right; left: 2.5%;}
 }
+
+@mixin colorArrow($bg, $border){
+  position: relative;
+  background: $bg;
+  padding: 15px;
+ 
+  &:after, &:before{
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+  
+  &:after{
+    border-color: transparent;
+    border-width: $arrow-size;
+  }
+  
+  &:before{
+    border-color: transparent;
+    border-width: $arrow-size + 6px;
+  }  
+    
+  &.up, &.down{
+    &:after, &:before{left: 50%;}
+    &:after{margin-left: -$arrow-size;}
+    &:before{margin-left: -$arrow-size - 6px;}
+  }
+  &.up{
+    &:after, &:before{
+      bottom: 100%;
+      border-bottom-color: $bg;
+    }
+    &.inverse{
+      &:after, &:before{
+        bottom: 0;
+        border-bottom-color: $border;
+      }
+    }
+  }
+  
+  &.down{
+      &:after, &:before{
+      top: 100%;
+      border-top-color: $bg;
+    }
+    &.inverse{
+      &:after, &:before{
+        top: 0;
+        border-top-color: $border;
+      }
+    }
+  }
+  
+  &.left, &.right{
+    &:after, &:before{top: 50%;}
+    &:after{margin-top: -$arrow-size;}
+    &:before{margin-top: -$arrow-size - 6px;}
+  }
+  
+  &.right{
+    &:after, &:before{
+      left: 100%;
+      border-left-color: $primary-color;
+    }
+    &.inverse{
+      &:after, &:before{
+        left: 0;
+        border-left-color: $border;
+      }
+    }
+  }
+  
+  &.left{
+    &:after, &:before{
+      right: 100%;
+      border-right-color: $bg;
+    }
+    &.inverse{
+      &:after, &:before{
+        right: 0;
+        border-right-color: $border;
+      }
+    }
+  }
+}
+
+@mixin imageArrow($bg){
+  position: relative;
+  padding: 15px;
+  
+  &:before, &:after{
+    position: absolute;
+    display: block;
+    content:" ";
+    z-index: 100;
+    pointer-events: none;
+  }
+  
+  &.down, &.up{
+    &:before, &:after{width: 50%;}
+    &:before{
+      left: -$arrow-size;
+      border-right: $arrow-size solid transparent;
+    }
+    &:after{
+      right: -$arrow-size;
+      border-left: $arrow-size solid transparent;
+    }
+    &.inverse{
+      &:after{
+        border-left: $arrow-size solid $bg;
+      }
+      &:before{
+        border-right: $arrow-size solid $bg;
+      }
+    }
+  }
+  &.down{
+    padding-bottom: $arrow-size + 15px;
+    margin-bottom: -$arrow-size;
+    &:before, &:after{
+      bottom: 0;
+      border-bottom: $arrow-size + 4 solid $bg;
+    }
+    &.inverse{
+      padding-bottom: 15px;
+      margin-bottom: 0;
+      &:before, &:after{
+        top: 0;
+        bottom: auto;
+        border-bottom: $arrow-size solid transparent;
+      }
+    }
+  }
+  &.up{
+    padding-top: $arrow-size + 15px;
+    margin-top: -$arrow-size;
+    &:before, &:after{
+      top: 0;
+      border-top: $arrow-size solid $bg;
+    }
+    &.inverse{
+      padding-top: 15px;
+      margin-top: 0;
+      &:before, &:after{
+        top: auto;
+        bottom: 0;
+        border-top: $arrow-size solid transparent;
+      }
+    }
+  }
+  &.left, &.right{
+    &:before, &:after{height: 50%;}
+    &:before{
+      top: -$arrow-size;
+      border-bottom: ($arrow-size + 4) solid transparent;
+    }
+    &:after{
+      bottom: -$arrow-size;
+      border-top: $arrow-size solid transparent;
+    }
+    &.inverse{
+        &:after{
+          border-top: $arrow-size solid $bg;
+        }
+        &:before{
+          border-bottom: $arrow-size solid $bg;
+        }
+    }
+  }
+  &.left{
+      &:before, &:after{
+        left: 0;
+        border-left: $arrow-size solid $bg;
+      }
+      &.inverse{
+        &:before, &:after{
+          left: auto;
+          right: 0;
+          border-left: $arrow-size solid transparent;
+        }
+      }
+  }
+  &.right{
+      &:before, &:after{
+        right: 0;
+        border-right: $arrow-size solid $bg;
+      }
+      &.inverse{
+        &:before, &:after{
+          right: auto;
+          left: 0;
+          border-right: $arrow-size solid transparent;
+        }
+      }
+  }
+}

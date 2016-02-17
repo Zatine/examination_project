@@ -54,92 +54,31 @@
     height: 100%;
   }
 }
+
 .arrow{
+  @include colorArrow($primary-color, $background-color);  
+}
+
+.arrow-image{
+  @include imageArrow($background-color);
+}
+
+.slanted{
   position: relative;
-  background: $primary-color;
-  padding: $arrow-size;
-  
-  &:after, &:before{
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 9;
-    position: absolute;
-    pointer-events: none;
-  }
-  
-  &:after{
-    border-color: transparent;
-    border-width: $arrow-size;
-  }
-  
   &:before{
-    border-color: transparent;
-    border-width: $arrow-size + 6px;
-  }  
-    
-  &.up{
-    &:after, &:before{
-      left: 50%;
-      bottom: 100%;
-      border-bottom-color: $primary-color;
-    }
-    &:after{margin-left: -$arrow-size;}
-    &:before{margin-left: -$arrow-size - 6px;}
-    &.inverse{
-      &:after, &:before{
-        bottom: 0;
-        border-bottom-color: $background-color;
-      }
-    }
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10%;
+    overflow: visible;
+    width: 100%;
+    height: 120%;
+    background: inherit;
+    z-index: -1;
+    transform: skewY(-2deg);
+    -webkit-backface-visibility: hidden;
   }
-  
-  &.down{
-      &:after, &:before{
-      left: 50%;
-      top: 100%;
-      border-top-color: $primary-color;
-    }
-    &:after{margin-left: -$arrow-size;}
-    &:before{margin-left: -$arrow-size - 6px;}
-    &.inverse{
-      &:after, &:before{
-        top: 0;
-        border-top-color: $background-color;
-      }
-    }
+  &.reverse:before{
+    transform: skewY(2deg);
   }
-  
-  &.right{
-    &:after, &:before{
-      left: 100%;
-      top: 50%;
-      border-left-color: $primary-color;
-    }
-    &:after{margin-top: -$arrow-size;}
-    &:before{margin-top: -$arrow-size - 6px;}
-    &.inverse{
-      &:after, &:before{
-        left: 0;
-        border-left-color: $background-color;
-      }
-    }
-  }
-  
-  &.left{
-    &:after, &:before{
-      right: 100%;
-      top: 50%;
-      border-right-color: $primary-color;
-    }
-    &:after{margin-top: -$arrow-size;}
-    &:before{margin-top: -$arrow-size - 6px;}
-    &.inverse{
-      &:after, &:before{
-        right: 0;
-        border-right-color: $background-color;
-      }
-    }
-  }
-  
 }
