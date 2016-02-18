@@ -8,7 +8,7 @@
     <!--endinject-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
   </head>
-  <body ng-app="App" ng-cloak>      
+  <body ng-app="App" ng-cloak>  
       <div class="container" ng-controller="Documentation as vm">
         <section>
           <h3 class="underline">Container Styling</h3>
@@ -25,6 +25,12 @@
             <column four><div class="arrow left inverse primary-bg text-center"><p>arrow left inverse</p></div></column>
             <column four><div class="arrow right inverse primary-bg text-center"><p>arrow right inverse</p></div></column>
           </row>
+                
+          <row>
+            <column twelve>
+              <p>To create this effect with a background image a different kind of solution is necessary. It's not as flexible, as it depends on the use of the background color. If you are using plain colors the above classes are recommended, while if you use an image these classes are needed. The inverse classes don't need <em>arrow-image</em>.</p>
+            </column>
+          </row>
           
           <row>
             <column four><div class="arrow-image up bg text-center"><p>arrow-image up</p></div></column>
@@ -33,17 +39,10 @@
             <column four><div class="arrow-image right bg text-center"><p>arrow-image right</p></div></column>
           </row>
           <row>
-            <column four><div class="arrow-image up inverse bg text-center"><p>arrow-image inverse up</p></div></column>
-            <column four><div class="arrow-image down inverse bg text-center"><p>arrow-image inverse down</p></div></column>
-            <column four><div class="arrow-image left inverse bg text-center"><p>arrow-image inverse left</p></div></column>
-            <column four><div class="arrow-image right inverse bg text-center"><p>arrow-image inverse right</p></div></column>
-          </row>
-          
-          <row>
             <column four><div class="slanted text-center primary-bg"><p>slanted</p></div></column>
-            <column four><div class="slanted bg reverse text-center primary-bg"><p>slanted</p></div></column>
-            <column four><div class="slanted text-center primary-bg"><p>slanted</p></div></column>
-            <column four><div class="slanted text-center primary-bg"><p>slanted</p></div></column>
+            <column four><div class="slanted reverse text-center bg"><p>slanted reverse</p></div></column>
+            <column four><div class="slanted top text-center primary-bg"><p>slanted top</p></div></column>
+            <column four><div class="slanted bottom text-center primary-bg"><p>slanted bottom</p></div></column>
           </row>
         </section>
         <section>

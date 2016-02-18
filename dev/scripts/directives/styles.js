@@ -10,4 +10,13 @@ app.directive('coloredWords', function(){
       elm[0].innerHTML = text.join(' ');
     }
   }
+})
+.directive('slanted', function(){
+  return{
+    restrict: 'C',
+    link: function(scope, elm, attrs){
+      var html = '<div class="content">' + elm[0].innerHTML + '</div>';
+      elm[0].innerHTML = html;
+    }
+  }
 });

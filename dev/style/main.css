@@ -484,36 +484,18 @@ video {
   .arrow-image.down:after, .arrow-image.up:after {
     right: -15px;
     border-left: 15px solid transparent; }
-  .arrow-image.down.inverse:after, .arrow-image.up.inverse:after {
-    border-left: 15px solid #f5f5f5; }
-  .arrow-image.down.inverse:before, .arrow-image.up.inverse:before {
-    border-right: 15px solid #f5f5f5; }
   .arrow-image.down {
     padding-bottom: 30px;
     margin-bottom: -15px; }
     .arrow-image.down:before, .arrow-image.down:after {
       bottom: 0;
       border-bottom: 19px solid #f5f5f5; }
-    .arrow-image.down.inverse {
-      padding-bottom: 15px;
-      margin-bottom: 0; }
-      .arrow-image.down.inverse:before, .arrow-image.down.inverse:after {
-        top: 0;
-        bottom: auto;
-        border-bottom: 15px solid transparent; }
   .arrow-image.up {
     padding-top: 30px;
     margin-top: -15px; }
     .arrow-image.up:before, .arrow-image.up:after {
       top: 0;
       border-top: 15px solid #f5f5f5; }
-    .arrow-image.up.inverse {
-      padding-top: 15px;
-      margin-top: 0; }
-      .arrow-image.up.inverse:before, .arrow-image.up.inverse:after {
-        top: auto;
-        bottom: 0;
-        border-top: 15px solid transparent; }
   .arrow-image.left:before, .arrow-image.left:after, .arrow-image.right:before, .arrow-image.right:after {
     height: 50%; }
   .arrow-image.left:before, .arrow-image.right:before {
@@ -522,43 +504,62 @@ video {
   .arrow-image.left:after, .arrow-image.right:after {
     bottom: -15px;
     border-top: 15px solid transparent; }
-  .arrow-image.left.inverse:after, .arrow-image.right.inverse:after {
-    border-top: 15px solid #f5f5f5; }
-  .arrow-image.left.inverse:before, .arrow-image.right.inverse:before {
-    border-bottom: 15px solid #f5f5f5; }
   .arrow-image.left:before, .arrow-image.left:after {
     left: 0;
     border-left: 15px solid #f5f5f5; }
-  .arrow-image.left.inverse:before, .arrow-image.left.inverse:after {
-    left: auto;
-    right: 0;
-    border-left: 15px solid transparent; }
   .arrow-image.right:before, .arrow-image.right:after {
     right: 0;
     border-right: 15px solid #f5f5f5; }
-  .arrow-image.right.inverse:before, .arrow-image.right.inverse:after {
-    right: auto;
-    left: 0;
-    border-right: 15px solid transparent; }
 
 .slanted {
-  position: relative; }
-  .slanted:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -10%;
-    overflow: visible;
+  position: relative;
+  -webkit-transform: skewY(-2deg);
+  transform: skewY(-2deg);
+  overflow: hidden;
+  outline: 1px solid transparent;
+  padding: 0; }
+  .slanted .content {
+    top: 0;
+    bottom: 0;
+    padding: 25px;
+    height: 100%;
     width: 100%;
-    height: 120%;
-    background: inherit;
-    z-index: -1;
-    -webkit-transform: skewY(-2deg);
-    transform: skewY(-2deg);
-    -webkit-backface-visibility: hidden; }
-  .slanted.reverse:before {
     -webkit-transform: skewY(2deg);
     transform: skewY(2deg); }
+  .slanted.reverse {
+    -webkit-transform: skewY(2deg);
+    transform: skewY(2deg); }
+    .slanted.reverse .content {
+      -webkit-transform: skewY(-2deg);
+      transform: skewY(-2deg); }
+  .slanted.top, .slanted.bottom {
+    -webkit-transform: none;
+    transform: none;
+    overflow: visible; }
+    .slanted.top.content, .slanted.bottom.content {
+      -webkit-transform: none;
+      transform: none; }
+    .slanted.top:before, .slanted.bottom:before {
+      content: ' ';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      -webkit-transform-origin: left top;
+      transform-origin: left top;
+      background: inherit;
+      z-index: -999; }
+  .slanted.top:before, .slanted.bottom.reverse:before {
+    -webkit-transform: skewY(-2deg);
+    transform: skewY(-2deg); }
+  .slanted.bottom:before, .slanted.top.reverse:before {
+    -webkit-transform: skewY(2deg);
+    transform: skewY(2deg); }
+  .slanted.top.reverse:before {
+    top: -10%; }
+  .slanted.bottom.reverse:before {
+    top: 10%; }
 
 * {
   box-sizing: border-box; }

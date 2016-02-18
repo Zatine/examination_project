@@ -166,14 +166,6 @@
       right: -$arrow-size;
       border-left: $arrow-size solid transparent;
     }
-    &.inverse{
-      &:after{
-        border-left: $arrow-size solid $bg;
-      }
-      &:before{
-        border-right: $arrow-size solid $bg;
-      }
-    }
   }
   &.down{
     padding-bottom: $arrow-size + 15px;
@@ -182,15 +174,6 @@
       bottom: 0;
       border-bottom: $arrow-size + 4 solid $bg;
     }
-    &.inverse{
-      padding-bottom: 15px;
-      margin-bottom: 0;
-      &:before, &:after{
-        top: 0;
-        bottom: auto;
-        border-bottom: $arrow-size solid transparent;
-      }
-    }
   }
   &.up{
     padding-top: $arrow-size + 15px;
@@ -198,15 +181,6 @@
     &:before, &:after{
       top: 0;
       border-top: $arrow-size solid $bg;
-    }
-    &.inverse{
-      padding-top: 15px;
-      margin-top: 0;
-      &:before, &:after{
-        top: auto;
-        bottom: 0;
-        border-top: $arrow-size solid transparent;
-      }
     }
   }
   &.left, &.right{
@@ -219,26 +193,11 @@
       bottom: -$arrow-size;
       border-top: $arrow-size solid transparent;
     }
-    &.inverse{
-        &:after{
-          border-top: $arrow-size solid $bg;
-        }
-        &:before{
-          border-bottom: $arrow-size solid $bg;
-        }
-    }
   }
   &.left{
       &:before, &:after{
         left: 0;
         border-left: $arrow-size solid $bg;
-      }
-      &.inverse{
-        &:before, &:after{
-          left: auto;
-          right: 0;
-          border-left: $arrow-size solid transparent;
-        }
       }
   }
   &.right{
@@ -246,12 +205,61 @@
         right: 0;
         border-right: $arrow-size solid $bg;
       }
-      &.inverse{
-        &:before, &:after{
-          right: auto;
-          left: 0;
-          border-right: $arrow-size solid transparent;
-        }
-      }
+  }
+}
+
+@mixin slant($deg){
+    position: relative;
+  transform: skewY(-$deg);
+  overflow: hidden;
+  outline: 1px solid transparent;
+  padding: 0;
+  .content{
+    top: 0;
+    bottom: 0;
+    padding: 25px;
+    height: 100%;
+    width: 100%;
+    transform: skewY($deg);
+  }
+  &.reverse{
+    transform: skewY($deg);
+    .content{
+      transform: skewY(-$deg);
+    }
+  }
+  &.top, &.bottom{
+    transform: none;
+    overflow: visible;
+    &.content{
+      transform: none;
+    }
+    &:before{
+      content: ' ';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-origin: left top;
+      background: inherit;
+      z-index: -999;
+    }
+  }
+  &.top, &.bottom.reverse{
+    &:before{
+      transform: skewY(-$deg);
+    }
+  }
+  &.bottom, &.top.reverse{
+    &:before{
+      transform: skewY($deg);
+    }
+  }
+  &.top.reverse{
+    &:before{top: -10%;}
+  }
+  &.bottom.reverse{
+    &:before{top: 10%;}
   }
 }

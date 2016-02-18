@@ -64,21 +64,5 @@
 }
 
 .slanted{
-  position: relative;
-  &:before{
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -10%;
-    overflow: visible;
-    width: 100%;
-    height: 120%;
-    background: inherit;
-    z-index: -1;
-    transform: skewY(-2deg);
-    -webkit-backface-visibility: hidden;
-  }
-  &.reverse:before{
-    transform: skewY(2deg);
-  }
+  @include slant(2deg);
 }
