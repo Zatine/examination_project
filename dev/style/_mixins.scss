@@ -56,97 +56,75 @@
     &:after { width: $right; left: 2.5%;}
 }
 
-@mixin colorArrow($bg, $border){
-  position: relative;
-  background: $bg;
-  padding: 15px;
+@mixin colorArrow(
+  $direction: down,
+  $color: $primary-color,
+  $bg: $background-color,
+  $size: $arrow-size,
+  $inverse: false){
  
-  &:after, &:before{
     border: solid transparent;
     content: " ";
     height: 0;
     width: 0;
     position: absolute;
     pointer-events: none;
-  }
-  
-  &:after{
     border-color: transparent;
-    border-width: $arrow-size;
-  }
-  
-  &:before{
-    border-color: transparent;
-    border-width: $arrow-size + 6px;
-  }  
+    border-width: $size;
     
-  &.up, &.down{
-    &:after, &:before{left: 50%;}
-    &:after{margin-left: -$arrow-size;}
-    &:before{margin-left: -$arrow-size - 6px;}
-  }
-  &.up{
-    &:after, &:before{
+    @if $direction == up or $direction == down{
+      left: 50%;
+      margin-left: -$size;
+    }
+    
+    @if $direction == up{
       bottom: 100%;
-      border-bottom-color: $bg;
-    }
-    &.inverse{
-      &:after, &:before{
+      border-bottom-color: $color;
+      @if $inverse == true{
         bottom: 0;
-        border-bottom-color: $border;
+        border-bottom-color: $bg;
       }
     }
-  }
-  
-  &.down{
-      &:after, &:before{
+    
+    @if $direction == down{
       top: 100%;
-      border-top-color: $bg;
-    }
-    &.inverse{
-      &:after, &:before{
+      border-top-color: $color;
+      @if $inverse == true{
         top: 0;
-        border-top-color: $border;
+        border-top-color: $bg;
       }
     }
-  }
-  
-  &.left, &.right{
-    &:after, &:before{top: 50%;}
-    &:after{margin-top: -$arrow-size;}
-    &:before{margin-top: -$arrow-size - 6px;}
-  }
-  
-  &.right{
-    &:after, &:before{
+
+    @if $direction == left or $direction == right{
+      top: 50%;
+      margin-top: -$size;
+    }
+    
+    @if $direction == right{
       left: 100%;
       border-left-color: $primary-color;
-    }
-    &.inverse{
-      &:after, &:before{
+      @if $inverse == true{
         left: 0;
-        border-left-color: $border;
+        border-left-color: $bg;
       }
     }
-  }
   
-  &.left{
-    &:after, &:before{
+    @if $direction == left{
       right: 100%;
-      border-right-color: $bg;
-    }
-    &.inverse{
-      &:after, &:before{
+      border-right-color: $color;
+      @if $inverse == true{
         right: 0;
-        border-right-color: $border;
+        border-right-color: $bg;
       }
     }
-  }
 }
 
-@mixin imageArrow($bg){
+@mixin imageArrow(
+  $direction: down,
+  $bg: $background-color,
+  $size: $arrow-size){
+    
   position: relative;
-  padding: 15px;
   
   &:before, &:after{
     position: absolute;
@@ -156,82 +134,163 @@
     pointer-events: none;
   }
   
-  &.down, &.up{
+  @if $direction == down or $direction == up{
     &:before, &:after{width: 50%;}
     &:before{
       left: -$arrow-size;
-      border-right: $arrow-size solid transparent;
+      border-right: $size solid transparent;
     }
     &:after{
       right: -$arrow-size;
-      border-left: $arrow-size solid transparent;
+      border-left: $size solid transparent;
     }
   }
-  &.down{
-    padding-bottom: $arrow-size + 15px;
-    margin-bottom: -$arrow-size;
+  
+  @if $direction == down{
+    padding-bottom: $size + 15px;
+    margin-bottom: -$size;
     &:before, &:after{
       bottom: 0;
-      border-bottom: $arrow-size + 4 solid $bg;
+      border-bottom: $size + 4 solid $bg;
     }
   }
-  &.up{
-    padding-top: $arrow-size + 15px;
-    margin-top: -$arrow-size;
+    
+  @if $direction == up{
+    padding-top: $size + 15px;
+    margin-top: -$size;
     &:before, &:after{
       top: 0;
-      border-top: $arrow-size solid $bg;
+      border-top: $size solid $bg;
     }
   }
-  &.left, &.right{
+  
+  @if $direction == left or $direction == right{
     &:before, &:after{height: 50%;}
     &:before{
-      top: -$arrow-size;
-      border-bottom: ($arrow-size + 4) solid transparent;
+      top: -$size;
+      border-bottom: ($size + 4) solid transparent;
     }
     &:after{
       bottom: -$arrow-size;
-      border-top: $arrow-size solid transparent;
+      border-top: $size solid transparent;
     }
   }
-  &.left{
+  
+  @if $direction == left{
       &:before, &:after{
         left: 0;
-        border-left: $arrow-size solid $bg;
+        border-left: $size solid $bg;
       }
   }
-  &.right{
+    
+  @if $direction == right{
       &:before, &:after{
         right: 0;
-        border-right: $arrow-size solid $bg;
+        border-right: $size solid $bg;
       }
   }
 }
 
-@mixin slant($deg){
-    position: relative;
-  transform: skewY(-$deg);
+@mixin slant(
+  $direction: y,
+  $deg: 2){
+  position: relative;
   overflow: hidden;
   outline: 1px solid transparent;
   padding: 0;
+    
   .content{
-    top: 0;
-    bottom: 0;
     padding: 25px;
-    height: 100%;
-    width: 100%;
-    transform: skewY($deg);
+    transform: skewY($deg * 1deg);
   }
-  &.reverse{
-    transform: skewY($deg);
+    
+  @if $direction == y{
+    transform: skewY(-$deg * 1deg);
     .content{
-      transform: skewY(-$deg);
+      transform: skewY($deg * 1deg);
     }
   }
-  &.top, &.bottom{
+
+  @if $direction == x{
+    transform: skew($deg * 5 * 1deg);
+    .content{
+      transform: skew(-$deg * 5 * 1deg);
+    }
+  }
+
+}
+
+@mixin slant-edge(
+  $edge: top,
+  $deg: 2,
+  $color: $primary-color,
+  $reverse: false
+  ){
+    
+  content: ' ';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transform-origin: left top;
+  background: inherit;
+  z-index: -999;
+    
+  @if $edge == top or $edge == bottom{
+    left: 0;
+    @if $reverse == true{
+      transform-origin: right top;
+    }
+  }
+    
+  @if $edge == top{
+    transform: skewY(-$deg * 1deg);
+      @if $reverse == true{
+        transform: skewY($deg * 1deg);
+      }
+  }
+    
+  @if $edge == bottom{
+      transform: skewY($deg * 1deg);
+      @if $reverse == true{
+        transform: skewY(-$deg * 1deg);
+      }
+  }
+    
+  @if $edge == left or $edge == right{
+    left: 0;
+    @if $reverse == true{
+      transform-origin: left bottom;
+    }
+  }
+    
+  @if $edge == left{
+    left: 0;
+    transform: skew(-$deg * 5 * 1deg);
+    @if $reverse == true{
+      transform: skew($deg * 5 * 1deg);
+    }
+  }
+    
+  @if $edge == right{
+    right: 0;
+    transform: skew($deg * 5 * 1deg);
+    @if $reverse == true{
+      transform: skew(-$deg * 5 * 1deg);
+    }
+  }
+
+}
+
+@mixin slant-image($bg: $background-color, $border: 3000px, $deg: 5){
+  position: relative;
+  overflow: hidden;
+  padding: 15px;
+  
+  &.left, &.right, &.top, &.bottom{
     transform: none;
-    overflow: visible;
-    &.content{
+    overflow: hidden;
+    .content{
       transform: none;
     }
     &:before{
@@ -239,27 +298,55 @@
       width: 100%;
       height: 100%;
       position: absolute;
-      top: 0;
-      left: 0;
-      transform-origin: left top;
-      background: inherit;
-      z-index: -999;
+      background: $bg;
     }
+  }
+  &.right{
+    &:before{left: 100%;}
+  }
+  &.left{
+    &:before{right: 100%;}
+  }
+  &.right, &.left{
+    &:before{
+      top: 0;
+      transform-origin: left top;
+    }
+    &.reverse:before{
+      transform-origin: left bottom;}
+  }
+  &.right, &.left.reverse{
+    &:before{
+      transform: skew(-$deg * 1deg);
+    }
+  }
+  &.left, &.right.reverse{
+    &:before{
+      transform: skew($deg * 1deg);
+    }
+  }
+  &.top{
+    &:before{bottom: 100%;}
+  }
+  &.bottom{
+    &:before{top: 100%;}
+  }
+  &.top, &.bottom{ 
+    &:before{
+      left: 0;
+      transform-origin: right top;
+    }
+    &.reverse:before{transform-origin: left top;}
   }
   &.top, &.bottom.reverse{
     &:before{
-      transform: skewY(-$deg);
+      transform: skewY(-$deg * 1deg);
     }
   }
   &.bottom, &.top.reverse{
     &:before{
-      transform: skewY($deg);
+      transform: skewY($deg * 1deg);
     }
   }
-  &.top.reverse{
-    &:before{top: -10%;}
-  }
-  &.bottom.reverse{
-    &:before{top: 10%;}
-  }
+
 }
