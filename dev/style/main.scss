@@ -10,9 +10,16 @@
   @include color-bg($primary-color);
 }
 
+nav{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
 section{
   margin: 50px 0;
-  & > h3{
+  & > h3:first-child{
     border-bottom: 1px solid $blend-color-high;
   }
 }
@@ -23,6 +30,9 @@ section{
   white-space: pre-line;
 }
 
+.line{@include lineThrough();}
+.line-left{@include lineThrough(0, 100%, $primary-color, 3);}
+.line-right{@include lineThrough(80%, 20%, $secondary-color, 2, dashed);}
 
 .arrow{
   padding: 15px;

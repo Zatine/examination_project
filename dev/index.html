@@ -9,9 +9,414 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
   </head>
   <body ng-app="App" ng-cloak>  
-      <div class="container" ng-controller="Documentation as vm">
-        <section>
-          <h3 class="underline">Container Mixins</h3>
+    <nav>
+      <ul>
+        <a href="#intro"><li>Introduction</li></a>
+        <a href="#basic-styles"><li>Basic Styles</li></a>
+        <a href="#forms"><li>Forms</li></a>
+        <a href="#grid"><li>Grid</li></a>
+        <a href="#helpers"><li>Helper Classes</li></a>
+        <a href="#special-styles"><li>Special Styles</li></a>
+        <a href="#mixins"><li>Mixins</li></a>
+      </ul>
+    </nav>
+    <section class="container" id="basic-styles">
+      <h2>Basic Styles</h2><section>
+        <h3>Headings</h3>
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+      </section>
+      
+      <section>
+        <h3>Links</h3>
+        <a href="#">Link</a>
+      </section>
+      <section>
+        <h3>Buttons</h3>
+        <button>Button</button>
+        <button class="primary">Primary</button>
+        <button class="secondary">Secondary</button>
+        <button class="contrast">Contrast</button>
+        <button disabled>Disabled</button>
+      </section>
+      <section>
+        <h3>Lists</h3>
+        <row>
+          <column six>
+            <h4>Unordered lists</h4>
+            <row>
+              <column six>
+                  <ul>
+                    <li>First item</li>
+                    <li>Second item</li>
+                    <li>Third item</li>
+                  </ul>
+              </column>
+              <column six>
+                  <ul  >
+                    <li>First item</li>
+                    <li>Second item</li>
+                    <li>Third item</li>
+                  </ul>
+                  <p class="mute">Add the class <em>underline</em> to your list for a different style.</p>
+              </column>
+            </row>  
+          </column>
+          <column six>
+              <h4>Ordered lists</h4>
+                <row>
+                  <column six>
+                      <ol>
+                        <li>First item</li>
+                        <li>Second item</li>
+                        <li>Third item</li>
+                      </ol>
+                  </column>
+                  <column six>
+                      <ol class="round">
+                        <li>First item</li>
+                        <li>Second item</li>
+                        <li>Third item</li>
+                      </ol>
+                      <p class="mute">Add the class <em>round</em> to your list to show the numbers in circles.</p>
+                  </column>
+                </row>
+          </column>
+        </row>
+      </section>
+      <section>
+        <h3>Tables</h3>
+        <row>
+          <column six>
+            <table>
+              <caption>Example Table</caption>
+              <thead>
+                <tr>
+                  <th>Table Header</th>
+                  <th>Another Header</th>
+                  <th>A Third One</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <td>Footer content</td>
+                </tr>
+              </tfoot>
+              <tbody>
+                <tr>
+                  <td>Data</td>
+                  <td>More Data</td>
+                  <td>Even more</td>
+                </tr>
+                <tr>
+                  <td>Data</td>
+                  <td>More Data</td>
+                  <td>Even more</td>
+                </tr>
+                <tr>
+                  <td>Data</td>
+                  <td>More Data</td>
+                  <td>Even more</td>
+                </tr>
+              </tbody>  
+            </table>
+          </column>
+        </row>
+      </section>
+    </section>
+    <section class="container" id="forms" ng-controller="Documentation as vm">
+      <h2>Forms</h2>
+              
+      <section>
+        <h3>Inputs &amp; Textareas</h3>
+        <row>
+          <column twelve>
+              <p>Inputs and Textareas are created with the <strong>&lt;form-section></strong>-element. You need to define whether it's an input or textarea you want with the field-attribute. You can use most of the attributes you normally would on an their respective tags, such as <em>type</em>, <em>disabled</em> or <em>placeholder</em>. You can also use most of the Angular-specific attributes for inputs, for example <em>ng-model</em> or validation. Note that validation will only work if your input is inside of a <em>form</em>-element with a name-attribute on it, or an element with the <em>ng-form</em>-attribute. Other attributes you can use are:</p>
+            </column>
+          </row>
+          <row>
+            <column four>
+          <ul>
+            <li><strong>field:</strong> <em>Important for the directive to work.</em> 'Input' or 'Textarea' for different elements.</li>
+            <li><strong>label:</strong> What you want the label to say.</li>
+            <li><strong>desc:</strong> If you want additional text under the label, for example detailing how the user should answer.</li>
+            <li><strong>grid:</strong> True or false. Display the inputs and their labels next to instead of on top of each other.</li>
+            <li><strong>id:</strong> Needed for label functionality.</li>
+            <li><strong>icon:</strong> Which icon to add to the right side of the input.</li>
+          </ul>
+          </column>
+            <column four>
+              <form name="standard">
+                  <fieldset>
+                    <legend>Standard</legend>
+                    <form-section 
+                                  field="input"
+                                  label="Password" 
+                                  desc="At least 6 characters" 
+                                  icon="search" 
+                                  id="pw1" 
+                                  ng-required="true" 
+                                  ng-minlength="6" 
+                                  ng-maxlength="10"
+                                  type="text"
+                    ></form-section>
+                    <form-section 
+                                  field="input" 
+                                  label="E-mail" 
+                                  id="email" 
+                                  type="email"
+                    ></form-section>
+                    
+                    <form-section 
+                                  field="textarea"
+                                  label="Textarea"
+                                  id="ta1"
+                    ></form-section>
+
+                </fieldset>
+              </form>
+            </column>
+            <column four>
+              <form name="grid">
+                  <fieldset>
+                    <legend>Grid</legend>
+                    
+                    <form-section 
+                                  label="Text" 
+                                  desc="Additional info" 
+                                  icon="search" 
+                                  id="in1"
+                                  ng-required="true"
+                                  grid="true"
+                                  field="input"
+                    ></form-section>
+                    
+                    <form-section 
+                                  field="textarea"
+                                  label="Textarea"
+                                  id="ta2"
+                                  grid="true"
+                    ></form-section>
+                      
+                </fieldset>
+              </form>
+            </column>
+          </row>
+      </section>
+      <section>
+        <h3>Radio Buttons and Checkboxes</h3>
+        <row>
+          <column twelve>
+        <p>To make styling of these elements possible in the first place some CSS "hacks" are required. It is therefore recommended to start with these predefined directives and style them on your own from there if required. Instead of creating input-elements with different types you can now use the <strong>&lt;radio-button></strong> and <strong>&lt;checkbox></strong> elements. You can use the checked and disabled-attributes on these elements as you normally would, and they also work with ng-model.</p>
+          </column>
+        </row>
+        <row>
+          <column four>
+              <ul>
+                <li><strong>id:</strong> Needs to be provided in order for the buttons to work. Important to use a unique ID for the element.</li>
+                <li><strong>label:</strong> What you want the label to say.</li>
+              </ul>
+          </column>
+          <column four>
+              <form name="radio">
+                <fieldset>
+                  <legend>Radio Buttons</legend>
+                      <radio-button checked label="Option 1" id="op1" name="first_example" ng-model="vm.formData.radio"></radio-button>
+                      <radio-button label="Option 2" id="op2" name="first_example" ng-model="vm.formData.radio"></radio-button>
+                      <radio-button label="Option 3" id="op3" name="first_example" ng-model="vm.formData.radio"></radio-button>
+                  </fieldset>
+              </form>
+          </column>
+          <column four>
+              <form name="check">
+                  <fieldset>
+                    <legend>Checkboxes</legend>
+                    <checkbox label="Check 1" id="ch1" name="checkboxes" ng-model="vm.formData.value1" checked></checkbox>
+                    <checkbox label="Check 2" id="ch2" name="checkboxes" ng-model="vm.formData.value2"></checkbox>
+                    <checkbox label="Check 3" id="ch3" name="checkboxes" ng-model="vm.formData.value3"></checkbox>
+                  </fieldset>
+              </form>
+          </column>
+        </row>
+      </section>
+      <section>
+            <h3>Select</h3>
+        <row>
+          <column twelve>
+            <p>You can use either regular select-elements (to the right) or the custom ones built for this Framework. Instead of select, you use the <strong>&lt;dropdown></strong>-element. The dropdown-element simulates a menu through lists, which allows for extensive styling and looks the same across different browsers, but it also contains a hidden regular select with all the values you might need for a form. You can use <em>multiple</em> or <em>disabled</em> as on a regular select-element.</p>
+          </column>
+        </row>
+        <row>
+          <column four>
+              <ul>
+                <li><strong>options:</strong> Must be provided to render anything. Should be an array of objects. The name-property is what will be displayed to the user.</li>
+              </ul>
+          </column>
+          <column four>
+            <fieldset>
+              <legend>Custom</legend>
+              <dropdown options="vm.options"></dropdown>
+              <dropdown multiple options="vm.options"></dropdown>
+            </fieldset>
+          </column>
+          <column four>
+            <fieldset>
+                <legend>Regular</legend>
+                <select>
+                  <option ng-repeat="option in vm.options">{{option.name}}</option>
+                </select>
+                <select multiple>
+                  <option ng-repeat="option in vm.options">{{option.name}}</option>
+                </select>
+            </fieldset>
+          </column>
+        </row>
+      </section>
+    </section>
+    <section class="container" id="grid">
+      <h2>Grid</h2>
+     <section>
+        <h3>Set width</h3>
+        <p>This is a flexible grid system built upon <strong>Flexbox</strong>. This means it is only fully functional in browsers later than Internet Explorer 9. A Fallback solution is planned but not implemented. Simply create a <em>row</em>-element, and then populate it with <em>column</em>-elements. If you need it to take up a certain amount of width, add any number between one and twelve as an attribute. Twelve fills the entire row. If the total number of columns is higher than twelve, the columns will automatically be contained to that row rather than keep their intended width.</p>
+        
+        <row>
+          <column class="code">
+            <code>&lt;row>
+                &lt;column one>One&lt;/column>
+                &lt;column two>Two&lt;/column>
+                &lt;column three>Three&lt;/column>
+                &lt;column six>Six&lt;/column>
+              &lt;/row>
+            </code>
+          </column>
+          
+          <column class="code">
+            <code>&lt;row>
+                &lt;column five>Five&lt;/column>
+                &lt;column seven>Seven&lt;/column>
+              &lt;/row>
+            </code>
+          </column>
+          
+          <column class="code">
+            <code>&lt;row>
+                &lt;column twelve>Twelve&lt;/column>
+              &lt;/row>
+            </code>
+          </column>
+        </row>
+
+        <row>
+          <column one class="grid">One</column>
+          <column two class="grid">Two</column>
+          <column three class="grid">Three</column>
+          <column six class="grid">Six</column>
+        </row>
+        <row>
+          <column five class="grid">Five</column>
+          <column seven class="grid">Seven</column>
+        </row>
+        <row>
+          <column twelve class="grid">Twelve</column>
+        </row>
+      </section>
+      <section>
+        <h3>Dynamic Columns</h3>
+        <p>If, however, you don't provide the columns with a number, they will adjust according to their content.</p>
+        
+        <row>
+            <column class="code">
+                <code>
+                  &lt;row>
+                    &lt;column>Dynamic&lt;/column>
+                    &lt;column>Dynamic&lt;/column>
+                    &lt;column>Dynamic&lt;/column>
+                  &lt;/row>
+                </code>
+          </column>
+          
+            <column class="code">
+                <code>
+                  &lt;row>
+                    &lt;column>Dynamic&lt;/column>
+                    &lt;column>Dynamic&lt;/column>
+                    &lt;column>Dynamic&lt;/column>
+                    &lt;column>Dynamic&lt;/column>
+                    &lt;column>Dynamic&lt;/column>
+                  &lt;/row>
+                </code>
+          </column>
+        </row>
+
+        <row>
+          <column class="grid">Dynamic</column>
+          <column class="grid">Dynamic</column>
+          <column class="grid">Dynamic</column>
+        </row>
+        <row>
+          <column class="grid">Dynamic</column>
+          <column class="grid">Dynamic</column>
+          <column class="grid">Dynamic</column>
+          <column class="grid">Dynamic</column>
+          <column class="grid">Dynamic</column>
+        </row>
+    </section>
+    </section>
+    <section class="container" id="helpers">
+      <h2>Helper Classes</h2>
+        <row>
+          <column four class="card">
+            <h5>Responsive Embeds</h5>
+          <p>For easy ability to make a video embed responsive, surround your embed with a div of the class <em>video-wrapper</em>. The video will never take up more than the width of it's container.</p>
+            <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/9bZkp7q19f0" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </column>
+          <column four class="card">
+            <h5>Text</h5>
+            <h6>Alignment</h6>
+            <p>Use these classes for easy alignment of text.</p>
+            <p class="text-left primary-bg">text-left</p>
+            <p class="text-center primary-bg">text-center</p>
+            <p class="text-right primary-bg">text-right</p>
+            
+            <h6>Color</h6>
+            <p class="mute">You can use the <em>mute</em>-class for a more discrete color.</p>
+            
+            <h6>Size</h6>
+            <p class="big">Use the <em>big</em>-class for a bigger font.</p>
+            <p class="normal">Use the <em>normal</em>-class for the original fontsize.</p>
+            <p class="small">Use the <em>small</em>-class for a smaller font.</p>
+          </column>
+          <column four class="card">
+            <h5>Other</h5>
+            <h6>Container</h6>
+            <p>Add this class to a wrapping element to set a maximum width for your content. The width is determined in <em>theme.scss</em>.</p>
+            <h6>Inline-block</h6>
+            <p>Add this class to an element to automatically display it as an inline-block.</p>
+            <h6>Card</h6>
+            <p>Each section on this row uses the card-class. This class adds a thin border around your content to separate it from the rest of the page.</p>
+          </column>
+        </row>
+    </section>
+    <section class="container" id="special-styles">
+      <h2>Special Styles</h2>
+        <row>
+          <column four>
+            <h4>Colored Words</h4>
+            <p>This class adds a span element around every word within it. Be sure to use it only when the element contains nothing but text. Each span gets the class <em>color-span</em>, found in <em>_helpers.scss</em> and can be styled through that.</p>
+            <h6 class="colored-words">Use colored-words to get this effect</h6>
+          </column>
+        </row>
+    </section>
+    <section class="container" id="mixins">
+        <h2>Mixins</h2>
+         <section>
+          <h3>Containers</h3>
           <h4>colorArrow</h4>
           <p>Include this mixin to create a solid colored arrow on your containing element. Include the mixin in a pseudo class in your container, either before or after. This allows you to use up to two different arrows per element. The container needs to have <em>position:relative</em>.</p>
           <ul>
@@ -115,402 +520,35 @@
           </row>
         </section>
         <section>
-          <h3 class="underline">Text Mixins</h3>
+          <h3>Text</h3>
           <row>
             <column four>
               <h4>headings</h4>
-              Style several headings at once using the <em>headings</em>-mixin. Specify from and to which number the rules should apply as parameters. <code class="code">@include headings(1, 3){color:red;}</code> for example would apply red to h1 through h3.
+              <p>Style several headings at once using the <em>headings</em>-mixin. Specify from and to which number the rules should apply as parameters. <code class="code">@include headings(1, 3){color:red;}</code> for example would apply red to h1 through h3.</p>
+              <ul>
+                <li><strong>$from:</strong> From which heading the rules should apply. Defaults to 1.</li>
+                <li><strong>$to:</strong> From which heading the rules should stop applying. Defaults to 6.</li>
+              </ul>
             </column>
-          </row>
-        </section>
-        <section>
-          <h3 class="underline">Headings</h3>
-          <row>
-            <column four class="card">
-              <h4 class="card-header">Size</h4>
-              <h1>Heading 1</h1>
-              <h2>Heading 2</h2>
-              <h3>Heading 3</h3>
-              <h4>Heading 4</h4>
-              <h5>Heading 5</h5>
-              <h6>Heading 6</h6>
-            </column>
-            <column four class="card">
-              <h4>Special styles</h4>
-              <p>These classes can be used on any heading or text-element. The line-classes will only work if contained to one line of text, but the colored-words has no limit.</p>
+            <column four>
+              <h4>lineThrough</h4>
+              <p>Include <em>lineThrough</em> to get the effect of a line running behind your text. This will only work for text on one line.</p>
+              <ul>
+                <li><strong>$left:</strong> How far the left side of the line should go. Defaults to 45%.</li>
+                <li><strong>$right:</strong> How far the right side of the line should go. Defaults to 45%.</li>
+                <li><strong>$color:</strong> Which color the line should have. Defaults to $blend-color-low.</li>
+                <li><strong>$thickness:</strong> How thick the line should be. Provided in pure numbers, not sizes. Defaults to 1.</li>
+                <li><strong>$style:</strong> Which border style the line should have. Solid, dashed, dotted, ridge, groove and double work. Defaults to solid.</li>
+              </ul>
               <h6 class="line">Line</h6>
               <h6 class="line-left">Line-left</h6>
               <h6 class="line-right">Line-right</h6>
-              <h6 class="colored-words">Use colored-words to get this effect</h6>
             </column>
           </row>
         </section>
-        
-        <section>
-          <h3 class="underline">Links</h3>
-          <a href="#">Link</a>
-        </section>
-        <section>
-          <h3 class="underline">Buttons</h3>
-          <button>Button</button>
-          <button class="primary">Primary</button>
-          <button class="secondary">Secondary</button>
-          <button class="contrast">Contrast</button>
-          <button disabled>Disabled</button>
-        </section>
-        <section>
-          <h3 class="underline">Lists</h3>
-          <row>
-            <column six>
-              <h4>Unordered lists</h4>
-              <row>
-                <column six>
-                    <ul>
-                      <li>First item</li>
-                      <li>Second item</li>
-                      <li>Third item</li>
-                    </ul>
-                </column>
-                <column six>
-                    <ul class="underline">
-                      <li>First item</li>
-                      <li>Second item</li>
-                      <li>Third item</li>
-                    </ul>
-                    <p class="mute">Add the class <em>underline</em> to your list for a different style.</p>
-                </column>
-              </row>  
-            </column>
-            <column six>
-                <h4>Ordered lists</h4>
-                  <row>
-                    <column six>
-                        <ol>
-                          <li>First item</li>
-                          <li>Second item</li>
-                          <li>Third item</li>
-                        </ol>
-                    </column>
-                    <column six>
-                        <ol class="round">
-                          <li>First item</li>
-                          <li>Second item</li>
-                          <li>Third item</li>
-                        </ol>
-                        <p class="mute">Add the class <em>round</em> to your list to show the numbers in circles.</p>
-                    </column>
-                  </row>
-            </column>
-          </row>
-        </section>
-        <section>
-          <h3 class="underline">Tables</h3>
-          <row>
-            <column six>
-              <table>
-                <caption>Example Table</caption>
-                <thead>
-                  <tr>
-                    <th>Table Header</th>
-                    <th>Another Header</th>
-                    <th>A Third One</th>
-                  </tr>
-                </thead>
-                <tfoot>
-                  <tr>
-                    <td>Footer content</td>
-                  </tr>
-                </tfoot>
-                <tbody>
-                  <tr>
-                    <td>Data</td>
-                    <td>More Data</td>
-                    <td>Even more</td>
-                  </tr>
-                  <tr>
-                    <td>Data</td>
-                    <td>More Data</td>
-                    <td>Even more</td>
-                  </tr>
-                  <tr>
-                    <td>Data</td>
-                    <td>More Data</td>
-                    <td>Even more</td>
-                  </tr>
-                </tbody>  
-              </table>
-            </column>
-          </row>
-        </section>
-        
-        <section>
-            <h3 class="underline">Forms</h3>
-          <row>
-            <column twelve>
-                <h4>Inputs &amp; Textareas</h4>
-                <p>Inputs and Textareas are created with the <strong>&lt;form-section></strong>-element. You need to define whether it's an input or textarea you want with the field-attribute. You can use most of the attributes you normally would on an their respective tags, such as <em>type</em>, <em>disabled</em> or <em>placeholder</em>. You can also use most of the Angular-specific attributes for inputs, for example <em>ng-model</em> or validation. Note that validation will only work if your input is inside of a <em>form</em>-element with a name-attribute on it, or an element with the <em>ng-form</em>-attribute. Other attributes you can use are:</p>
-              </column>
-            </row>
-            <row>
-              <column four>
-            <ul>
-              <li><strong>field:</strong> <em>Important for the directive to work.</em> 'Input' or 'Textarea' for different elements.</li>
-              <li><strong>label:</strong> What you want the label to say.</li>
-              <li><strong>desc:</strong> If you want additional text under the label, for example detailing how the user should answer.</li>
-              <li><strong>grid:</strong> True or false. Display the inputs and their labels next to instead of on top of each other.</li>
-              <li><strong>id:</strong> Needed for label functionality.</li>
-              <li><strong>icon:</strong> Which icon to add to the right side of the input.</li>
-            </ul>
-            </column>
-              <column four>
-                <form name="standard">
-                    <fieldset>
-                      <legend>Standard</legend>
-                      <form-section 
-                                    field="input"
-                                    label="Password" 
-                                    desc="At least 6 characters" 
-                                    icon="search" 
-                                    id="pw1" 
-                                    ng-required="true" 
-                                    ng-minlength="6" 
-                                    ng-maxlength="10"
-                                    type="text"
-                      ></form-section>
-                      <form-section 
-                                    field="input" 
-                                    label="E-mail" 
-                                    id="email" 
-                                    type="email"
-                      ></form-section>
-                      
-                      <form-section 
-                                    field="textarea"
-                                    label="Textarea"
-                                    id="ta1"
-                      ></form-section>
-
-                  </fieldset>
-                </form>
-              </column>
-              <column four>
-                <form name="grid">
-                    <fieldset>
-                      <legend>Grid</legend>
-                      
-                      <form-section 
-                                    label="Text" 
-                                    desc="Additional info" 
-                                    icon="search" 
-                                    id="in1"
-                                    ng-required="true"
-                                    grid="true"
-                                    field="input"
-                      ></form-section>
-                      
-                      <form-section 
-                                    field="textarea"
-                                    label="Textarea"
-                                    id="ta2"
-                                    grid="true"
-                      ></form-section>
-                        
-                  </fieldset>
-                </form>
-              </column>
-            </row>
-          <row>
-            <column twelve>
-          <h4>Radio Buttons and Checkboxes</h4>
-          <p>To make styling of these elements possible in the first place some CSS "hacks" are required. It is therefore recommended to start with these predefined directives and style them on your own from there if required. Instead of creating input-elements with different types you can now use the <strong>&lt;radio-button></strong> and <strong>&lt;checkbox></strong> elements. You can use the checked and disabled-attributes on these elements as you normally would, and they also work with ng-model.</p>
-            </column>
-          </row>
-          <row>
-            <column four>
-                <ul>
-                  <li><strong>id:</strong> Needs to be provided in order for the buttons to work. Important to use a unique ID for the element.</li>
-                  <li><strong>label:</strong> What you want the label to say.</li>
-                </ul>
-            </column>
-            <column four>
-                <form name="radio">
-                  <fieldset>
-                    <legend>Radio Buttons</legend>
-                        <radio-button checked label="Option 1" id="op1" name="first_example" ng-model="vm.formData.radio"></radio-button>
-                        <radio-button label="Option 2" id="op2" name="first_example" ng-model="vm.formData.radio"></radio-button>
-                        <radio-button label="Option 3" id="op3" name="first_example" ng-model="vm.formData.radio"></radio-button>
-                    </fieldset>
-                </form>
-            </column>
-            <column four>
-                <form name="check">
-                    <fieldset>
-                      <legend>Checkboxes</legend>
-                      <checkbox label="Check 1" id="ch1" name="checkboxes" ng-model="vm.formData.value1" checked></checkbox>
-                      <checkbox label="Check 2" id="ch2" name="checkboxes" ng-model="vm.formData.value2"></checkbox>
-                      <checkbox label="Check 3" id="ch3" name="checkboxes" ng-model="vm.formData.value3"></checkbox>
-                    </fieldset>
-                </form>
-            </column>
-          </row>
-          <row>
-            <column twelve>
-              <h4>Select</h4>
-              <p>You can use either regular select-elements (to the right) or the custom ones built for this Framework. Instead of select, you use the <strong>&lt;dropdown></strong>-element. The dropdown-element simulates a menu through lists, which allows for extensive styling and looks the same across different browsers, but it also contains a hidden regular select with all the values you might need for a form. You can use <em>multiple</em> or <em>disabled</em> as on a regular select-element.</p>
-            </column>
-          </row>
-          <row>
-            <column four>
-                <ul>
-                  <li><strong>options:</strong> Must be provided to render anything. Should be an array of objects. The name-property is what will be displayed to the user.</li>
-                </ul>
-            </column>
-            <column four>
-              <fieldset>
-                <legend>Custom</legend>
-                <dropdown options="vm.options"></dropdown>
-                <dropdown multiple options="vm.options"></dropdown>
-              </fieldset>
-            </column>
-            <column four>
-              <fieldset>
-                  <legend>Regular</legend>
-                  <select>
-                    <option ng-repeat="option in vm.options">{{option.name}}</option>
-                  </select>
-                  <select multiple>
-                    <option ng-repeat="option in vm.options">{{option.name}}</option>
-                  </select>
-              </fieldset>
-            </column>
-          </row>
-        </section>
-        
-        <section>
-          <h3 class="underline">Grid System</h3>
-          <h4>Set width</h4>
-          <p>This is a flexible grid system built upon <strong>Flexbox</strong>. This means it is only fully functional in browsers later than Internet Explorer 9. A Fallback solution is planned but not implemented. Simply create a <em>row</em>-element, and then populate it with <em>column</em>-elements. If you need it to take up a certain amount of width, add any number between one and twelve as an attribute. Twelve fills the entire row. If the total number of columns is higher than twelve, the columns will automatically be contained to that row rather than keep their intended width.</p>
-          
-          <row>
-            <column class="code">
-              <code>&lt;row>
-                  &lt;column one>One&lt;/column>
-                  &lt;column two>Two&lt;/column>
-                  &lt;column three>Three&lt;/column>
-                  &lt;column six>Six&lt;/column>
-                &lt;/row>
-              </code>
-            </column>
-            
-            <column class="code">
-              <code>&lt;row>
-                  &lt;column five>Five&lt;/column>
-                  &lt;column seven>Seven&lt;/column>
-                &lt;/row>
-              </code>
-            </column>
-            
-            <column class="code">
-              <code>&lt;row>
-                  &lt;column twelve>Twelve&lt;/column>
-                &lt;/row>
-              </code>
-            </column>
-          </row>
-
-          <row>
-            <column one class="grid">One</column>
-            <column two class="grid">Two</column>
-            <column three class="grid">Three</column>
-            <column six class="grid">Six</column>
-          </row>
-          <row>
-            <column five class="grid">Five</column>
-            <column seven class="grid">Seven</column>
-          </row>
-          <row>
-            <column twelve class="grid">Twelve</column>
-          </row>
-
-          <h4>Dynamic Columns</h4>
-          <p>If, however, you don't provide the columns with a number, they will adjust according to their content.</p>
-          
-          <row>
-              <column class="code">
-                  <code>
-                    &lt;row>
-                      &lt;column>Dynamic&lt;/column>
-                      &lt;column>Dynamic&lt;/column>
-                      &lt;column>Dynamic&lt;/column>
-                    &lt;/row>
-                  </code>
-            </column>
-            
-              <column class="code">
-                  <code>
-                    &lt;row>
-                      &lt;column>Dynamic&lt;/column>
-                      &lt;column>Dynamic&lt;/column>
-                      &lt;column>Dynamic&lt;/column>
-                      &lt;column>Dynamic&lt;/column>
-                      &lt;column>Dynamic&lt;/column>
-                    &lt;/row>
-                  </code>
-            </column>
-          </row>
-
-          <row>
-            <column class="grid">Dynamic</column>
-            <column class="grid">Dynamic</column>
-            <column class="grid">Dynamic</column>
-          </row>
-          <row>
-            <column class="grid">Dynamic</column>
-            <column class="grid">Dynamic</column>
-            <column class="grid">Dynamic</column>
-            <column class="grid">Dynamic</column>
-            <column class="grid">Dynamic</column>
-          </row>
       </section>
-        
-        <section>
-          <h3 class="underline">Helper Classes</h3>
-          <row>
-            <column four class="card">
-              <h5>Responsive Embeds</h5>
-            <p>For easy ability to make a video embed responsive, surround your embed with a div of the class <em>video-wrapper</em>. The video will never take up more than the width of it's container.</p>
-              <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/9bZkp7q19f0" frameborder="0" allowfullscreen></iframe>
-              </div>
-            </column>
-            <column four class="card">
-              <h5>Text</h5>
-              <h6>Alignment</h6>
-              <p>Use these classes for easy alignment of text.</p>
-              <p class="text-left primary-bg">text-left</p>
-              <p class="text-center primary-bg">text-center</p>
-              <p class="text-right primary-bg">text-right</p>
-              
-              <h6>Color</h6>
-              <p class="mute">You can use the <em>mute</em>-class for a more discrete color.</p>
-              
-              <h6>Size</h6>
-              <p class="big">Use the <em>big</em>-class for a bigger font.</p>
-              <p class="normal">Use the <em>normal</em>-class for the original fontsize.</p>
-              <p class="small">Use the <em>small</em>-class for a smaller font.</p>
-            </column>
-            <column four class="card">
-              <h5>Other</h5>
-              <h6>Container</h6>
-              <p>Add this class to a wrapping element to set a maximum width for your content. The width is determined in <em>theme.scss</em>.</p>
-              <h6>Inline-block</h6>
-              <p>Add this class to an element to automatically display it as an inline-block.</p>
-            </column>
-          </row>
-        </section>
-        
-      </div>
-    
+     
+
         <!--inject:js-->
         <script src="/scripts/app.js"></script>
         <script src="/scripts/directives/forms.js"></script>

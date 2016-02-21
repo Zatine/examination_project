@@ -39,18 +39,27 @@
     }
 }
 
-@mixin line-through($left, $right){
+@mixin lineThrough(
+  $left: 45%,
+  $right: 45%,
+  $color: $blend-color-low,
+  $thickness: 1,
+  $style: solid
+  ){
+    @if $style != solid and $style != dotted and $style != dashed and $style != double and $style != groove and $style != ridge{
+    @error 'Invalid $style: "#{$style}". Use dotted, dashed, double, groove or ridge. Default is solid.';
+    }
     display: table;
     overflow: hidden; 
     padding: 5px 0;
     white-space: nowrap;
     
     &:before, &:after{
-      border-top: 1px solid $blend-color-low;
+      border-top: ($thickness * 1px) $style $color;
       content: ' ';
       display: table-cell;
       position: relative;
-      top: 0.5em;
+      top: (0.5 - (0.1 *$thickness / 5)) * 1em;
     }
     &:before { width: $left; right: 2.5%;}
     &:after { width: $right; left: 2.5%;}

@@ -25,9 +25,6 @@
     @include color-bg($contrast-color);
   }
 }
-.line{@include line-through(45%, 45%);}
-.line-left{@include line-through(0, 100%);}
-.line-right{@include line-through(100%, 0);}
 
 .primary-bg{@include color-bg($primary-color); padding: 10px 5px;}
 .secondary-bg{@include color-bg($secondary-color); padding: 10px 5px;}
