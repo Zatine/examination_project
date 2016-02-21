@@ -22,9 +22,11 @@ section{
   & > h3:first-child{
     border-bottom: 1px solid $blend-color-high;
   }
-  h2{
+  & > h2:first-child{
     max-width: $container-width;
+    padding: 10px;
     margin: 0 auto;
+    @include color-bg($text-color);
   }
 }
 
@@ -193,4 +195,9 @@ section{
   &.left{
     @include fade(left);
   }
+}
+
+
+.circle{
+  @include circle(200px);
 }

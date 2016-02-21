@@ -728,9 +728,12 @@ section {
   margin: 50px 0; }
   section > h3:first-child {
     border-bottom: 1px solid #dedede; }
-  section h2 {
+  section > h2:first-child {
     max-width: 1200px;
-    margin: 0 auto; }
+    padding: 10px;
+    margin: 0 auto;
+    background-color: #101010;
+    color: #fff; }
 
 .code {
   background-color: #e8e8e8;
@@ -1564,3 +1567,11 @@ section {
     box-shadow: -30px 0px 10px -20px #f5f5f5 inset; }
   .fade.left {
     box-shadow: 30px 0px 10px -20px #f5f5f5 inset; }
+
+.circle {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  line-height: 0;
+  border-radius: 50%; }
