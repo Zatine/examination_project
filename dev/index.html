@@ -13,7 +13,7 @@
         <section>
           <h3 class="underline">Container Mixins</h3>
           <h4>colorArrow</h4>
-          <p>Include this mixin to create a solid colored arrow on your containing element. Include the mixin in a pseudo class in your container, either before or after. This allows you to use up to two different arrows per element.</p>
+          <p>Include this mixin to create a solid colored arrow on your containing element. Include the mixin in a pseudo class in your container, either before or after. This allows you to use up to two different arrows per element. The container needs to have <em>position:relative</em>.</p>
           <ul>
             <li><strong>$direction:</strong>Can be set to up, down, left or right. Defaults to down.</li>
             <li><strong>$color:</strong> Color of the arrow. Defaults to the primary theme color.</li>
@@ -76,7 +76,7 @@
           <row>
             <column twelve>
               <h4>slantEdge</h4>
-              <p>To add a skewed edge in a solid color, include <em>slantEdge</em> in a pseudo class of your container, either before or after. This allows you to combine up to two different edges per element.</p>
+              <p>To add a skewed edge in a solid color, include <em>slantEdge</em> in a pseudo class of your container, either before or after. This allows you to combine up to two different edges per element. The container needs to have <em>position:relative</em>.</p>
             <ul>
               <li><strong>$edge:</strong> Can be set to top, bottom, left or right. Defaults to top.</li>
               <li><strong>$deg:</strong> How many degrees to slant the edge. Provided in pure numbers, not degrees. Defaults to 2 and must be bigger than 1.</li>
@@ -115,6 +115,15 @@
           </row>
         </section>
         <section>
+          <h3 class="underline">Text Mixins</h3>
+          <row>
+            <column four>
+              <h4>headings</h4>
+              Style several headings at once using the <em>headings</em>-mixin. Specify from and to which number the rules should apply as parameters. <code class="code">@include headings(1, 3){color:red;}</code> for example would apply red to h1 through h3.
+            </column>
+          </row>
+        </section>
+        <section>
           <h3 class="underline">Headings</h3>
           <row>
             <column four class="card">
@@ -127,23 +136,7 @@
               <h6>Heading 6</h6>
             </column>
             <column four class="card">
-              <h4 class="card-header">Underline</h4>
-              <p>Add the <em>underline</em>-class to a heading to give it some style. You can add the classes below for different styles, and also primary, secondary or contrast for the different colors defined in your theme.</p>
-              <h6 class="underline primary">Underline</h6>
-              <h6 class="underline dashed secondary">Underline dashed</h6>
-              <h6 class="underline double contrast">Underline double</h6>
-            </column>
-            <column four class="card">
-              <h4 class="card-header">Frame</h4>
-              <p>Same as for the underline-classes.</p>
-              <h6 class="frame contrast">Frame</h6>
-              <h6 class="frame dashed primary">Frame dashed</h6>
-              <h6 class="frame double secondary">Frame double</h6>
-            </column>
-          </row>
-          <row>
-            <column four class="card">
-              <h4>Special classes</h4>
+              <h4>Special styles</h4>
               <p>These classes can be used on any heading or text-element. The line-classes will only work if contained to one line of text, but the colored-words has no limit.</p>
               <h6 class="line">Line</h6>
               <h6 class="line-left">Line-left</h6>

@@ -17,43 +17,8 @@ h4{font-size: 2.5em;}
 h5{font-size: 2em;}
 h6{font-size: 1.5em;}
 
-h1, h2, h3, h4, h5, h6{
+@include headings(){
   margin: 15px 0;
-  
-  &.underline{
-    border-color: $blend-color-low;
-    border-bottom-style: solid;
-    border-bottom-width: $border-width;
-    
-    &.dashed{
-      border-bottom-style: dashed;
-      border-bottom-width: ($border-width + 1px);}
-    &.double{
-      border-bottom-style: double;
-      border-bottom-width: ($border-width + 2px);}
-  }
-  
-  &.frame{
-    padding: 10px 0;
-    border-style: solid;
-    border-width: $border-width;
-      &.dashed{
-        border-width: $border-width + 1px;
-        border-top-style: dashed;
-        border-bottom-style: dashed;
-      }
-      &.double{
-        border-width: $border-width + 3px;
-        border-top-style: double;
-        border-bottom-style: double;
-      }
-    border-left: none;
-    border-right: none;
-  }
-  
-    &.primary{border-color: $primary-color;}
-    &.secondary{border-color: $secondary-color;}
-    &.contrast{border-color: $contrast-color;}
 }
 
 p{
