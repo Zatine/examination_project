@@ -60,9 +60,18 @@
   $direction: down,
   $color: $primary-color,
   $bg: $background-color,
-  $size: $arrow-size,
+  $size: 15px,
+  $pos: 50%,
   $inverse: false){
  
+  /* ERROR HANDLING */
+  @if $direction != up and $direction != down and $direction != left and $direction != right{
+    @error 'Invalid $direction: "#{$direction}". Use up, down, left or right. Default is top.';
+  }
+  @if $inverse != true and $inverse != false{
+    @error 'Invalid $inverse: "#{$inverse}". Use true or false. Default is false.';
+  }
+    
     border: solid transparent;
     content: " ";
     height: 0;
@@ -73,7 +82,7 @@
     border-width: $size;
     
     @if $direction == up or $direction == down{
-      left: 50%;
+      left: $pos;
       margin-left: -$size;
     }
     
@@ -96,7 +105,7 @@
     }
 
     @if $direction == left or $direction == right{
-      top: 50%;
+      top: $pos;
       margin-top: -$size;
     }
     
@@ -122,7 +131,12 @@
 @mixin imageArrow(
   $direction: down,
   $bg: $background-color,
-  $size: $arrow-size){
+  $size: 15px){
+    
+  /* ERROR HANDLING */
+  @if $direction != up and $direction != down and $direction != left and $direction != right{
+    @error 'Invalid $direction: "#{$direction}". Use up, down, left or right. Default is down.';
+  }
     
   position: relative;
   
@@ -137,17 +151,17 @@
   @if $direction == down or $direction == up{
     &:before, &:after{width: 50%;}
     &:before{
-      left: -$arrow-size;
+      left: -$size;
       border-right: $size solid transparent;
     }
     &:after{
-      right: -$arrow-size;
+      right: -$size;
       border-left: $size solid transparent;
     }
   }
   
   @if $direction == down{
-    padding-bottom: $size + 15px;
+    padding-bottom: $size + $size;
     margin-bottom: -$size;
     &:before, &:after{
       bottom: 0;
@@ -156,7 +170,7 @@
   }
     
   @if $direction == up{
-    padding-top: $size + 15px;
+    padding-top: $size + $size;
     margin-top: -$size;
     &:before, &:after{
       top: 0;
@@ -171,7 +185,7 @@
       border-bottom: ($size + 4) solid transparent;
     }
     &:after{
-      bottom: -$arrow-size;
+      bottom: -$size;
       border-top: $size solid transparent;
     }
   }
@@ -194,6 +208,12 @@
 @mixin slant(
   $direction: y,
   $deg: 2){
+    
+  /* ERROR HANDLING */
+  @if $direction != y and $direction != x {
+    @error 'Invalid $direction: "#{$direction}". Use x or y. Default is y.';
+  }
+    
   position: relative;
   overflow: hidden;
   outline: 1px solid transparent;
@@ -220,12 +240,23 @@
 
 }
 
-@mixin slant-edge(
+@mixin slantEdge(
   $edge: top,
   $deg: 2,
   $color: $primary-color,
   $reverse: false
   ){
+    
+  /* ERROR HANDLING */
+  @if $deg < 1{
+    @error '$deg needs to be bigger than 1.';
+  }
+  @if $edge != top and $edge != bottom and $edge != left and $edge != right{
+    @error 'Invalid $edge: "#{$edge}". Use top, bottom, left or right. Default is top.';
+  }
+  @if $reverse != true and $reverse != false{
+    @error 'Invalid $reverse: "#{$reverse}". Use true or false. Default is false.';
+  }
     
   content: ' ';
   width: 100%;
@@ -282,71 +313,105 @@
 
 }
 
-@mixin slant-image($bg: $background-color, $border: 3000px, $deg: 5){
+@mixin slantImage(
+  $edge: top,
+  $deg: 5,
+  $bg: $background-color,
+  $reverse: false,
+  $pseudo: before
+  ){
+    /* ERROR HANDLING */
+  @if $deg < 1{
+    @error '$deg needs to be bigger than 1.';
+  }
+  @if $edge != top and $edge != bottom and $edge != left and $edge != right{
+    @error 'Invalid $edge: "#{$edge}". Use top, bottom, left or right. Default is top.';
+  }
+  @if $pseudo != before and $pseudo != after{
+    @error 'Invalid $pseudo: "#{$pseudo}". Use before or after. Default is before.';
+  }
+  @if $reverse != true and $reverse != false{
+    @error 'Invalid $reverse: "#{$reverse}". Use true or false. Default is false.';
+  }
   position: relative;
   overflow: hidden;
-  padding: 15px;
+  &:#{$pseudo}{
+    content: ' ';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: $bg;
+  }
   
-  &.left, &.right, &.top, &.bottom{
-    transform: none;
-    overflow: hidden;
-    .content{
-      transform: none;
-    }
-    &:before{
-      content: ' ';
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      background: $bg;
-    }
-  }
-  &.right{
-    &:before{left: 100%;}
-  }
-  &.left{
-    &:before{right: 100%;}
-  }
-  &.right, &.left{
-    &:before{
+  @if $edge == right or $edge == left{
+    &:#{$pseudo}{
       top: 0;
       transform-origin: left top;
     }
-    &.reverse:before{
-      transform-origin: left bottom;}
+    @if $reverse == true{
+      &:#{$pseudo}{
+      transform-origin: left bottom;
+      }
+    }
   }
-  &.right, &.left.reverse{
-    &:before{
+    
+  @if $edge == right{
+    &:#{$pseudo}{
+      left: 100%;
       transform: skew(-$deg * 1deg);
     }
-  }
-  &.left, &.right.reverse{
-    &:before{
-      transform: skew($deg * 1deg);
+    @if $reverse == true{
+      &:#{$pseudo}{
+        transform: skew($deg * 1deg);
+      }
     }
   }
-  &.top{
-    &:before{bottom: 100%;}
-  }
-  &.bottom{
-    &:before{top: 100%;}
-  }
-  &.top, &.bottom{ 
-    &:before{
+    
+  @if $edge == left{
+    &:#{$pseudo}{
+      right: 100%;
+      transform: skew($deg * 1deg);
+    }
+    @if $reverse == true{
+      &:#{$pseudo}{
+        transform: skew(-$deg * 1deg);
+      }
+    }
+  }  
+    
+  @if $edge == top or $edge == bottom{
+    &:#{$pseudo}{
       left: 0;
       transform-origin: right top;
     }
-    &.reverse:before{transform-origin: left top;}
+    @if $reverse == true{
+      &:#{$pseudo}{
+        transform-origin: left top;
+      }
+    }
   }
-  &.top, &.bottom.reverse{
-    &:before{
+    
+  @if $edge == top{
+    &:#{$pseudo}{
+      bottom: 100%;
       transform: skewY(-$deg * 1deg);
     }
-  }
-  &.bottom, &.top.reverse{
-    &:before{
-      transform: skewY($deg * 1deg);
+    @if $reverse == true{
+      &:#{$pseudo}{
+        transform: skewY($deg * 1deg);
+      }
     }
   }
-
+    
+  @if $edge == bottom{
+    &:#{$pseudo}{
+      top: 100%;
+      transform: skewY($deg * 1deg);
+    }
+    @if $reverse == true{
+      &:#{$pseudo}{
+        transform: skewY(-$deg * 1deg);
+      }
+    }
+  }
 }

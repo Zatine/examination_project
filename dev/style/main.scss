@@ -20,6 +20,142 @@ section{
   white-space: pre-line;
 }
 
+
+.arrow{
+  padding: 15px;
+  position: relative;
+  &.up:after{
+    @include colorArrow(up); 
+  }
+  &.down:after{
+    @include colorArrow(down); 
+  }
+  &.left:after{
+    @include colorArrow(left); 
+  }
+  &.right:after{
+    @include colorArrow(right); 
+  }
+  &.up.inverse:after{
+    @include colorArrow(up, $inverse: true); 
+  }
+  &.down.inverse:after{
+    @include colorArrow(down, $inverse: true); 
+  }
+  &.left.inverse:after{
+    @include colorArrow(left, $inverse: true); 
+  }
+  &.right.inverse:after{
+    @include colorArrow(right, $inverse: true); 
+  }
+  &.up-down{
+    &:before{@include colorArrow(up);}
+    &:after{@include colorArrow(down);}
+  }
+  &.left-right-inv{
+    &:before{@include colorArrow(left, $inverse: true);}
+    &:after{@include colorArrow(right, $inverse: true);}
+  }
+  &.left-up{
+    &:before{@include colorArrow(left, $pos: 15px);}
+    &:after{@include colorArrow(up, $pos: 80%);}
+  }
+  &.right-double{
+    &:before{@include colorArrow(right);}
+    &:after{@include colorArrow(right, $inverse: true);}
+  }
+}
+
+.arrow-image{
+  padding: 15px;
+  &.up{
+    @include imageArrow(up);
+  };
+  &.down{
+    @include imageArrow(down);
+  };
+  &.left{
+    @include imageArrow(left);
+  };
+  &.right{
+    @include imageArrow(right);
+  }
+}
+
+.slanted{
+  @include slant(y, 2);
+  &.reverse{
+    @include slant(y, -2);
+  }
+  &.x{
+    @include slant(x, -2);
+  }
+  &.x.reverse{
+    @include slant(x, 2);
+  }
+  
+}
+.slant{
+  position: relative;
+  padding: 15px;
+  &.top:before{
+    @include slantEdge();
+  }
+  &.bottom:before{
+    @include slantEdge(bottom);
+  }
+  &.left:before{
+    @include slantEdge(left);
+  }
+  &.right:before{
+    @include slantEdge(right);
+  }
+  &.left-bottom{
+    &:before{@include slantEdge(left, $reverse: true);}
+    &:after{@include slantEdge(bottom);}
+  }
+  &.double-top{
+    &:before{@include slantEdge(top, 5);}
+    &:after{@include slantEdge(top, 5, $reverse: true);}
+  }
+}
+
+.slanted-image{
+  padding: 15px;
+  &.top{
+    @include slantImage(top);
+  }
+  &.top.reverse{
+    @include slantImage(top, $reverse: true);
+  }
+  &.bottom{
+    @include slantImage(bottom);
+  }
+  &.bottom.reverse{
+    @include slantImage(bottom, $reverse: true);
+  }
+  &.left{
+    @include slantImage(left);
+  }
+  &.left.reverse{
+    @include slantImage(left, $reverse: true);
+  }
+  &.right{
+    @include slantImage(right);
+  }
+  &.right.reverse{
+    @include slantImage(right, $reverse: true);
+  }
+  &.right-left{
+    @include slantImage(right, 10);
+    @include slantImage(left, 10, $pseudo: after);
+  }
+  &.top-bottom{
+    @include slantImage(top);
+    @include slantImage(bottom, $pseudo: after);
+  }
+}
+
 .bg{
   background-image: url('../img/image.jpg');
   color: white;
