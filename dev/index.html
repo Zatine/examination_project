@@ -20,22 +20,22 @@
         <a href="#mixins"><li>Mixins</li></a>
       </ul>
     </nav>
-    <section class="container" id="basic-styles">
+    <section id="basic-styles">
       <h2>Basic Styles</h2><section>
-        <h3>Headings</h3>
-        <h1>Heading 1</h1>
-        <h2>Heading 2</h2>
-        <h3>Heading 3</h3>
-        <h4>Heading 4</h4>
-        <h5>Heading 5</h5>
-        <h6>Heading 6</h6>
+      <section class="container">
+          <h3>Headings</h3>
+          <h1>Heading 1</h1>
+          <h2>Heading 2</h2>
+          <h3>Heading 3</h3>
+          <h4>Heading 4</h4>
+          <h5>Heading 5</h5>
+          <h6>Heading 6</h6>
       </section>
-      
-      <section>
+      <section class="container">
         <h3>Links</h3>
         <a href="#">Link</a>
       </section>
-      <section>
+      <section class="container">
         <h3>Buttons</h3>
         <button>Button</button>
         <button class="primary">Primary</button>
@@ -43,7 +43,7 @@
         <button class="contrast">Contrast</button>
         <button disabled>Disabled</button>
       </section>
-      <section>
+      <section class="container">
         <h3>Lists</h3>
         <row>
           <column six>
@@ -88,7 +88,7 @@
           </column>
         </row>
       </section>
-      <section>
+      <section class="container">
         <h3>Tables</h3>
         <row>
           <column six>
@@ -128,10 +128,10 @@
         </row>
       </section>
     </section>
-    <section class="container" id="forms" ng-controller="Documentation as vm">
+    <section id="forms" ng-controller="Documentation as vm">
       <h2>Forms</h2>
               
-      <section>
+      <section class="container">
         <h3>Inputs &amp; Textareas</h3>
         <row>
           <column twelve>
@@ -207,7 +207,7 @@
             </column>
           </row>
       </section>
-      <section>
+      <section class="container">
         <h3>Radio Buttons and Checkboxes</h3>
         <row>
           <column twelve>
@@ -243,7 +243,7 @@
           </column>
         </row>
       </section>
-      <section>
+      <section class="container">
             <h3>Select</h3>
         <row>
           <column twelve>
@@ -277,9 +277,9 @@
         </row>
       </section>
     </section>
-    <section class="container" id="grid">
+    <section id="grid">
       <h2>Grid</h2>
-     <section>
+     <section class="container">
         <h3>Set width</h3>
         <p>This is a flexible grid system built upon <strong>Flexbox</strong>. This means it is only fully functional in browsers later than Internet Explorer 9. A Fallback solution is planned but not implemented. Simply create a <em>row</em>-element, and then populate it with <em>column</em>-elements. If you need it to take up a certain amount of width, add any number between one and twelve as an attribute. Twelve fills the entire row. If the total number of columns is higher than twelve, the columns will automatically be contained to that row rather than keep their intended width.</p>
         
@@ -324,7 +324,7 @@
           <column twelve class="grid">Twelve</column>
         </row>
       </section>
-      <section>
+      <section class="container">
         <h3>Dynamic Columns</h3>
         <p>If, however, you don't provide the columns with a number, they will adjust according to their content.</p>
         
@@ -366,15 +366,16 @@
         </row>
     </section>
     </section>
-    <section class="container" id="helpers">
+    <section id="helpers">
       <h2>Helper Classes</h2>
+      <section class="container">
         <row>
           <column four class="card">
             <h5>Responsive Embeds</h5>
-          <p>For easy ability to make a video embed responsive, surround your embed with a div of the class <em>video-wrapper</em>. The video will never take up more than the width of it's container.</p>
             <div class="video-wrapper">
             <iframe src="https://www.youtube.com/embed/9bZkp7q19f0" frameborder="0" allowfullscreen></iframe>
             </div>
+          <p>For easy ability to make a video embed responsive, surround your embed with a div of the class <em>video-wrapper</em>. The video will never take up more than the width of it's container.</p>
           </column>
           <column four class="card">
             <h5>Text</h5>
@@ -396,15 +397,32 @@
             <h5>Other</h5>
             <h6>Container</h6>
             <p>Add this class to a wrapping element to set a maximum width for your content. The width is determined in <em>theme.scss</em>.</p>
-            <h6>Inline-block</h6>
-            <p>Add this class to an element to automatically display it as an inline-block.</p>
+            <h6>Display</h6>
+            <p>Add the <em>inline</em>, <em>inline-block</em> or <em>block</em> class to an element to easily display it as such.</p>
             <h6>Card</h6>
             <p>Each section on this row uses the card-class. This class adds a thin border around your content to separate it from the rest of the page.</p>
           </column>
         </row>
+        <row>
+          <column four class="card">
+            <h5>Thumbnails</h5>
+            <img src="img/image.jpg" class="thumbnail" alt="Thumbnail Image"/>
+            <p>Add the <em>thumbnail</em>-class to an image for a discrete frame.</p>
+          </column>
+          <column four class="card">
+            <h5>Quick Backgrounds</h5>
+            <p>Use primary-bg, secondary-bg, contrast-bg or invert-bg to add a background with the theme colors to your element.</p>
+            <p class="primary-bg">primary-bg</p>
+            <p class="secondary-bg">secondary-bg</p>
+            <p class="contrast-bg">contrast-bg</p>
+            <p class="invert-bg">invert-bg</p>
+          </column>
+        </row>
+        </section>
     </section>
-    <section class="container" id="special-styles">
+    <section id="special-styles">
       <h2>Special Styles</h2>
+      <section class="container">
         <row>
           <column four>
             <h4>Colored Words</h4>
@@ -412,10 +430,20 @@
             <h6 class="colored-words">Use colored-words to get this effect</h6>
           </column>
         </row>
+        </section>
     </section>
-    <section class="container" id="mixins">
+    <section id="mixins">
         <h2>Mixins</h2>
-         <section>
+      <section class="container">
+        <h3>Basic</h3>
+        <row>
+          <column four>
+            <h4>color-bg</h4>
+            <p>Adds a background color to your element and calculates a readable text color for it. Supply the $color.</p>
+          </column>
+        </row>
+      </section>
+      <section class="container">
           <h3>Containers</h3>
           <h4>colorArrow</h4>
           <p>Include this mixin to create a solid colored arrow on your containing element. Include the mixin in a pseudo class in your container, either before or after. This allows you to use up to two different arrows per element. The container needs to have <em>position:relative</em>.</p>
@@ -510,16 +538,26 @@
             </ul>
             </column>
           </row>
+          <row>
+            <column twelve>
+              <h4>fade</h4>
+              <p>To add a fade to an edge, include <em>fade</em>.</p>
+            <ul>
+              <li><strong>$edge:</strong> Can be set to top, bottom, left or right. Defaults to top.</li>
+              <li><strong>$size:</strong> How big the fade should be. Defaults to 30px.</li>
+              <li><strong>$blur:</strong> How blurred the fade should be. Defaults to 10px.</li>
+              <li><strong>$color:</strong> Which color the edge should fade into. Defaults to the theme's background color.</li>
+            </ul>
+            </column>
+          </row>
           <row class="text-center">
-            <column three><div class="slanted-image top bg"><p>top</p></div></column>
-            <column three><div class="slanted-image bottom bg"><p>bottom</p></div></column>
-            <column three><div class="slanted-image right bg"><p>right</p></div></column>
-            <column three><div class="slanted-image left reverse bg"><p>left reverse</p></div></column>
-            <column three><div class="slanted-image right-left bg"><p>right 10 before</p><p>left 10 after</p></div></column>
-            <column three><div class="slanted-image top-bottom bg"><p>top 10 before</p><p>bottom 10 after</p></div></column>
+            <column three><div class="fade top bg"><p>top</p></div></column>
+            <column three><div class="fade bottom bg"><p>bottom</p></div></column>
+            <column three><div class="fade left bg"><p>left</p></div></column>
+            <column three><div class="fade right bg"><p>right</p></div></column>
           </row>
         </section>
-        <section>
+        <section class="container">
           <h3>Text</h3>
           <row>
             <column four>

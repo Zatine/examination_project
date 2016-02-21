@@ -73,6 +73,30 @@
   }
 }
 
+@mixin fade(
+    $edge: up,
+    $size: 30px,
+    $blur: 10px,
+    $color: $background-color
+  ){
+  @if $edge != top and $edge != bottom and $edge != left and $edge != right{
+    @error 'Invalid $edge: "#{$edge}". Use top, bottom, left or right. Default is top.';
+  }
+    
+  @if $edge == top{
+    box-shadow: 0px $size $blur (-$size + 10) $color inset;
+  }
+  @if $edge == bottom{
+    box-shadow: 0px (-$size) $blur (-$size + 10) $color inset;
+  }
+  @if $edge == left{
+    box-shadow: $size 0px $blur (-$size + 10) $color inset;
+  }
+  @if $edge == right{
+    box-shadow: (-$size) 0px $blur (-$size + 10) $color inset;
+  }
+}
+
 @mixin colorArrow(
   $direction: down,
   $color: $primary-color,

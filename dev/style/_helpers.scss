@@ -7,10 +7,12 @@
 .normal{font-size:1em;}
 .small{font-size:0.8em;}
 
+.block{display: block;}
 .inline-block{
   display: inline-block;
   margin: 5px;
 }
+.inline{display: inline;}
 
 .container{max-width: $container-width; margin: 0 auto; padding: 0 10px;}
 
@@ -49,4 +51,10 @@
     width: 100%;
     height: 100%;
   }
+}
+
+.thumbnail{
+  background-color: #fefefe;
+  border: darken(#fefefe, 10) $border-width solid;
+  padding: 10px;
 }
