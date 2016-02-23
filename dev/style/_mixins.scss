@@ -73,6 +73,61 @@
   }
 }
 
+@mixin circle(
+  $width: 100%,
+  $height: $width
+  ){
+  @if $width == 100%{
+    padding: 50% 0;
+  }
+  position: relative;
+  display: inline-block;
+  width: $width;
+  height: $height;
+  line-height: 0;
+  border-radius: 50%;
+}
+
+@mixin cornerRibbon(
+    $y: top,
+    $x: left,
+    $color: $primary-color
+  ){
+  width: 200px;
+  @include color-bg($color);
+  position: absolute;
+  text-align: center;
+  line-height: 50px;
+  letter-spacing: 1px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  
+  @if $y == top{
+    top: 15px;
+  }
+  @if $y == bottom{
+    bottom: 15px;
+  }
+    
+  @if $x == left{
+    left: -50px;
+    @if $y == top{
+      transform: rotate(-45deg);
+    }
+    @if $y == bottom{
+      transform: rotate(45deg);
+    }
+  }
+  @if $x == right{
+    right: -50px;
+    @if $y == top{
+      transform: rotate(45deg);
+    }
+    @if $y == bottom{
+      transform: rotate(-45deg);
+    }
+  }
+}
+
 @mixin fade(
     $edge: up,
     $size: 30px,
@@ -95,21 +150,6 @@
   @if $edge == right{
     box-shadow: (-$size) 0px $blur (-$size + 10) $color inset;
   }
-}
-
-@mixin circle(
-  $width: 100%,
-  $height: $width
-  ){
-  @if $width == 100%{
-    padding: 50% 0;
-  }
-  position: relative;
-  display: inline-block;
-  width: $width;
-  height: $height;
-  line-height: 0;
-  border-radius: 50%;
 }
 
 @mixin colorArrow(
@@ -299,7 +339,7 @@
 @mixin slantEdge(
   $edge: top,
   $deg: 2,
-  $color: $primary-color,
+  $color: inherit,
   $reverse: false
   ){
     
@@ -320,7 +360,7 @@
   position: absolute;
   top: 0;
   transform-origin: left top;
-  background: inherit;
+  background: $color;
   z-index: -999;
     
   @if $edge == top or $edge == bottom{

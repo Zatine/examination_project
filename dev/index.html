@@ -8,20 +8,33 @@
     <!--endinject-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
   </head>
-  <body ng-app="App" ng-cloak>  
-    <nav>
-      <ul>
-        <a href="#intro"><li>Introduction</li></a>
-        <a href="#basic-styles"><li>Basic Styles</li></a>
-        <a href="#forms"><li>Forms</li></a>
-        <a href="#grid"><li>Grid</li></a>
-        <a href="#helpers"><li>Helper Classes</li></a>
-        <a href="#special-styles"><li>Special Styles</li></a>
-        <a href="#mixins"><li>Mixins</li></a>
-      </ul>
-    </nav>
+  <body ng-app="App" ng-cloak> 
+    <section id="menus" ng-controller="MenuController as menu">
+      <h2>Menus</h2>
+      <section class="container">
+        <form name="chooseMenu">
+          <radio-button ng-repeat="style in menu.styles" label="{{style.name}}" id="{{'menu' + $index}}" ng-model="menu.menuStyle" value="style.value" name="menuOptions"></radio-button>
+        </form>
+        <div ng-switch="menu.menuStyle">
+          <div ng-switch-when="h-fixed">
+            <nav class="h-fixed">
+              <ul>
+                  <li ng-repeat="link in menu.links">
+                    <a href="{{link.href}}">{{link.name}}</a>
+                    <ul ng-if="link.subMenu">
+                      <li ng-repeat="subLink in link.subMenu">
+                        <a href="{{subLink.href}}">{{subLink.name}}</a>
+                      </li>
+                    </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </section>
+    </section>
     <section id="basic-styles">
-      <h2>Basic Styles</h2><section>
+      <h2>Basic Styles</h2>
       <section class="container">
           <h3>Headings</h3>
           <h1>Heading 1</h1>
@@ -57,7 +70,7 @@
                   </ul>
               </column>
               <column six>
-                  <ul  >
+                  <ul class="underline">
                     <li>First item</li>
                     <li>Second item</li>
                     <li>Third item</li>
@@ -543,6 +556,14 @@
             </ul>
             </column>
           </row>
+          <row class="text-center">
+            <column three><div class="slanted-image top bg"><p>top</p></div></column>
+            <column three><div class="slanted-image bottom bg"><p>bottom</p></div></column>
+            <column three><div class="slanted-image right bg"><p>right</p></div></column>
+            <column three><div class="slanted-image left reverse bg"><p>left reverse</p></div></column>
+            <column three><div class="slanted-image right-left bg"><p>right 10 before</p><p>left 10 after</p></div></column>
+            <column three><div class="slanted-image top-bottom bg"><p>top 10 before</p><p>bottom 10 after</p></div></column>
+          </row>
           <row>
             <column twelve>
               <h4>fade</h4>
@@ -562,7 +583,7 @@
             <column three><div class="fade right bg"><p>right</p></div></column>
           </row>
         </section>
-        <section class="container">
+      <section class="container">
           <h3>Text</h3>
           <row>
             <column four>
@@ -589,6 +610,46 @@
             </column>
           </row>
         </section>
+        <section class="container">
+          <h3>Other</h3>
+          <h4>cornerRibbon</h4>
+          <p>Include this mixin on an element to make it appear as a ribbon in the corner of its parent. The parent should have position: relative and probably overflow: hidden.</p>
+          <ul>
+            <li><strong>$y:</strong>Can be set to top or bottom, defaults to top.</li>
+            <li><strong>$x:</strong>Can be set to left or right, defaults to left.</li>
+            <li><strong>$color:</strong> Color of the ribbon. Defaults to the primary theme color.</li>
+          </ul>
+          <row class="text-center">
+            <column three>
+              <div class="card">
+                <p class="ribbon top-left">top left</p>
+                <img src="img/image.jpg" class="thumbnail">
+                <p>Example Text</p>
+              </div>
+            </column>
+            <column three>
+              <div class="card">
+                <p class="ribbon top-right">top right</p>
+                <img src="img/image.jpg" class="thumbnail">
+                <p>Example Text</p>
+              </div>
+            </column>
+            <column three>
+              <div class="card">
+                <p class="ribbon bottom-left">bottom left</p>
+                <img src="img/image.jpg" class="thumbnail">
+                <p>Example Text</p>
+              </div>
+            </column>
+            <column three>
+              <div class="card">
+                <p class="ribbon bottom-right">bottom right</p>
+                <img src="img/image.jpg" class="thumbnail">
+                <p>Example Text</p>
+              </div>
+            </column>
+          </row>
+        </section>
       </section>
      
 
@@ -596,6 +657,7 @@
         <script src="/scripts/app.js"></script>
         <script src="/scripts/directives/forms.js"></script>
         <script src="/scripts/directives/grid.js"></script>
+        <script src="/scripts/directives/menus.js"></script>
         <script src="/scripts/directives/styles.js"></script>
         <!--endinject-->
   </body>

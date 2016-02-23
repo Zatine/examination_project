@@ -78,8 +78,8 @@ app.directive('formSection', function(){
       require: ['?^form'],
       template: [
                   '<div class="inline-block">',
-                    '<input type="radio" id="{{id}}" name="{{name}}" value="{{value}}" ng-disabled="disabled" ng-model="model" form="{{formName}}">',
-                    '<label for="{{id}}">',
+                    '<input type="radio" id="{{\'id_\' + id}}" name="{{name}}" value="{{value}}" ng-disabled="disabled" ng-model="model" form="{{formName}}">',
+                    '<label for="{{\'id_\' + id}}">',
                     '<span tabindex="0"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40"/></svg></span>',
                     ' {{label}}',
                     '</label>',
@@ -90,13 +90,13 @@ app.directive('formSection', function(){
         id: '@',
         name: '@',
         model: '=?ngModel',
-        formName: '@?form'
+        formName: '@?form',
+        value: '=?'
       },
       link: function(scope, elm, attrs, ctrl){
-        elm.removeAttr('id');
         var focused = false;
         if(ctrl[0]) scope.formName = ctrl[0].$name; scope.form = ctrl[0];
-        scope.value = scope.label.replace(/ /g,"_").toLowerCase();
+        scope.value = scope.value || scope.label.replace(/ /g,"_").toLowerCase();
         if(attrs.disabled !== undefined) scope.disabled = true;
         if(attrs.checked !== undefined) scope.model = scope.value;
         
@@ -115,8 +115,8 @@ app.directive('formSection', function(){
       require: ['?^form'],
       template: [
                   '<div class="inline-block">',
-                    '<input type="checkbox" id="{{id}}" name="{{name}}" value="{{value}}" ng-disabled="disabled" form="{{formName}}" ng-model="model">',
-                    '<label for="{{id}}" ng-class="{\'disabled\': disabled}">',
+                    '<input type="checkbox" id="{{\'id_\' + id}}" name="{{name}}" value="{{value}}" ng-disabled="disabled" form="{{formName}}" ng-model="model">',
+                    '<label for="{{\'id_\' + id}}" ng-class="{\'disabled\': disabled}">',
                     '<span tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.66 48.75"><path d="M2.41,30.3l5.21-7.16A0.81,0.81,0,0,1,8.86,23l9.43,8a0.81,0.81,0,0,0,1.24-.15L40.9,1.37a0.81,0.81,0,0,1,1.19-.19l6.61,5a0.81,0.81,0,0,1,.17,1.06l-28,37.9a0.81,0.81,0,0,1-1.22.17l-17.12-14A0.81,0.81,0,0,1,2.41,30.3Z"/></svg></span>',
                     ' {{label}}',
                     '</label>',
@@ -127,12 +127,12 @@ app.directive('formSection', function(){
         id: '@',
         name: '@',
         model: '=?ngModel',
-        formName: '@?form'
+        formName: '@?form',
+        value: '=?'
       },
       link: function(scope, elm, attrs, ctrl){
-        elm.removeAttr('id');
         if(ctrl[0]) scope.formName = ctrl[0].$name; scope.form = ctrl[0];
-        scope.value = scope.label.replace(/ /g,"_").toLowerCase();
+        scope.value = scope.value || scope.label.replace(/ /g,"_").toLowerCase();
         if(attrs.disabled !== undefined) scope.disabled = true;
         scope.model = scope.model ? scope.model : false;
         

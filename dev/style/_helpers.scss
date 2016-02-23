@@ -34,7 +34,6 @@
 .invert-bg{@include color-bg($text-color); padding: 10px 5px;}
 
 .card{
-  box-shadow: 0px 1px 2px fade-out($blend-color-low, 0.8);
   border-radius: 5px;
   border: $border-width solid $blend-color-high;
 }

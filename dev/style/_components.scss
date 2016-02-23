@@ -1,10 +1,10 @@
 *{box-sizing: border-box;}
 
-html{
-  font-size: $font-base-size;
-}
-
 body{
+  font-size: $font-base-size -2;
+  @media(min-width: 750px){
+    font-size: $font-base-size;
+  }
   background-color: $background-color;
   color: $text-color;
 }
@@ -19,6 +19,7 @@ h6{font-size: 1.5em;}
 
 @include headings(){
   margin: 15px 0;
+  font-weight: $heading-weight;
 }
 
 p{
@@ -213,7 +214,7 @@ fieldset{
         @include color-bg($highlight-primary);
       }
       &:first-child{
-        color: $text-color;
+        color: #333;
         position: relative;
         &:hover{
           background:none;
@@ -245,6 +246,7 @@ fieldset{
     @extend select;
     background: #fff;
     display: block;
+    color: #333;
     &.disabled{
       background-color: $blend-color-high;
       color: $blend-color-low;
