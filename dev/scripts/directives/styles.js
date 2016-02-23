@@ -19,4 +19,24 @@ app.directive('coloredWords', function(){
       elm[0].innerHTML = html;
     }
   }
+})
+.directive('snapToTop', function($document, $window){
+  return {
+    restrict: 'A',
+    link: function(scope, elm, attrs){
+      var originalPos = elm[0].offsetTop,
+          snapClass = 'snap-top';
+      
+      $document.bind('scroll', function(){
+        if($window.scrollY >= originalPos){
+          if(elm.hasClass(snapClass)) return;
+          elm.addClass(snapClass);
+        }
+        else{
+          if(!elm.hasClass(snapClass)) return;
+          elm.removeClass(snapClass);
+        }
+      });
+    }
+  }
 });

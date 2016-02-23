@@ -73,6 +73,27 @@
   }
 }
 
+@mixin onSmall(){
+  @media screen and (min-width: $small){
+    @content
+  }
+}
+@mixin onMedium(){
+  @media screen and (min-width: $medium){
+    @content
+  }
+}
+@mixin onDesktop(){
+  @media screen and (min-width: $desktop){
+    @content
+  }
+}
+@mixin onLarge(){
+  @media screen and (min-width: $large){
+    @content
+  }
+}
+
 @mixin circle(
   $width: 100%,
   $height: $width
@@ -93,6 +114,12 @@
     $x: left,
     $color: $primary-color
   ){
+  @if $y != top and $y != bottom{
+    @error 'Invalid $y: "#{$y}". Use top or bottom. Default is top.';
+  }
+  @if $x != left and $x != right{
+    @error 'Invalid $x: "#{$x}". Use left or right. Default is left.';
+  }
   width: 200px;
   @include color-bg($color);
   position: absolute;

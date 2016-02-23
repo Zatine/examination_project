@@ -216,3 +216,17 @@ section{
       @include cornerRibbon(bottom, right);
   }
 }
+
+nav{
+  @include color-bg($primary-color);
+  &.horizontal{
+    text-align: center;
+  }
+  ul{
+    li{
+      ul{
+        background: $primary-color;
+      }
+    }
+  }
+}

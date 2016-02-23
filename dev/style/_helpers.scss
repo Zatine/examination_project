@@ -57,3 +57,11 @@
   border: darken(#fefefe, 10) $border-width solid;
   padding: 10px;
 }
+
+.snap-top{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+}

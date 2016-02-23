@@ -12,25 +12,31 @@
     <section id="menus" ng-controller="MenuController as menu">
       <h2>Menus</h2>
       <section class="container">
+      <row>
+        <column twelve>
+          <p>To use one of the prebuilt menus, create an array in your controller containing the links. Each link should be an object containing <em>title</em>, <em>href</em> and if wanted <em>subMenu</em>. The submenu is built in the same way as the regular menu, but within the subMenu-property. To style the menu, either style the nav-element or add a class to it.</p>
         <form name="chooseMenu">
+          <p>Try the different menu styles:</p>
           <radio-button ng-repeat="style in menu.styles" label="{{style.name}}" id="{{'menu' + $index}}" ng-model="menu.menuStyle" value="style.value" name="menuOptions"></radio-button>
         </form>
         <div ng-switch="menu.menuStyle">
-          <div ng-switch-when="h-fixed">
-            <nav class="h-fixed">
-              <ul>
-                  <li ng-repeat="link in menu.links">
-                    <a href="{{link.href}}">{{link.name}}</a>
-                    <ul ng-if="link.subMenu">
-                      <li ng-repeat="subLink in link.subMenu">
-                        <a href="{{subLink.href}}">{{subLink.name}}</a>
-                      </li>
-                    </ul>
-                </li>
-              </ul>
+            <nav ng-switch-when="horizontal" class="horizontal">
+              <links items="menu.links"></links>
             </nav>
-          </div>
+            <nav ng-switch-when="h-snap" class="horizontal" snap-to-top>
+              <links items="menu.links"></links>
+            </nav>
+            <nav ng-switch-when="h-fixed" class="horizontal fixed">
+              <links items="menu.links"></links>
+            </nav>
+            <nav ng-switch-when="h-hamburger" class="horizontal" snap-to-top>
+              <hamburger>
+                <links items="menu.links"></links>
+              </hamburger>
+            </nav>
         </div>
+        </column>
+        </row>
       </section>
     </section>
     <section id="basic-styles">
