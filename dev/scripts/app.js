@@ -16,6 +16,7 @@ app.controller('Documentation', function(){
     {name: 'Hamburger Menu Horizontal', value: 'h-hamburger'},
     {name: 'Vertical', value: 'vertical'},
     {name: 'Fixed Vertical', value: 'v-fixed'},
+    {name: 'Fixed Vertical Right', value: 'v-fixed-r'},
     {name: 'Snap to Top Vertical', value: 'v-snap'},
     {name: 'Hamburger Menu Vertical', value: 'v-hamburger'}];  
   vm.menuStyle = vm.styles[0].value;

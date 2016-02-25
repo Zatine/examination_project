@@ -87,6 +87,10 @@ nav{
       top: 0;
       bottom: 0;
     }
+    &.vertical.right{
+      left: auto;
+      right: 0;
+    }
   }
 }
 

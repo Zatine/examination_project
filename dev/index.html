@@ -41,7 +41,7 @@
         
         <h5>Styling</h5>
         <p>
-          To get different styles on your navigation you can simply add classes to your <em>nav</em>-element. Use <em>horizontal</em> or <em>vertical</em> to get different kinds of menus, and combine them with <em>fixed</em> to get a menu stuck at the top.    
+          To get different styles on your navigation you can simply add classes to your <em>nav</em>-element. Use <em>horizontal</em> or <em>vertical</em> to get different kinds of menus, and combine them with <em>fixed</em> to get a menu constantly on screen. On the vertical menu you can also add the class <em>right</em> for it to appear on the right side instead.
         </p>
         
         <h5>Snapping</h5>
@@ -80,6 +80,9 @@
               <links menu="menu.menu"></links>
             </nav>
             <nav ng-switch-when="v-fixed" class="vertical fixed">
+              <links menu="menu.menu"></links>
+            </nav>
+            <nav ng-switch-when="v-fixed-r" class="vertical right fixed">
               <links menu="menu.menu"></links>
             </nav>
             <nav ng-switch-when="v-hamburger" class="vertical">

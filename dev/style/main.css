@@ -792,6 +792,9 @@ nav.fixed {
   nav.fixed.vertical {
     top: 0;
     bottom: 0; }
+  nav.fixed.vertical.right {
+    left: auto;
+    right: 0; }
 
 .hamburger-container {
   text-align: left;
