@@ -735,6 +735,9 @@ nav a {
     color: inherit; }
 nav span {
   cursor: pointer; }
+nav svg {
+  width: 0.8em;
+  fill: #101010; }
 nav ul {
   margin: 0; }
   nav ul li {
@@ -810,6 +813,10 @@ nav.fixed {
       vertical-align: middle; }
   .vertical .hamburger-container .menu {
     overflow-x: hidden; }
+    .vertical .hamburger-container .menu li:hover {
+      background: none; }
+  .vertical .hamburger-container.active li:hover {
+    background: rgba(255, 255, 255, 0.3); }
   .hamburger-container .hamburger {
     background: none;
     position: relative;
@@ -1791,7 +1798,11 @@ section {
 nav {
   background-color: #0084bf;
   color: #fff; }
+  nav svg {
+    fill: white; }
   nav.horizontal {
     text-align: center; }
     nav.horizontal ul li ul {
       background: #0084bf; }
+  nav .hamburger-container .hamburger span, nav .hamburger-container .hamburger span:before, nav .hamburger-container .hamburger span:after {
+    background: white; }

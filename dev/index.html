@@ -14,12 +14,50 @@
       <section class="container">
       <row>
         <column twelve>
-          <p>To use one of the prebuilt menus, create an array in your controller containing the links. Each link should be an object containing <em>title</em>, <em>href</em> and if wanted <em>subMenu</em>. The submenu is built in the same way as the regular menu, but within the subMenu-property. To style the menu, either style the nav-element or add a class to it.</p>
+          <h5>Structure</h5>
+          <p>There are a lot of functions to create some standard menus. To use them, make sure to create a <em>nav</em>-element. Inside this element, include the <em>links</em>-element and refer to an object of links in the controller in the <em>menu</em>-attribute. The object should include a property called <em>links</em>, which is an array of the links to include in the menu. Each link should have a <em>title</em> and a <em>href</em>, which is what to display and where to go. Optional is to include a <em>subMenu</em>, which should be another object containing the property <em>links</em> and structured in the same way. The original object can also have the property <em>toggle</em>, which determines whether submenus should be opened on hover or on clicking.</p>
+          <p><code>
+            &lt;nav ng-switch-when="horizontal" class="horizontal">
+              &lt;links menu="menu">&lt;/links>
+            &lt;/nav>
+          </code>
+          </p>
+          <p>
+          <code>
+      menu = {
+              toggle: true,
+              links: [
+                {name: 'Home', 
+                 href: 'index.html',
+                 subMenu: [
+                    {name: 'About',
+                     href: '#about'
+                    }
+                 ]}
+              ]
+             };
+          </code>
+          </p>
+        
+        <h5>Styling</h5>
+        <p>
+          To get different styles on your navigation you can simply add classes to your <em>nav</em>-element. Use <em>horizontal</em> or <em>vertical</em> to get different kinds of menus, and combine them with <em>fixed</em> to get a menu stuck at the top.    
+        </p>
+        
+        <h5>Snapping</h5>
+        <p>
+          Use the attribute <em>snap-to-top</em> on an element to make it stick to the top of the window once you scroll past it. Also add <em>keep-pos</em> if you need to keep it in place.
+        </p>
+          
+          
+        <h5>Hamburger</h5>
+        <p>To create a hamburger-menu, where the menu is obscured by an icon until clicked, simply surround the <em>links</em>-element with a <em>hamburger</em>-element.</p>
+        
+        <h5>Examples</h5>
+          <button ng-click="menu.toggleSubMenuToggle()">Toggle Submenus</button>
         <form name="chooseMenu">
-          <p>Try the different menu styles:</p>
           <radio-button ng-repeat="style in menu.styles" label="{{style.name}}" id="{{'menu' + $index}}" ng-model="menu.menuStyle" value="style.value" name="menuOptions"></radio-button>
         </form>
-          <button ng-click="menu.toggleSubMenuToggle()">Toggle Submenu-toggle</button>
         <div ng-switch="menu.menuStyle">
             <nav ng-switch-when="horizontal" class="horizontal">
               <links menu="menu.menu"></links>
@@ -30,7 +68,7 @@
             <nav ng-switch-when="h-fixed" class="horizontal fixed">
               <links menu="menu.menu"></links>
             </nav>
-            <nav ng-switch-when="h-hamburger" class="horizontal" snap-to-top>
+            <nav ng-switch-when="h-hamburger" class="horizontal">
               <hamburger>
                 <links menu="menu.menu"></links>
               </hamburger>
@@ -44,7 +82,7 @@
             <nav ng-switch-when="v-fixed" class="vertical fixed">
               <links menu="menu.menu"></links>
             </nav>
-            <nav ng-switch-when="v-hamburger" class="vertical" snap-to-top keep-pos>
+            <nav ng-switch-when="v-hamburger" class="vertical">
               <hamburger>
                 <links menu="menu.menu"></links>
               </hamburger>

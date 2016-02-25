@@ -6,6 +6,10 @@ nav{
   span{
     cursor: pointer;
   }
+  svg{
+    width: 0.8em;
+    fill: $text-color;
+  }
   ul{
     margin: 0;
     li{
@@ -124,6 +128,14 @@ nav{
   .vertical & {
     .menu{
       overflow-x: hidden;
+      li:hover{
+        background: none;
+      }
+    }
+    &.active{
+      li:hover{
+        background: rgba(255,255,255,0.3);
+      }
     }
   }
   

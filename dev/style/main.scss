@@ -219,6 +219,9 @@ section{
 
 nav{
   @include color-bg($primary-color);
+  svg{
+    fill: white;
+  }
   &.horizontal{
     text-align: center;ul{
     li{
@@ -229,4 +232,9 @@ nav{
   }
   }
   
+  .hamburger-container .hamburger{
+    span, span:before, span:after{
+      background: white;
+    }
+  }  
 }

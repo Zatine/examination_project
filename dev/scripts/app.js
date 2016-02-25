@@ -18,7 +18,7 @@ app.controller('Documentation', function(){
     {name: 'Fixed Vertical', value: 'v-fixed'},
     {name: 'Snap to Top Vertical', value: 'v-snap'},
     {name: 'Hamburger Menu Vertical', value: 'v-hamburger'}];  
-  vm.menuStyle = vm.styles[4].value;
+  vm.menuStyle = vm.styles[0].value;
   
   vm.menu = {
     toggle: false,

@@ -5,7 +5,7 @@ app.directive('links', function(){
               '<ul>',
                   '<li ng-repeat="link in menu.links">',
                     '<a ng-if="!menu.toggle || !link.subMenu" href="{{link.href}}">{{link.name}}</a>',
-                    '<span ng-if="menu.toggle && link.subMenu" ng-click="toggleSubMenu(link)">{{link.name}} &#8595;</span>',
+                    '<span ng-if="menu.toggle && link.subMenu" ng-click="toggleSubMenu(link)">{{link.name}} <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45.88 32.24"><polygon class="a" points="9.98 0.66 23.11 20.19 37.17 0.5 44.92 0.5 23.11 31.38 0.98 0.59 9.98 0.66"/></svg></span>',
                     '<ul ng-if="link.subMenu && !menu.toggle" class="hover">',
                       '<li ng-repeat="subLink in link.subMenu.links">',
                         '<a href="{{subLink.href}}">{{subLink.name}}</a>',
