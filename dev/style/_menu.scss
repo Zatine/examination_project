@@ -1,15 +1,32 @@
 nav{
+  a{
+    color: inherit;
+    &:hover{color: inherit;}
+  }
+  span{
+    cursor: pointer;
+  }
+  ul{
+    margin: 0;
+    li{
+      background: none;
+      transition: .3s;
+      position: relative;
+      border-radius: 0;
+      margin: 0;
+      &:hover{
+        background: rgba(255,255,255,0.3);
+      }
+      ul{
+        text-align: left;
+      }
+    }
+  }
   &.horizontal{
     width: 100%;
-    top: 0;
-    left: 0;
-    a{
-      color: inherit;
-    }
     ul{
       position: relative;
       li{
-        background: none;
         padding: 10px 20px;
         position: relative;
         display: inline-block;
@@ -19,8 +36,6 @@ nav{
           top: 100%;
           left: 0;
           min-width: 100%;
-          max-height: 0;
-          overflow: hidden;
           border-radius: 0 0 3px 3px;
           li{
             display: block;
@@ -29,10 +44,30 @@ nav{
             }
           }
         }
+        ul.hover{
+          max-height: 0;
+          overflow: hidden;
+        }
 
         &:hover{
           @include onMedium(){
-            ul{max-height: 200px;}
+            ul.hover{max-height: 200px;}
+          }
+        }
+      }
+    }
+  }
+  &.vertical{
+    max-width: 200px;
+    ul{
+      li{
+        ul{
+          li{
+            text-indent: 1em;
+            margin: 0 -0.6em -0.6em -0.6em;
+            &:before{
+              content: '- ';
+            }
           }
         }
       }
@@ -41,39 +76,68 @@ nav{
   
   &.fixed{
     top: 0;
+    left: 0;
     z-index: 2;
     position: fixed;
-  }
-  ul{
-    margin: 0;
-    li{
-      transition: .3s;
-      position: relative;
-      border-radius: 0;
-      margin: 0;
-      &:hover{
-        background: rgba(255,255,255,0.3);
-      }
-      ul{
-      }
+    &.vertical{
+      top: 0;
+      bottom: 0;
     }
   }
 }
 
-.hamburger{
-  $size: 55px;
+.hamburger-container{
+  $size: 45px;
+  text-align: left;
+  position: relative;
+  width: 100%;
   
-  display: block;
+  .menu{
+    ul{
+      transition: .5s;
+      margin-left: -200%;
+    }
+  }
+  
+  &.active{
+    .menu{
+      ul{
+        margin-left: 0;
+      }
+    }
+  }
+  
+  .horizontal &{
+    display: table;
+    table-layout: fixed;
+    
+    button, .menu{
+      display: table-cell;
+    }
+    
+    .menu{
+      width: 95%;
+      vertical-align: middle;
+    }
+  }
+  
+  .vertical & {
+    .menu{
+      overflow-x: hidden;
+    }
+  }
+  
+.hamburger{
   background: none;
   position: relative;
   overflow: hidden;
   margin: 0;
-  padding: 0;
   width: $size;
   height: $size;
   font-size: 0;
   padding: 5px;
   text-indent: -9999px;
+  z-index: 10;
   &:focus {box-shadow: none;}
   &:hover{background: inherit;}
   &:active{background: inherit;}
@@ -125,4 +189,5 @@ nav{
       }
     }
   }
+}
 }

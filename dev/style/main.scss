@@ -220,13 +220,13 @@ section{
 nav{
   @include color-bg($primary-color);
   &.horizontal{
-    text-align: center;
-  }
-  ul{
+    text-align: center;ul{
     li{
       ul{
         background: $primary-color;
       }
     }
   }
+  }
+  
 }

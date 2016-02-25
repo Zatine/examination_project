@@ -19,19 +19,34 @@
           <p>Try the different menu styles:</p>
           <radio-button ng-repeat="style in menu.styles" label="{{style.name}}" id="{{'menu' + $index}}" ng-model="menu.menuStyle" value="style.value" name="menuOptions"></radio-button>
         </form>
+          <button ng-click="menu.toggleSubMenuToggle()">Toggle Submenu-toggle</button>
         <div ng-switch="menu.menuStyle">
             <nav ng-switch-when="horizontal" class="horizontal">
-              <links items="menu.links"></links>
+              <links menu="menu.menu"></links>
             </nav>
             <nav ng-switch-when="h-snap" class="horizontal" snap-to-top>
-              <links items="menu.links"></links>
+              <links menu="menu.menu"></links>
             </nav>
             <nav ng-switch-when="h-fixed" class="horizontal fixed">
-              <links items="menu.links"></links>
+              <links menu="menu.menu"></links>
             </nav>
             <nav ng-switch-when="h-hamburger" class="horizontal" snap-to-top>
               <hamburger>
-                <links items="menu.links"></links>
+                <links menu="menu.menu"></links>
+              </hamburger>
+            </nav>
+            <nav ng-switch-when="vertical" class="vertical">
+              <links menu="menu.menu"></links>
+            </nav>
+            <nav ng-switch-when="v-snap" class="vertical" snap-to-top keep-pos>
+              <links menu="menu.menu"></links>
+            </nav>
+            <nav ng-switch-when="v-fixed" class="vertical fixed">
+              <links menu="menu.menu"></links>
+            </nav>
+            <nav ng-switch-when="v-hamburger" class="vertical" snap-to-top keep-pos>
+              <hamburger>
+                <links menu="menu.menu"></links>
               </hamburger>
             </nav>
         </div>
@@ -453,7 +468,7 @@
     </section>
     <section id="mixins">
         <h2>Mixins</h2>
-      <section class="container">
+      <section class="container" id="mixins-basic">
         <h3>Basic</h3>
         <row>
           <column four>
@@ -467,7 +482,7 @@
           </column>
         </row>
       </section>
-      <section class="container">
+      <section class="container" id="mixins-containers">
           <h3>Containers</h3>
           <h4>colorArrow</h4>
           <p>Include this mixin to create a solid colored arrow on your containing element. Include the mixin in a pseudo class in your container, either before or after. This allows you to use up to two different arrows per element. The container needs to have <em>position:relative</em>.</p>
@@ -589,7 +604,7 @@
             <column three><div class="fade right bg"><p>right</p></div></column>
           </row>
         </section>
-      <section class="container">
+      <section class="container" id="mixins-text">
           <h3>Text</h3>
           <row>
             <column four>
@@ -616,7 +631,7 @@
             </column>
           </row>
         </section>
-        <section class="container">
+        <section class="container" id="mixins-other">
           <h3>Other</h3>
           <h4>cornerRibbon</h4>
           <p>Include this mixin on an element to make it appear as a ribbon in the corner of its parent. The parent should have position: relative and probably overflow: hidden.</p>
