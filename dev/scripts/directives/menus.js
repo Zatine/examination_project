@@ -13,7 +13,7 @@ app.directive('links', function(){
                     '</ul>',
                     '<ul ng-if="link.subMenu && menu.toggle" class="toggle" ng-show="link.subMenu.open">',
                       '<li ng-repeat="subLink in link.subMenu.links">',
-                        '<a href="{{subLink.href}}">{{subLink.name}}</a>',
+                        '<a href="{{subLink.href}}" ng-click="toggleSubMenu(link)">{{subLink.name}}</a>',
                       '</li>',
                     '</ul>',
                 '</li>',
