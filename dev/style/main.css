@@ -729,6 +729,41 @@ table {
   table tr:nth-child(even) {
     background: #ececec; }
 
+.modal {
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 300;
+  padding-top: 100px; }
+  .modal .modal-content {
+    border: 1px solid #4a4a4a;
+    text-align: center;
+    display: block;
+    margin: auto;
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+    color: white; }
+    .modal .modal-content div {
+      line-height: 0.8; }
+    .modal .modal-content .close-modal {
+      position: absolute;
+      top: -1em;
+      right: 0;
+      cursor: pointer; }
+    .modal .modal-content .next, .modal .modal-content .previous {
+      position: absolute;
+      top: 50%;
+      cursor: pointer; }
+    .modal .modal-content .next {
+      right: -1em; }
+    .modal .modal-content .previous {
+      left: -1em; }
+
 nav a {
   color: inherit; }
   nav a:hover {
@@ -881,6 +916,18 @@ nav.fixed {
         bottom: 0;
         -webkit-transform: rotate(-45deg);
         transform: rotate(-45deg); }
+
+.gallery .gallery-item {
+  display: inline-block;
+  width: 20%;
+  overflow: hidden;
+  padding: 5px; }
+  .gallery .gallery-item:first-child {
+    padding-left: 0; }
+  .gallery .gallery-item:last-child {
+    padding-right: 0; }
+  .gallery .gallery-item img {
+    cursor: pointer; }
 
 .grid {
   background-color: #0084bf;

@@ -37,6 +37,7 @@ app.controller('Documentation', function(){
                {name: 'Containers', href: '#mixins-containers'},
                {name: 'Text', href: '#mixins-text'},
                {name: 'Other', href: '#mixins-other'}]}},
+    {name: 'Galleries', href: '#galleries'},
   ]};
   
   vm.toggleSubMenuToggle = function(){
@@ -44,4 +45,21 @@ app.controller('Documentation', function(){
   }
   
   return vm;
+})
+.controller('GalleryController', function(){
+
+  var vm = this;
+  
+  vm.images = [
+    {src: '../img/image.jpg', alt:'Test Image', desc: 'This is an image to show the gallery functions.'},
+    {src: '../img/image2.jpg', alt:'Test Image', desc: 'This is an image to show the gallery functions.'},
+    {src: '../img/image3.jpg', alt:'Test Image', desc: 'This is an image to show the gallery functions.'},
+    {src: '../img/image4.jpg', alt:'Test Image', desc: 'This is an image to show the gallery functions.'},
+    {src: '../img/image5.jpg', alt:'Test Image', desc: 'This is an image to show the gallery functions.'},
+    {src: '../img/image6.jpg', alt:'Test Image', desc: 'This is an image to show the gallery functions.'},
+    {src: '../img/image7.jpg', alt:'Test Image', desc: 'This is an image to show the gallery functions.'},
+  ]
+  
+  return vm;
+
 });

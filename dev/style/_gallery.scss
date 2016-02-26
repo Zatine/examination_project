@@ -1,0 +1,17 @@
+.gallery{
+  .gallery-item{
+    display: inline-block;
+    width: 20%;
+    overflow: hidden;
+    padding: 5px;
+    &:first-child{
+      padding-left: 0;
+    }
+    &:last-child{
+      padding-right: 0;
+    }
+    img{
+      cursor: pointer;
+    }
+  }
+}

@@ -5,7 +5,9 @@
 @import 'grid';
 @import 'helpers';
 @import 'components';
+@import 'modal';
 @import 'menu';
+@import 'gallery';
 
 .grid{
   @include color-bg($primary-color);

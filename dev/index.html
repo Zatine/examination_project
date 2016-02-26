@@ -15,7 +15,7 @@
       <row>
         <column twelve>
           <h5>Structure</h5>
-          <p>There are a lot of functions to create some standard menus. To use them, make sure to create a <em>nav</em>-element. Inside this element, include the <em>links</em>-element and refer to an object of links in the controller in the <em>menu</em>-attribute. The object should include a property called <em>links</em>, which is an array of the links to include in the menu. Each link should have a <em>title</em> and a <em>href</em>, which is what to display and where to go. Optional is to include a <em>subMenu</em>, which should be another object containing the property <em>links</em> and structured in the same way. The original object can also have the property <em>toggle</em>, which determines whether submenus should be opened on hover or on clicking.</p>
+          <p>There are a lot of helpful tools available for creating some standard menus. To use them, make sure to create a <em>nav</em>-element. Inside this element, include the <em>links</em>-element and refer to an object of links in the controller in the <em>menu</em>-attribute. The object should include a property called <em>links</em>, which is an array of the links to include in the menu. Each link should have a <em>title</em> and a <em>href</em>, which is what to display and where to go. Optional is to include a <em>subMenu</em>, which should be another object containing the property <em>links</em> and structured in the same way. The original object can also have the property <em>toggle</em>, which determines whether submenus should be opened on hover or on clicking.</p>
           <p><code>
             &lt;nav ng-switch-when="horizontal" class="horizontal">
               &lt;links menu="menu">&lt;/links>
@@ -713,13 +713,25 @@
           </row>
         </section>
       </section>
+    <section id="galleries" ng-controller="GalleryController as gallery">
+      <h2>Galleries</h2>
+      <section class="container">
+        <row>
+          <column>
+            <gallery images="gallery.images"></gallery>
+          </column>
+        </row>
+      </section>
+    </section>
      
 
         <!--inject:js-->
         <script src="/scripts/app.js"></script>
         <script src="/scripts/directives/forms.js"></script>
+        <script src="/scripts/directives/galleries.js"></script>
         <script src="/scripts/directives/grid.js"></script>
         <script src="/scripts/directives/menus.js"></script>
+        <script src="/scripts/directives/modal.js"></script>
         <script src="/scripts/directives/styles.js"></script>
         <!--endinject-->
   </body>
