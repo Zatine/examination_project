@@ -16,6 +16,8 @@
       padding: 10px;
   }
   @include onMedium(){
+    display: table;
+    table-layout: fixed;
     display:flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -32,10 +34,12 @@
     &.item-valign-baseline{align-content: baseline;}
 
     .col{
+      overflow: hidden;
       flex-grow: 1;
       min-height: 1px;
       &:first-child{padding-left: 0;}
       &:last-child{padding-right: 0;}
+      display: table-cell;
       display: flex;
       
       &.one{@include column(1);}

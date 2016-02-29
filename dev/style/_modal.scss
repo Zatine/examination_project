@@ -10,7 +10,6 @@
   padding-top: 100px;
   
   .modal-content{
-    border: $border-width solid #4a4a4a;
     text-align: center;
     display: block;
     margin: auto;
@@ -37,6 +36,9 @@
     }
     .previous{
       left: -1em;
+    }
+    img{
+      border: $border-width solid #4a4a4a;
     }
   }
 }

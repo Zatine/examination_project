@@ -9,8 +9,7 @@ gulp.task('sass', function () {
   return sass('dev/style/main.scss')
     .on('error', sass.logError)
     .pipe(autoprefixer({
-      browsers: ['>5%', 'IE 10'],
-      cascade: false
+      browsers: ['>5%', 'IE 9']
     }))
     .pipe(gulp.dest('dev/style'));
 });
@@ -25,7 +24,8 @@ gulp.task('inject-index', function(){
 
 gulp.task('serve', function(){
     browserSync.init({
-        server: "./dev"
+        server: "./dev",
+        online: false
     });
 
     gulp.watch("dev/index.html").on('change', browserSync.reload);

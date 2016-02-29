@@ -20,6 +20,24 @@ app.directive('coloredWords', function(){
     }
   }
 })
+.directive('getOrientation', function($timeout){
+  return{
+    restrict: 'A',
+    link: function(scope, elm, attrs){
+      $timeout(function(){
+        if(elm[0].offsetWidth == elm[0].offsetHeight){
+          elm.addClass('square');
+        }      
+        else if(elm[0].offsetWidth > elm[0].offsetHeight){
+          elm.addClass('landscape');
+        }
+        else{
+          elm.addClass('portrait');
+        }
+      });
+    }
+  }
+})
 .directive('snapToTop', function($document, $window){
   return {
     restrict: 'A',

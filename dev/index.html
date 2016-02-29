@@ -6,7 +6,7 @@
     <!--inject:css-->
     <link rel="stylesheet" href="/style/main.css">
     <!--endinject-->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="lib/angular.js"></script>
   </head>
   <body ng-app="App" ng-cloak> 
     <section id="menus" ng-controller="MenuController as menu">
@@ -716,9 +716,16 @@
     <section id="galleries" ng-controller="GalleryController as gallery">
       <h2>Galleries</h2>
       <section class="container">
+        <h4>Modal Gallery</h4>
         <row>
           <column>
-            <gallery images="gallery.images"></gallery>
+            <modal-gallery images="gallery.images"></modal-gallery>
+          </column>
+        </row>
+        <h4>Slide Gallery</h4>
+        <row>
+          <column>
+            <slide-gallery images="gallery.images"></slide-gallery>
           </column>
         </row>
       </section>
