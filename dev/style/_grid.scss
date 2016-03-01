@@ -34,7 +34,6 @@
     &.item-valign-baseline{align-content: baseline;}
 
     .col{
-      overflow: hidden;
       flex-grow: 1;
       min-height: 1px;
       &:first-child{padding-left: 0;}

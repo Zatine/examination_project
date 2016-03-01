@@ -47,7 +47,6 @@ app.directive('coloredWords', function(){
           snapClass = 'snap-top',
           keepPos;
       
-      console.log(elm[0].offsetTop);
       if(attrs.keepPos !== undefined) keepPos = true;
       
       function getPos(el) {

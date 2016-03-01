@@ -19,7 +19,7 @@ app.directive('modal', function(){
         '</div>'
     ].join(''),
     link: function(scope, elm, attrs){
-      
+
       scope.close = function(){
         scope.show = false;
       }

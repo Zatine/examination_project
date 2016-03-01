@@ -1,4 +1,5 @@
-*{box-sizing: border-box;}
+*{box-sizing: border-box; 
+  transition: .3s;}
 
 body{
   font-size: $font-base-size - 2;
@@ -27,7 +28,6 @@ p{
 /* LINKS */
 a{
   color: $primary-color;
-  transition: .3s;
   &:hover{color: $highlight-primary;}
 }
 
@@ -35,7 +35,6 @@ a{
 button{
   padding: 10px 20px;
   border-radius: 3px;
-  transition: .3s;
   @include button-style($blend-color-high);
   &.primary{
     @include button-style($primary-color);
@@ -116,7 +115,6 @@ ol{
 input, textarea, fieldset, select{
   margin-bottom: 10px;
   font-family: $main-font;
-  transition: .3s;
 }
 
 /* Input, Textarea */

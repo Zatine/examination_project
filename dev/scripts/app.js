@@ -53,9 +53,9 @@ app.controller('Documentation', function(){
   vm.images = [
     {src: '../img/image.jpg', alt:'Test Image', desc: 'This is an image to show the gallery functions.'},
     {src: '../img/image2.jpg', alt:'Test Image', desc: 'This is an image to show the gallery functions.'},
-    {src: '../img/image5.jpg', alt:'Test Image', desc: 'This is an image to show the gallery functions.'},
     {src: '../img/image3.jpg', alt:'Test Image', desc: 'This is an image to show the gallery functions.'},
     {src: '../img/image4.jpg', alt:'Test Image', desc: 'This is an image to show the gallery functions.'},
+    {src: '../img/image5.jpg', alt:'Test Image', desc: 'This is an image to show the gallery functions.'},
     {src: '../img/image6.jpg', alt:'Test Image', desc: 'This is an image to show the gallery functions.'},
     {src: '../img/image7.jpg', alt:'Test Image', desc: 'This is an image to show the gallery functions.'},
   ]

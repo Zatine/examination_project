@@ -166,7 +166,6 @@ nav{
     right: 15%;
     height: floor($size / 10);
     background: $text-color;
-    transition: 0.3s;
     
     &:before, &:after{
       position: absolute;

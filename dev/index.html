@@ -504,6 +504,10 @@
             <p>This class adds a span element around every word within it. Be sure to use it only when the element contains nothing but text. Each span gets the class <em>color-span</em>, found in <em>_helpers.scss</em> and can be styled through that.</p>
             <h6 class="colored-words">Use colored-words to get this effect</h6>
           </column>
+          <column four>
+            <h4>Image Orientation</h4>
+            If you add the attribute <em>get-orientation</em> on an image it will automatically get assigned a class depending on its orientation. If the width and height are equal, the image will get the class <strong>square</strong>. If the width is greater than the height, the image will get the class <strong>landscape</strong>. And finally, if the height is greater than the width, the image will be assigned the class <strong>portrait</strong>.
+          </column>
         </row>
         </section>
     </section>
@@ -716,16 +720,27 @@
     <section id="galleries" ng-controller="GalleryController as gallery">
       <h2>Galleries</h2>
       <section class="container">
+        <h4>Structure</h4>
+        <p>There are several types of ready-made image galleries available. The common thing for each of them is that they require and <em>image</em>-attribute, where you supply an array of image-objects. Each object should have the properties <em>src</em> (the image source) and <em>alt</em> (alternative text for the image). You can also supply <em>desc</em> as a property, for a description of the image to show up along with it.</p>
         <h4>Modal Gallery</h4>
+        <p>This is a standard gallery created with the tag <em>modal-gallery</em>. It will show all the images supplied in cropped divs, and if you click on a picture it's displayed in a modal. Five pictures will be shown on each row in desktop, and two on mobile.</p>
         <row>
           <column>
             <modal-gallery images="gallery.images"></modal-gallery>
           </column>
         </row>
         <h4>Slide Gallery</h4>
+        <p>This gallery is created with the tag <em>slide-gallery</em>. You can provide a number to the attribute <em>previews</em> to determine how many preview images should be shown at the bottom. This gallery does not open a modal, instead it previews the picture selected above the previews. You can also browse the previews by using the arrow buttons next to them.</p>
         <row>
           <column>
-            <slide-gallery images="gallery.images"></slide-gallery>
+            <slide-gallery images="gallery.images" previews="4"></slide-gallery>
+          </column>
+        </row>
+        <h4>Masonry Gallery</h4>
+        <p>This gallery is created with the tag <em>masonry-gallery</em>. Inspired by the popular masonry-layout, this gallery adds each image to a set width column and pile the images on top of each other despite orientation. You can add the attribute <em>columns</em> with a number, which will determine how many columns it will be split up into, default is three.</p>
+        <row>
+          <column>
+            <masonry-gallery images="gallery.images"></masonry-gallery>
           </column>
         </row>
       </section>
