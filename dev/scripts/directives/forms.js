@@ -117,7 +117,7 @@ app.directive('formSection', function(){
                   '<div class="inline-block">',
                     '<input type="checkbox" id="{{\'id_\' + id}}" name="{{name}}" value="{{value}}" ng-disabled="disabled" form="{{formName}}" ng-model="model">',
                     '<label for="{{\'id_\' + id}}" ng-class="{\'disabled\': disabled}">',
-                    '<span tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.66 48.75"><path d="M2.41,30.3l5.21-7.16A0.81,0.81,0,0,1,8.86,23l9.43,8a0.81,0.81,0,0,0,1.24-.15L40.9,1.37a0.81,0.81,0,0,1,1.19-.19l6.61,5a0.81,0.81,0,0,1,.17,1.06l-28,37.9a0.81,0.81,0,0,1-1.22.17l-17.12-14A0.81,0.81,0,0,1,2.41,30.3Z"/></svg></span>',
+                    '<span tabindex="0"><i class="icon-check"></i></span>',
                     ' {{label}}',
                     '</label>',
                   '</div'
@@ -155,7 +155,7 @@ app.directive('formSection', function(){
                     '<select form="{{formName}}" ng-options="option as option.name for option in options" ng-model="model" id="{{id}}" name="{{name}}" ng-disabled="{{disabled}}"></select>',
                     '<ul ng-class="{\'disabled\': disabled}" tabindex="0" ng-blur="hideMenu()">',
                       '<li ng-click="toggleMenu()">',
-                      '<label><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45.88 32.24"><polygon class="a" points="9.98 0.66 23.11 20.19 37.17 0.5 44.92 0.5 23.11 31.38 0.98 0.59 9.98 0.66"/></svg></label>',
+                      '<label><i class="icon-chevron_down_light"></i></label>',
                       '{{model.name}}</li>',
                       '<li ng-show="showMenu" ng-repeat="option in options" ng-click="setModel(option)" ng-class="{\'active\': model === option}">{{option.name}}</li>',
                       '</ul>',

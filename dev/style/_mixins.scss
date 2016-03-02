@@ -23,15 +23,17 @@
       border: $border-width solid $blend-color-high;
       background-color: #ffffff;
       cursor: pointer;
-      svg{
+      svg, i{
         fill: $primary-color;
         stroke: $darker-primary;
         stroke-miterlimit:10;
         display: none;
       }
     }
-    &:checked + label span svg{
-      display: block;
+    &:checked + label span{
+      svg, i {
+        display: block;
+      }
     }
     &:disabled + label span{
       background-color: $blend-color-high;

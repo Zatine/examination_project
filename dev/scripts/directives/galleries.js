@@ -48,7 +48,7 @@ app.directive('modalGallery', function(){
         '<div class="current-image">',
           '<img alt="{{currentImage.alt}}" src="{{currentImage.src}}">',
         '</div>',
-            '<span class="previous" ng-click="slideLeft()" ng-show="range.from != 0">&lt;</span>',
+            '<p class="previous" ng-click="slideLeft()" ng-class="{\'disabled\': range.from == 0}"><i class="icon-chevron_left_light"></i></p>',
         '<div class="slide-items">',
           '<div>',
             '<div class="gallery-item" ng-repeat="image in images">',
@@ -58,7 +58,7 @@ app.directive('modalGallery', function(){
             '</div>',
           '</div>',
         '</div>',
-            '<span class="next" ng-click="slideRight()" ng-show="range.to <= images.length -1">&gt;</span>',
+            '<p class="next" ng-click="slideRight()" ng-class="{\'disabled\': range.to >= images.length}"><i class="icon-chevron_right_light"></i></p>',
       '</div>'
     ].join(''),
     link: function(scope, elm, attrs){
@@ -152,15 +152,24 @@ app.directive('modalGallery', function(){
         scope.openModal = true;
       };
     
+      function findIndex(img){
+        for(var i = 0; i < scope.images.length; i++){
+          var image = scope.images[i];
+          if(img.src === image.src && img.alt === image.alt && img.desc === image.desc){
+            return i;
+          }
+        }
+      }
+      
       scope.nextImage = function(){
-        var index = scope.images.indexOf(scope.currentImage);
+        var index = findIndex(scope.currentImage);
         index = index == scope.images.length - 1 ? 0 : index + 1;
         scope.currentImage = scope.images[index];
       };
       scope.previousImage = function(){
-        var index = scope.images.indexOf(scope.currentImage);
+        var index = findIndex(scope.currentImage);
         index = index == 0 ? scope.images.length - 1 : index - 1;
-        scope.currentImage = scope.images[index];        
+        scope.currentImage = scope.images[index];    
       }
     }
   }

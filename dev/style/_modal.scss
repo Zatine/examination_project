@@ -19,7 +19,6 @@
     text-align: center;
     display: inline-block;
     margin: auto;
-    width: 80%;
     max-width: 800px;
     position: relative;
     color: white;
@@ -28,8 +27,8 @@
     }
     .close-modal{
       position: absolute;
-      top: -1em;
-      right: 0;
+      top: 1em;
+      right: 1em;
       cursor: pointer;
     }
     .next, .previous{
@@ -38,10 +37,10 @@
       cursor: pointer;
     }
     .next{
-      right: -1em;
+      right: 1em;
     }
     .previous{
-      left: -1em;
+      left: 1em;
     }
     img{
       border: $border-width solid #4a4a4a;

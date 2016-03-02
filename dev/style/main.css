@@ -560,13 +560,14 @@ fieldset {
           background: none; }
       .dropdown ul li label {
         position: absolute;
-        top: 35%;
-        right: 3%;
+        top: 25%;
+        right: 4%;
         height: 15px;
         width: 15px;
         z-index: 1; }
-        .dropdown ul li label svg {
-          fill: #0084bf; }
+        .dropdown ul li label i {
+          font-size: 1.2em;
+          color: #0084bf; }
   .dropdown select, .dropdown .multiple ul, .multiple .dropdown ul {
     display: none; }
 
@@ -605,12 +606,12 @@ input[type="checkbox"], .dropdown ul[type="checkbox"] {
     border: 1px solid #dedede;
     background-color: #ffffff;
     cursor: pointer; }
-    input[type="checkbox"] + label span svg, .dropdown ul[type="checkbox"] + label span svg {
+    input[type="checkbox"] + label span svg, .dropdown ul[type="checkbox"] + label span svg, input[type="checkbox"] + label span i, .dropdown ul[type="checkbox"] + label span i {
       fill: #0084bf;
       stroke: #00618c;
       stroke-miterlimit: 10;
       display: none; }
-  input[type="checkbox"]:checked + label span svg, .dropdown ul[type="checkbox"]:checked + label span svg {
+  input[type="checkbox"]:checked + label span svg, .dropdown ul[type="checkbox"]:checked + label span svg, input[type="checkbox"]:checked + label span i, .dropdown ul[type="checkbox"]:checked + label span i {
     display: block; }
   input[type="checkbox"]:disabled + label span, .dropdown ul[type="checkbox"]:disabled + label span {
     background-color: #dedede;
@@ -619,11 +620,11 @@ input[type="checkbox"], .dropdown ul[type="checkbox"] {
     border-radius: 3px;
     width: 19px;
     height: 19px; }
-    input[type="checkbox"] + label span svg, .dropdown ul[type="checkbox"] + label span svg {
-      height: 20px;
-      width: 20px;
-      margin-top: -4px;
-      margin-left: 0px; }
+    input[type="checkbox"] + label span i, .dropdown ul[type="checkbox"] + label span i {
+      font-size: 18px;
+      color: #0084bf;
+      margin-top: -3px;
+      margin-left: 1px; }
 
 input[type="radio"], .dropdown ul[type="radio"] {
   display: none; }
@@ -633,12 +634,12 @@ input[type="radio"], .dropdown ul[type="radio"] {
     border: 1px solid #dedede;
     background-color: #ffffff;
     cursor: pointer; }
-    input[type="radio"] + label span svg, .dropdown ul[type="radio"] + label span svg {
+    input[type="radio"] + label span svg, .dropdown ul[type="radio"] + label span svg, input[type="radio"] + label span i, .dropdown ul[type="radio"] + label span i {
       fill: #0084bf;
       stroke: #00618c;
       stroke-miterlimit: 10;
       display: none; }
-  input[type="radio"]:checked + label span svg, .dropdown ul[type="radio"]:checked + label span svg {
+  input[type="radio"]:checked + label span svg, .dropdown ul[type="radio"]:checked + label span svg, input[type="radio"]:checked + label span i, .dropdown ul[type="radio"]:checked + label span i {
     display: block; }
   input[type="radio"]:disabled + label span, .dropdown ul[type="radio"]:disabled + label span {
     background-color: #dedede;
@@ -704,7 +705,6 @@ table {
     text-align: center;
     display: inline-block;
     margin: auto;
-    width: 80%;
     max-width: 800px;
     position: relative;
     color: white; }
@@ -712,17 +712,17 @@ table {
       line-height: 0.8; }
     .modal .modal-content .close-modal {
       position: absolute;
-      top: -1em;
-      right: 0;
+      top: 1em;
+      right: 1em;
       cursor: pointer; }
     .modal .modal-content .next, .modal .modal-content .previous {
       position: absolute;
       top: 50%;
       cursor: pointer; }
     .modal .modal-content .next {
-      right: -1em; }
+      right: 1em; }
     .modal .modal-content .previous {
-      left: -1em; }
+      left: 1em; }
     .modal .modal-content img {
       border: 1px solid #4a4a4a; }
 
@@ -732,9 +732,8 @@ nav a {
     color: inherit; }
 nav span {
   cursor: pointer; }
-nav svg {
-  width: 0.8em;
-  fill: #101010; }
+nav i {
+  font-size: 0.8em; }
 nav ul {
   margin: 0; }
   nav ul li {
@@ -918,33 +917,58 @@ nav.fixed {
       opacity: 0.8; }
 .gallery.slide-g {
   position: relative; }
-  .gallery.slide-g .current-image img {
-    display: block;
-    margin: 0 auto; }
+  .gallery.slide-g .current-image {
+    margin-bottom: 10px; }
+    .gallery.slide-g .current-image img {
+      display: block;
+      margin: 0 auto; }
   .gallery.slide-g .next, .gallery.slide-g .previous {
     cursor: pointer;
     position: absolute;
-    bottom: 12%; }
+    bottom: 0;
+    height: 75px;
+    width: 5%;
+    background-color: #dedede;
+    padding: 0;
+    margin: 0;
+    border-radius: 3px;
+    color: #999999; }
+    @media screen and (min-width: 768px) {
+      .gallery.slide-g .next, .gallery.slide-g .previous {
+        height: 200px;
+        width: 3%; } }
+    .gallery.slide-g .next.disabled, .gallery.slide-g .previous.disabled {
+      cursor: default; }
+      .gallery.slide-g .next.disabled i, .gallery.slide-g .previous.disabled i {
+        opacity: 0.3; }
+    .gallery.slide-g .next i, .gallery.slide-g .previous i {
+      position: absolute;
+      top: 50%; }
   .gallery.slide-g .next {
     right: 0; }
+    .gallery.slide-g .next i {
+      right: 20%; }
   .gallery.slide-g .previous {
     left: 0; }
+    .gallery.slide-g .previous i {
+      left: 20%; }
   .gallery.slide-g .slide-items {
     overflow: hidden;
     height: 75px;
+    width: 90%;
     position: relative;
-    width: 98%;
     margin: 0 auto; }
     @media screen and (min-width: 768px) {
       .gallery.slide-g .slide-items {
-        height: 200px; } }
+        height: 200px;
+        width: 94%; } }
     .gallery.slide-g .slide-items > div {
       position: absolute;
       top: 0;
       left: 0;
       height: 100%; }
   .gallery.slide-g .gallery-item {
-    padding: 5px;
+    padding: 0 5px;
     height: 75px;
     width: 75px; }
     @media screen and (min-width: 768px) {
@@ -953,8 +977,7 @@ nav.fixed {
         width: 200px; } }
     .gallery.slide-g .gallery-item .active img {
       cursor: default;
-      opacity: 0.8;
-      border: 1px solid #dedede; }
+      opacity: 0.8; }
 .gallery.masonry-g {
   display: table;
   table-layout: fixed; }
