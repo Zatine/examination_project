@@ -719,19 +719,24 @@ table {
     color: white; }
     .modal .modal-content div {
       line-height: 0.8; }
+    .modal .modal-content .close-modal, .modal .modal-content .next, .modal .modal-content .previous {
+      opacity: 0.4; }
+      .modal .modal-content .close-modal:hover, .modal .modal-content .next:hover, .modal .modal-content .previous:hover {
+        opacity: 1; }
     .modal .modal-content .close-modal {
       position: absolute;
-      top: 1em;
-      right: 1em;
+      top: -1em;
+      right: 0;
       cursor: pointer; }
     .modal .modal-content .next, .modal .modal-content .previous {
+      font-size: 2em;
       position: absolute;
       top: 50%;
       cursor: pointer; }
     .modal .modal-content .next {
-      right: 1em; }
+      right: -1em; }
     .modal .modal-content .previous {
-      left: 1em; }
+      left: -1em; }
     .modal .modal-content img {
       border: 1px solid #4a4a4a; }
 

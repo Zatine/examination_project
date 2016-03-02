@@ -25,22 +25,29 @@
     div{
       line-height: 0.8;
     }
+    .close-modal, .next, .previous{
+      opacity: 0.4;
+      &:hover{
+        opacity: 1;
+      }
+    }
     .close-modal{
       position: absolute;
-      top: 1em;
-      right: 1em;
+      top: -1em;
+      right: 0;
       cursor: pointer;
     }
     .next, .previous{
+      font-size: 2em;
       position: absolute;
       top: 50%;
       cursor: pointer;
     }
     .next{
-      right: 1em;
+      right: -1em;
     }
     .previous{
-      left: 1em;
+      left: -1em;
     }
     img{
       border: $border-width solid #4a4a4a;
