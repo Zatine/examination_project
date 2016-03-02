@@ -517,8 +517,17 @@ textarea {
     margin-bottom: 15px; }
   .form-section .input {
     position: relative; }
-    .form-section .input.icon-padding input, .form-section .input.icon-padding .dropdown ul, .dropdown .form-section .input.icon-padding ul {
-      padding-right: 20px; }
+    .form-section .input.iconpadding input, .form-section .input.iconpadding .dropdown ul, .dropdown .form-section .input.iconpadding ul, .form-section .input.iconpadding textarea {
+      padding-right: 2.5em; }
+    .form-section .input i {
+      position: absolute;
+      font-size: 1.3em;
+      top: 0.5em;
+      right: 0.5em;
+      color: #dedede; }
+  .form-section[grid="true"] i {
+    right: 1em;
+    top: 1em; }
 
 /* Fieldset */
 fieldset {

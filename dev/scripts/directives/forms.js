@@ -15,6 +15,7 @@ app.directive('formSection', function(){
                   '<div ng-class="class.right" ng-hide="hide">',
                     '<div class="input" ng-class="class.icon" ng-switch="field">',
                       '<input ng-switch-when="input" id="{{id}}" type="{{type}}" placeholder="{{placeholder}}" ng-model="model" form="{{formName}}" name="{{name}}" ng-required="required" maxlength="{{maxlength}}" ng-maxlength="maxlength" ng-minlength="minlength" ng-change="change()" ng-disabled="disabled" ng-blur="validate()" ng-readonly="readonly">',
+                      '<i ng-if="icon" class="icon-{{icon}}"></i>',
                       '<textarea ng-switch-when="textarea" id="{{id}}" placeholder="{{placeholder}}" ng-model="model" form="{{form.$name}}" name="{{name}}" ng-required="required" maxlength="{{maxlength}}" ng-maxlength="maxlength" ng-minlength="minlength" ng-change="change()" ng-disabled="disabled" ng-blur="validate()" ng-readonly="readonly"></textarea>',
                       '<div ng-show="errorMessage && form[name].$touched" class="error">',
                         '<p ng-show="errorMessage.required">This field is required.</p>',
@@ -22,7 +23,6 @@ app.directive('formSection', function(){
                         '<p ng-show="errorMessage.maxlength">This field is too long.</p>',
                         '<p ng-show="errorMessage.email">Invalid e-mail.</p>',
                       '</div>',
-                      '<i ng-if="icon" class="icon" ng-class="icon"></i>',
                     '</div>',
                   '</div>'
               ].join(''),
@@ -51,9 +51,12 @@ app.directive('formSection', function(){
       if(disallowed.indexOf(scope.type) !== -1){
           scope.hide = true;
       }
+      
+      //if(scope.type === "search" && !scope.icon) scope.icon="search";
+      if(scope.required && !scope.icon) scope.icon="asterisk";
 
       scope.class = {
-                      icon: scope.icon ? 'icon-padding' : '',
+                      icon: scope.icon ? 'iconpadding' : '',
                       row: scope.grid ? 'row' : '',
                       left: scope.grid ? 'four col' : '',
                       right: scope.grid ? 'eight col' : ''
