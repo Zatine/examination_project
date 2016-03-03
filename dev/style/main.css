@@ -332,6 +332,9 @@ video {
   -webkit-transition: .3s;
   transition: .3s; }
 
+body, html {
+  height: 100%; }
+
 body {
   font-size: 14px;
   background-color: #f5f5f5;
@@ -697,48 +700,60 @@ table {
     opacity: 0; }
   to {
     opacity: 1; } }
-.modal {
+.modal-overlay {
   display: block;
   position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
+  height: 100%;
   background: rgba(0, 0, 0, 0.7);
   z-index: 300;
-  padding-top: 100px;
+  padding-top: 50px;
   text-align: center;
   -webkit-animation: fade-in .2s;
           animation: fade-in .2s; }
-  .modal .modal-content {
+  @media screen and (min-width: 768px) {
+    .modal-overlay {
+      padding-top: 100px; } }
+  .modal-overlay .modal-wrapper {
     text-align: center;
     display: inline-block;
     margin: auto;
-    max-width: 800px;
+    max-width: 80%;
+    max-height: 80%;
     position: relative;
     color: white; }
-    .modal .modal-content div {
-      line-height: 0.8; }
-    .modal .modal-content .close-modal, .modal .modal-content .next, .modal .modal-content .previous {
+    @media screen and (min-width: 992px) {
+      .modal-overlay .modal-wrapper {
+        max-width: 800px; } }
+    .modal-overlay .modal-wrapper div {
+      line-height: 0.8;
+      max-height: 100%;
+      height: 100%; }
+    .modal-overlay .modal-wrapper .close-modal, .modal-overlay .modal-wrapper .next, .modal-overlay .modal-wrapper .previous {
+      text-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
       opacity: 0.4; }
-      .modal .modal-content .close-modal:hover, .modal .modal-content .next:hover, .modal .modal-content .previous:hover {
+      .modal-overlay .modal-wrapper .close-modal:hover, .modal-overlay .modal-wrapper .next:hover, .modal-overlay .modal-wrapper .previous:hover {
         opacity: 1; }
-    .modal .modal-content .close-modal {
+    .modal-overlay .modal-wrapper .close-modal {
       position: absolute;
       top: -1em;
       right: 0;
       cursor: pointer; }
-    .modal .modal-content .next, .modal .modal-content .previous {
+    .modal-overlay .modal-wrapper .next, .modal-overlay .modal-wrapper .previous {
       font-size: 2em;
       position: absolute;
       top: 50%;
       cursor: pointer; }
-    .modal .modal-content .next {
+    .modal-overlay .modal-wrapper .next {
       right: -1em; }
-    .modal .modal-content .previous {
+    .modal-overlay .modal-wrapper .previous {
       left: -1em; }
-    .modal .modal-content img {
-      border: 1px solid #4a4a4a; }
+    .modal-overlay .modal-wrapper img {
+      border: 1px solid #4a4a4a;
+      max-height: 100%; }
 
 nav a {
   color: inherit; }
@@ -932,10 +947,22 @@ nav.fixed {
 .gallery.slide-g {
   position: relative; }
   .gallery.slide-g .current-image {
-    margin-bottom: 10px; }
+    margin-bottom: 10px;
+    height: 200px;
+    text-align: center; }
+    @media screen and (min-width: 768px) {
+      .gallery.slide-g .current-image {
+        height: 500px; } }
+    .gallery.slide-g .current-image:before {
+      content: "";
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle; }
     .gallery.slide-g .current-image img {
-      display: block;
-      margin: 0 auto; }
+      vertical-align: middle;
+      margin: 0 auto;
+      max-height: 100%;
+      width: auto; }
   .gallery.slide-g .next, .gallery.slide-g .previous {
     cursor: pointer;
     position: absolute;
@@ -1000,7 +1027,8 @@ nav.fixed {
     padding-left: 3px; }
     @media screen and (min-width: 480px) {
       .gallery.masonry-g .gallery-column {
-        display: table-cell; } }
+        display: table-cell;
+        vertical-align: top; } }
     .gallery.masonry-g .gallery-column img {
       width: 100%;
       height: auto;

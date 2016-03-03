@@ -54,9 +54,22 @@
     position: relative;
     .current-image{
       margin-bottom: 10px;
+      height: 200px;
+      @include onMedium(){
+        height: 500px;
+      }
+      text-align: center;
+        &:before{
+          content: "";
+          display: inline-block;
+          height: 100%;
+          vertical-align: middle;
+        }
       img{
-        display: block;
+        vertical-align: middle;
         margin: 0 auto;
+        max-height: 100%;
+        width: auto;
       }
     }
     .next, .previous{
@@ -89,16 +102,12 @@
       right: 0;
       i{
         right: 20%;
-        @include onMedium(){
-        }
       }
     }
     .previous{
       left: 0;
       i{
           left: 20%;
-        @include onMedium(){
-        }
       }
     }
     .slide-items{
@@ -141,6 +150,7 @@
       display: block;
       @include onSmall(){
         display: table-cell;
+        vertical-align: top;
       }
       padding-left: 3px;
       img{
