@@ -5,6 +5,16 @@
 /* Borders */
 /* Container Width */
 /* Breakpoints */
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes fade-in {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
 /* Minimal normalize/reset-styling provided by Jayden Seric, http://jaydenseric.com/blog/forget-normalize-or-resets-lay-your-own-css-foundation */
 html {
   -ms-text-size-adjust: 100%;
@@ -689,17 +699,6 @@ table {
   table tr:nth-child(even) {
     background: #ececec; }
 
-@-webkit-keyframes fade-in {
-  from {
-    opacity: 0; }
-  to {
-    opacity: 1; } }
-
-@keyframes fade-in {
-  from {
-    opacity: 0; }
-  to {
-    opacity: 1; } }
 .modal-overlay {
   display: block;
   position: fixed;
@@ -729,7 +728,6 @@ table {
       .modal-overlay .modal-wrapper {
         max-width: 800px; } }
     .modal-overlay .modal-wrapper div {
-      line-height: 0.8;
       max-height: 100%;
       height: 100%; }
     .modal-overlay .modal-wrapper .close-modal, .modal-overlay .modal-wrapper .next, .modal-overlay .modal-wrapper .previous {
@@ -825,7 +823,16 @@ nav.fixed {
   text-align: left;
   position: relative;
   width: 100%; }
-  .hamburger-container .menu ul {
+  .horizontal .hamburger-container .menu ul {
+    -webkit-transition: 1s;
+    transition: 1s;
+    margin-left: -400%; }
+    @media screen and (min-width: 768px) {
+      .horizontal .hamburger-container .menu ul {
+        -webkit-transition: .5s;
+        transition: .5s;
+        margin-left: -200%; } }
+  .vertical .hamburger-container .menu ul {
     -webkit-transition: .5s;
     transition: .5s;
     margin-left: -200%; }
@@ -1035,6 +1042,47 @@ nav.fixed {
       cursor: pointer; }
       .gallery.masonry-g .gallery-column img:hover {
         opacity: 0.8; }
+
+.carousel {
+  height: 350px;
+  overflow: hidden;
+  position: relative; }
+  .carousel ul {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: 1s;
+    transition: 1s;
+    text-align: left; }
+    .carousel ul li {
+      float: left;
+      border-radius: 0;
+      padding: 10px;
+      margin: 0;
+      height: 100%;
+      overflow: hidden; }
+  .carousel .indicators {
+    position: absolute;
+    bottom: 1%;
+    width: 100%;
+    text-align: center; }
+    .carousel .indicators .indicator {
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+      display: inline-block;
+      height: 10px;
+      width: 10px;
+      border-radius: 50%;
+      margin: 0 5px;
+      background-color: rgba(255, 255, 255, 0.35);
+      cursor: pointer; }
+      .carousel .indicators .indicator.active {
+        cursor: default;
+        background-color: #fff; }
 
 .grid {
   background-color: #0084bf;

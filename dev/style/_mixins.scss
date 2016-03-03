@@ -75,6 +75,7 @@
   }
 }
 
+
 @mixin onSmall(){
   @media screen and (min-width: $small){
     @content

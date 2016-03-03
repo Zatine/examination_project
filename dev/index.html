@@ -749,10 +749,30 @@
         </row>
       </section>
     </section>
+    <section id="carousel">
+      <h2>Carousel</h2>
+      <section class="container">
+        <p>To create a carousel, use the <em>carousel</em>-tag. Then treat it like a list, where each <em>li</em> is a slide, containing whatever content and styling you like. Default height of the carousel is 350px, which can be overriden in CSS.</p>
+        <carousel>
+          <li>
+            <h5>First slide in carousel</h5>
+            <p>This is a paragraph.</p>
+          </li>
+          <li class="bg">
+            <h5>Second slide</h5>
+          </li>
+          <li class="secondary-bg">
+            <h5>Another slide</h5>
+            <h6>Third slide in Carousel</h6>
+          </li>
+        </carousel>
+      </section>
+    </section>
      
 
         <!--inject:js-->
         <script src="/scripts/app.js"></script>
+        <script src="/scripts/directives/carousel.js"></script>
         <script src="/scripts/directives/forms.js"></script>
         <script src="/scripts/directives/galleries.js"></script>
         <script src="/scripts/directives/grid.js"></script>

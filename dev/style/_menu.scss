@@ -101,8 +101,18 @@ nav{
   
   .menu{
     ul{
-      transition: .5s;
-      margin-left: -200%;
+      .horizontal &{
+          transition: 1s;
+          margin-left: -400%;
+          @include onMedium(){
+            transition: .5s;
+            margin-left: -200%;
+          }
+      }
+      .vertical &{
+        transition: .5s;
+        margin-left: -200%;
+      }
     }
   }
   
