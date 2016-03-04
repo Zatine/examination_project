@@ -36,7 +36,7 @@ app.directive('carousel', function($interval, $timeout){
       interval = $interval(nextSlide, scope.interval);
       
       function nextSlide(){
-        if(list.style.transition == 'none') list.style.transition = '1s';
+        list.style.transition = '1s';
         var index = scope.items.indexOf(scope.activeSlide);
         index++;
         scope.activeSlide = scope.items[index];
@@ -48,8 +48,8 @@ app.directive('carousel', function($interval, $timeout){
           }, 1000);        
         }
       }
+      
       function resetCarousel(){
-        console.log('reset');
         list.style.transition = 'none';
         scope.activeSlide = scope.items[0];
         list.style.left = '0px';

@@ -1,3 +1,34 @@
+/* MEDIA QUERIES */
+@mixin onSmall(){
+  @media screen and (min-width: $small){
+    @content
+  }
+}
+@mixin onMedium(){
+  @media screen and (min-width: $medium){
+    @content
+  }
+}
+@mixin onDesktop(){
+  @media screen and (min-width: $desktop){
+    @content
+  }
+}
+@mixin onLarge(){
+  @media screen and (min-width: $large){
+    @content
+  }
+}
+
+/* HELPERS */
+@mixin headings($from: 1, $to: 6){
+  @for $i from $from through $to{
+    h#{$i}{
+      @content
+    }
+  }
+}
+
 @mixin color-bg($color){
   @if(lightness($color) > 70){
     background-color: $color;
@@ -8,6 +39,8 @@
     color: #fff;
   }
 }
+
+/* BUTTON STYLES */
 
 @mixin button-style($color){
     @include color-bg($color);
@@ -41,6 +74,7 @@
     }
 }
 
+/* STYLE MIXINS */
 @mixin lineThrough(
   $left: 45%,
   $right: 45%,
@@ -65,36 +99,6 @@
     }
     &:before { width: $left; right: 2.5%;}
     &:after { width: $right; left: 2.5%;}
-}
-
-@mixin headings($from: 1, $to: 6){
-  @for $i from $from through $to{
-    h#{$i}{
-      @content
-    }
-  }
-}
-
-
-@mixin onSmall(){
-  @media screen and (min-width: $small){
-    @content
-  }
-}
-@mixin onMedium(){
-  @media screen and (min-width: $medium){
-    @content
-  }
-}
-@mixin onDesktop(){
-  @media screen and (min-width: $desktop){
-    @content
-  }
-}
-@mixin onLarge(){
-  @media screen and (min-width: $large){
-    @content
-  }
 }
 
 @mixin circle(

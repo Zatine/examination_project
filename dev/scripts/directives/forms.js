@@ -218,6 +218,12 @@ app.directive('formSection', function(){
                 scope.model = scope.options[index + 1];
               }
             }
+                    
+            $document.bind('click', function(event){
+              if(!scope.showMenu || event.target === elm[0]) return;
+              scope.menu = false;
+              if(!scope.$$phase) scope.$apply();
+            });
         }
         
         if(scope.multiple){
@@ -260,14 +266,7 @@ app.directive('formSection', function(){
           navigateMenu(event);
           if(!scope.$$phase) scope.$apply();
         });
-          
-        
-        $document.bind('click', function(event){
-          elm.removeAttr('id');
-          if(event.path.indexOf(elm[0]) !== -1) return;
-          scope.menu = false;
-          if(!scope.$$phase) scope.$apply();
-        });
+         
       }
     }
 

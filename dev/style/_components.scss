@@ -25,6 +25,7 @@ h6{font-size: 1.5em;}
 
 p{
   margin: 10px 0;
+  line-height: 1.5em;
 }
 
 /* LINKS */
@@ -169,6 +170,7 @@ textarea{
   
   .input{
     position: relative;
+    .row .col &{padding: 0;}
 
     &.iconpadding{
       input, textarea{
@@ -182,12 +184,6 @@ textarea{
       top: 0.5em;
       right: 0.5em;
       color: $blend-color-high;
-    }
-  }
-  &[grid="true"]{
-    i{
-      right: 1em;
-      top: 1em;
     }
   }
 }

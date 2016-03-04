@@ -38,6 +38,7 @@ app.controller('Documentation', function(){
                {name: 'Text', href: '#mixins-text'},
                {name: 'Other', href: '#mixins-other'}]}},
     {name: 'Galleries', href: '#galleries'},
+    {name: 'Carousel', href: '#carousel'},
   ]};
   
   vm.toggleSubMenuToggle = function(){
