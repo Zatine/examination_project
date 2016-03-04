@@ -57,10 +57,14 @@ app.directive('coloredWords', function(){
       }
       
       $document.bind('scroll', function(){
-        if($window.scrollY >= originalPos.y){
+        var scrollTop = $window.scrollY || document.documentElement.scrollTop;
+        if(scrollTop >= originalPos.y){
           if(elm.hasClass(snapClass)) return;
           elm.addClass(snapClass);
-          if (keepPos) elm.attr('style', 'width:' + originalWidth + 'px;left:' + originalPos.x + 'px;');
+          if (keepPos) {
+            elm[0].style.width = originalWidth + 'px';
+            elm[0].style.left = originalPos.x + 'px';
+          }
         }
         else{
           if(!elm.hasClass(snapClass)) return;

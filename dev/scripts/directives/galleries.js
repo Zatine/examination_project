@@ -12,7 +12,7 @@ app.directive('modalGallery', function(){
             '<p ng-if="currentImage.desc">{{currentImage.desc}}</p>',
         '</modal>',
         '<div class="gallery-item" ng-repeat="image in images">',
-          '<div style="background-image:url(\'{{image.src}}\');" ng-click="openImage(image)">',
+          '<div style="background-image:url(\'{{image.src}}\');" ng-click="openImage(image)" title="{{image.alt}}">',
           '</div>',
         '</div>',
       '</div>'
@@ -51,8 +51,7 @@ app.directive('modalGallery', function(){
         '<div class="slide-items">',
           '<div>',
             '<div class="gallery-item" ng-repeat="image in images">',
-              '<div ng-class="{\'active\':image === currentImage}">',
-                '<img alt="{{image.alt}}" src="{{image.src}}" ng-click="openImage(image)" get-orientation>',
+              '<div ng-class="{\'active\':image === currentImage}" style="background-image:url(\'{{image.src}}\');" ng-click="openImage(image)" title="{{image.alt}}">',
               '</div>',
             '</div>',
           '</div>',

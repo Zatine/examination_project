@@ -344,7 +344,8 @@ video {
 * {
   box-sizing: border-box;
   -webkit-transition: .3s;
-  transition: .3s; }
+  transition: .3s;
+  max-width: 100%; }
 
 body, html {
   height: 100%; }
@@ -737,6 +738,8 @@ table {
     .modal-overlay .modal-wrapper .close-modal, .modal-overlay .modal-wrapper .next, .modal-overlay .modal-wrapper .previous {
       text-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
       opacity: 0.4; }
+      .modal-overlay .modal-wrapper .close-modal:active, .modal-overlay .modal-wrapper .close-modal:focus, .modal-overlay .modal-wrapper .next:active, .modal-overlay .modal-wrapper .next:focus, .modal-overlay .modal-wrapper .previous:active, .modal-overlay .modal-wrapper .previous:focus {
+        box-shadow: none; }
       .modal-overlay .modal-wrapper .close-modal:hover, .modal-overlay .modal-wrapper .next:hover, .modal-overlay .modal-wrapper .previous:hover {
         opacity: 1; }
     .modal-overlay .modal-wrapper .close-modal {
@@ -877,9 +880,6 @@ nav.fixed {
     .hamburger-container .hamburger span {
       display: block;
       position: relative;
-      top: 50%;
-      left: 15%;
-      right: 15%;
       height: 4px;
       background: #101010; }
       .hamburger-container .hamburger span:before, .hamburger-container .hamburger span:after {
@@ -1016,6 +1016,7 @@ nav.fixed {
         height: 200px;
         width: 94%; } }
     .gallery.slide-g .slide-items > div {
+      max-width: none;
       position: absolute;
       top: 0;
       left: 0;
@@ -1028,9 +1029,17 @@ nav.fixed {
       .gallery.slide-g .gallery-item {
         height: 200px;
         width: 200px; } }
-    .gallery.slide-g .gallery-item .active img {
-      cursor: default;
-      opacity: 0.8; }
+    .gallery.slide-g .gallery-item div {
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      background-position: center center;
+      background-clip: content-box; }
+      .gallery.slide-g .gallery-item div:hover {
+        opacity: 0.8; }
+      .gallery.slide-g .gallery-item div.active {
+        cursor: default;
+        opacity: 0.8; }
 .gallery.masonry-g {
   display: table;
   table-layout: fixed; }
@@ -1063,7 +1072,8 @@ nav.fixed {
     height: 100%;
     -webkit-transition: 1s;
     transition: 1s;
-    text-align: left; }
+    text-align: left;
+    max-width: none; }
     .carousel ul li {
       float: left;
       border-radius: 0;
