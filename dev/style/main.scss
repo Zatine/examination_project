@@ -180,6 +180,9 @@ section{
 
 .fade{
   padding: 15px;
+  &.all{
+    @include fade(all);
+  }
   &.top{
     @include fade(top);
   }

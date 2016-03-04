@@ -168,8 +168,8 @@
     $blur: 10px,
     $color: $background-color
   ){
-  @if $edge != top and $edge != bottom and $edge != left and $edge != right{
-    @error 'Invalid $edge: "#{$edge}". Use top, bottom, left or right. Default is top.';
+  @if $edge != top and $edge != bottom and $edge != left and $edge != right and $edge != all{
+    @error 'Invalid $edge: "#{$edge}". Use top, bottom, left, right or all. Default is top.';
   }
     
   @if $edge == top{
@@ -183,6 +183,9 @@
   }
   @if $edge == right{
     box-shadow: (-$size) 0px $blur (-$size + 10) $color inset;
+  }
+  @if $edge == all{
+    box-shadow: 0 0 $blur ($blur - 2) $color inset;
   }
 }
 

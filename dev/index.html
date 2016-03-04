@@ -14,6 +14,7 @@
       <h2>Introduction</h2>
       <section class="container">
         <p>This is a framework built by me to easily be able to recreate styles and functions when building websites, and also to improve my skills. The framework is built with SASS and Angular 1, and made to be as flexible as possible for use in future projects. You can find the GitHub-repository for the project <a href="https://github.com/Zatine/examination_project">here</a>.</p>
+        <p>Because of Angular this framework only works in Internet Explorer 9 or later browsers. All animations are made with CSS3 and might not work correctly in older browsers.</p>
       </section>
     </section>
     <section id="menus" ng-controller="MenuController as menu">
@@ -653,10 +654,11 @@
             </column>
           </row>
           <row class="text-center">
-            <column three><div class="fade top bg"><p>top</p></div></column>
-            <column three><div class="fade bottom bg"><p>bottom</p></div></column>
-            <column three><div class="fade left bg"><p>left</p></div></column>
-            <column three><div class="fade right bg"><p>right</p></div></column>
+            <column><div class="fade all bg"><p>all</p></div></column>
+            <column><div class="fade top bg"><p>top</p></div></column>
+            <column><div class="fade bottom bg"><p>bottom</p></div></column>
+            <column><div class="fade left bg"><p>left</p></div></column>
+            <column><div class="fade right bg"><p>right</p></div></column>
           </row>
         </section>
       <section class="container" id="mixins-text">
