@@ -17,6 +17,82 @@
         <p>Because of Angular this framework only works in Internet Explorer 9 or later browsers. All animations are made with CSS3 and might not work correctly in older browsers.</p>
       </section>
     </section>
+    <section id="icons">
+      <h2>Icons</h2>
+      <section class="container">
+      <p>The icon library is under construction. Currently these icons are at your disposal. The icons are displayed with a font made with <em>Icomoon</em> and are completely original. Since they are a font, they can be styled as text with color, shadows and font-size. To include an icon, add an empty <em>i</em>-element with the class-name displayed under the icon you want to use.</p>
+        <row class="text-center small mute">
+          <column two class="card">
+            <i class="show-icon icon-asterisk"></i>
+            <p>icon-asterisk</p>
+          </column>
+          <column two class="card">
+            <i class="show-icon icon-check"></i>
+            <p>icon-check</p>
+          </column>
+          <column two class="card">
+            <i class="show-icon icon-chevron_down_light"></i>
+            <p>icon-chevron_down_light</p>
+          </column>
+          <column two class="card">
+            <i class="show-icon icon-chevron_left_light"></i>
+            <p>icon-chevron_left_light</p>
+          </column>
+          <column two class="card">
+            <i class="show-icon icon-chevron_right_light"></i>
+            <p>icon-chevron_right_light</p>
+          </column>
+          <column two class="card">
+            <i class="show-icon icon-chevron_up_light"></i>
+            <p>icon-chevron_up_light</p>
+          </column>
+        </row>
+        <row class="text-center small mute">
+          <column two class="card">
+            <i class="show-icon icon-close"></i>
+            <p>icon-close</p>
+          </column>
+          <column two class="card">
+            <i class="show-icon icon-globe"></i>
+            <p>icon-globe</p>
+          </column>
+          <column two class="card">
+            <i class="show-icon icon-heart"></i>
+            <p>icon-heart</p>
+          </column>
+          <column two class="card">
+            <i class="show-icon icon-help"></i>
+            <p>icon-help</p>
+          </column>
+          <column two class="card">
+            <i class="show-icon icon-profile1"></i>
+            <p>icon-profile1</p>
+          </column>
+          <column two class="card">
+            <i class="show-icon icon-profile2"></i>
+            <p>icon-profile2</p>
+          </column>
+        </row>
+        <row class="text-center small mute">
+          <column two class="card">
+            <i class="show-icon icon-search"></i>
+            <p>icon-search</p>
+          </column>
+          <column two class="card">
+            <i class="show-icon icon-star"></i>
+            <p>icon-star</p>
+          </column>
+          <column two class="card">
+            <i class="show-icon icon-warning_circle"></i>
+            <p>icon-warning_circle</p>
+          </column>
+          <column two class="card">
+            <i class="show-icon icon-warning_triangle"></i>
+            <p>icon-warning_triangle</p>
+          </column>
+        </row>
+      </section>
+    </section>
     <section id="menus" ng-controller="MenuController as menu">
       <h2>Menus</h2>
       <section class="container">
@@ -564,7 +640,7 @@
             <column two><div class="arrow up-down primary-bg"><p>before:up after:down</p></div></column>
             <column two><div class="arrow left-right-inv primary-bg"><p>before: left inverse</p><p>after: right inverse</p></div></column>
             <column two><div class="arrow left-up primary-bg"><p>before: left pos:15px</p><p>after: up pos:80%</p></div></column>
-            <column two><div class="arrow right-double primary-bg"><p>before: right </p><p>after: right inverse</p></div></column>
+            <column two><div class="arrow left-double primary-bg"><p>before: left </p><p>after: left inverse</p></div></column>
           </row>                
           <row>
             <column twelve>
@@ -760,7 +836,7 @@
     <section id="carousel">
       <h2>Carousel</h2>
       <section class="container">
-        <p>To create a carousel, use the <em>carousel</em>-tag. Then treat it like a list, where each <em>li</em> is a slide, containing whatever content and styling you like. Default height of the carousel is 350px, which can be overriden in CSS.</p>
+        <p>To create a carousel, use the <em>carousel</em>-tag. Then treat it like a list, where each <em>li</em> is a slide, containing whatever content and styling you like. Default height of the carousel is 350px, which can be overriden in CSS. You can add the attribute <em>interval</em> and provide how many milliseconds each slide should last, default is <strong>5000</strong>.</p>
         <carousel>
           <li>
             <h5>First slide in carousel</h5>

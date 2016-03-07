@@ -769,7 +769,8 @@ nav span {
 nav i {
   font-size: 0.8em; }
 nav ul {
-  margin: 0; }
+  margin: 0;
+  max-width: none; }
   nav ul li {
     background: none;
     -webkit-transition: .3s;
@@ -1384,7 +1385,7 @@ section {
     margin-left: -15px;
     bottom: 100%;
     border-bottom-color: #0084bf; }
-  .arrow.right-double:before {
+  .arrow.left-double:before {
     /* ERROR HANDLING */
     border: solid transparent;
     content: " ";
@@ -1396,9 +1397,9 @@ section {
     border-width: 15px;
     top: 50%;
     margin-top: -15px;
-    left: 100%;
-    border-left-color: #0084bf; }
-  .arrow.right-double:after {
+    right: 100%;
+    border-right-color: #0084bf; }
+  .arrow.left-double:after {
     /* ERROR HANDLING */
     border: solid transparent;
     content: " ";
@@ -1410,10 +1411,10 @@ section {
     border-width: 15px;
     top: 50%;
     margin-top: -15px;
-    left: 100%;
-    border-left-color: #0084bf;
-    left: 0;
-    border-left-color: #f5f5f5; }
+    right: 100%;
+    border-right-color: #0084bf;
+    right: 0;
+    border-right-color: #f5f5f5; }
 
 .arrow-image {
   padding: 15px; }
@@ -2096,3 +2097,7 @@ nav {
       background: #0084bf; }
   nav .hamburger-container .hamburger span, nav .hamburger-container .hamburger span:before, nav .hamburger-container .hamburger span:after {
     background: white; }
+
+.show-icon {
+  font-size: 4em;
+  color: #101010; }

@@ -1,4 +1,4 @@
-app.directive('carousel', function($interval, $timeout){
+app.directive('carousel', function($interval, $timeout, $window){
   return{
     restrict: 'E',
     replace: true,
@@ -16,7 +16,7 @@ app.directive('carousel', function($interval, $timeout){
       '</div>'
     ].join(''),
     link: function(scope, elm, attrs){
-      var width = elm[0].offsetWidth,
+      var width,
           interval,
           reset,
           list = elm[0].children[0];
@@ -26,11 +26,17 @@ app.directive('carousel', function($interval, $timeout){
       scope.activeSlide = scope.items[0];
       scope.items.push(scope.items[0].cloneNode(true));
       list.appendChild(scope.items[scope.items.length - 1]);
+      setWidths();
       
-      list.style.width = (scope.items.length * width) + 'px';
-      
-      for(var i = 0; i < scope.items.length; i++){
-        scope.items[i].style.width = width + 'px';
+      function setWidths(){
+        $timeout(function(){
+          width = elm[0].offsetWidth;
+          list.style.width = (scope.items.length * width) + 'px';
+
+          for(var i = 0; i < scope.items.length; i++){
+            scope.items[i].style.width = width + 'px';
+          }
+        });
       }
       
       interval = $interval(nextSlide, scope.interval);
@@ -66,6 +72,8 @@ app.directive('carousel', function($interval, $timeout){
         }, (scope.interval * 2));
         
       }
+      
+      angular.element($window).bind('resize', setWidths);
     }
   }
 });

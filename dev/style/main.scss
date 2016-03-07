@@ -76,9 +76,9 @@ section{
     &:before{@include colorArrow(left, $pos: 15px);}
     &:after{@include colorArrow(up, $pos: 80%);}
   }
-  &.right-double{
-    &:before{@include colorArrow(right);}
-    &:after{@include colorArrow(right, $inverse: true);}
+  &.left-double{
+    &:before{@include colorArrow(left);}
+    &:after{@include colorArrow(left, $inverse: true);}
   }
 }
 
@@ -243,4 +243,9 @@ nav{
       background: white;
     }
   }  
+}
+
+.show-icon{
+  font-size: 4em;
+  color: $text-color;
 }
