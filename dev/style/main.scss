@@ -40,6 +40,11 @@ section{
 .arrow{
   padding: 15px;
   position: relative;
+  width: 90%;
+  margin: 0 auto;
+  @include onMedium(){
+    width: 100%;
+  }
   &.up:after{
     @include colorArrow(up); 
   }

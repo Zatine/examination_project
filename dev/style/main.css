@@ -1176,7 +1176,12 @@ section {
 
 .arrow {
   padding: 15px;
-  position: relative; }
+  position: relative;
+  width: 90%;
+  margin: 0 auto; }
+  @media screen and (min-width: 768px) {
+    .arrow {
+      width: 100%; } }
   .arrow.up:after {
     /* ERROR HANDLING */
     border: solid transparent;
