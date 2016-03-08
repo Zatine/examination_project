@@ -166,7 +166,7 @@
 }
 
 @mixin fade(
-    $edge: up,
+    $edge: top,
     $size: 30px,
     $blur: 10px,
     $color: $background-color
