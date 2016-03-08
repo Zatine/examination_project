@@ -4,13 +4,45 @@ app.directive('modal', function($timeout, $window){
     transclude: true,
     replace: true,
     scope: {
+      show: '='
+    },
+    template: [
+        '<div class="modal-overlay" ng-show="show" ng-click="close()">',
+          '<div class="modal-wrapper basic" ng-click="$event.stopPropagation()">',
+              '<span class="close-modal" ng-click="close()"><i class="icon-close"></i></span>',
+              '<div data-ng-transclude></div>',
+          '</div>',
+        '</div>'
+    ].join(''),
+    link: function(scope, elm, attrs){
+      
+      scope.previousButton = function(){
+        scope.previous();
+        $timeout(function(){
+          setWidth();
+          setTop();
+        });
+      };
+      
+      scope.close = function(){
+        scope.show = false;
+        wrapper.style.minWidth = '0px';
+      }
+    }    
+  }
+}).directive('galleryModal', function($timeout, $window){
+  return {
+    restrict: 'E',
+    transclude: true,
+    replace: true,
+    scope: {
       show: '=',
       next: '&?',
       previous: '&?'
     },
     template: [
         '<div class="modal-overlay" ng-show="show" ng-click="close()">',
-          '<div class="modal-wrapper" ng-click="$event.stopPropagation()">',
+          '<div class="modal-wrapper gallery" ng-click="$event.stopPropagation()">',
               '<span class="close-modal" ng-click="close()"><i class="icon-close"></i></span>',
               '<div data-ng-transclude></div>',
               '<span ng-if="previous" class="previous" ng-click="previousButton()"><i class="icon-chevron_left_light"></i></span>',

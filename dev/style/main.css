@@ -836,33 +836,46 @@ table {
     @media screen and (min-width: 992px) {
       .modal-overlay .modal-wrapper {
         max-width: 800px; } }
-    .modal-overlay .modal-wrapper div {
+    .modal-overlay .modal-wrapper.gallery div {
       max-height: 100%;
       height: 100%; }
+    .modal-overlay .modal-wrapper.gallery .next, .modal-overlay .modal-wrapper.gallery .previous {
+      font-size: 2em;
+      position: absolute;
+      top: 50%;
+      cursor: pointer; }
+    .modal-overlay .modal-wrapper.gallery .next {
+      right: -1em; }
+    .modal-overlay .modal-wrapper.gallery .previous {
+      left: -1em; }
+    .modal-overlay .modal-wrapper.gallery img {
+      border: 1px solid #4a4a4a;
+      max-height: 100%; }
+    .modal-overlay .modal-wrapper.basic {
+      background-color: #dedede;
+      padding: 2em 1em 1em 1em;
+      color: #101010;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+      border-radius: 5px;
+      border: 1px solid #999999; }
+      .modal-overlay .modal-wrapper.basic .close-modal {
+        color: #999999; }
     .modal-overlay .modal-wrapper .close-modal, .modal-overlay .modal-wrapper .next, .modal-overlay .modal-wrapper .previous {
-      text-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
       opacity: 0.4; }
       .modal-overlay .modal-wrapper .close-modal:active, .modal-overlay .modal-wrapper .close-modal:focus, .modal-overlay .modal-wrapper .next:active, .modal-overlay .modal-wrapper .next:focus, .modal-overlay .modal-wrapper .previous:active, .modal-overlay .modal-wrapper .previous:focus {
         box-shadow: none; }
       .modal-overlay .modal-wrapper .close-modal:hover, .modal-overlay .modal-wrapper .next:hover, .modal-overlay .modal-wrapper .previous:hover {
         opacity: 1; }
+      .gallery .modal-overlay .modal-wrapper .close-modal, .gallery .modal-overlay .modal-wrapper .next, .gallery .modal-overlay .modal-wrapper .previous {
+        text-shadow: 0 2px 2px rgba(0, 0, 0, 0.4); }
     .modal-overlay .modal-wrapper .close-modal {
       position: absolute;
-      top: -1em;
-      right: 0;
-      cursor: pointer; }
-    .modal-overlay .modal-wrapper .next, .modal-overlay .modal-wrapper .previous {
-      font-size: 2em;
-      position: absolute;
-      top: 50%;
-      cursor: pointer; }
-    .modal-overlay .modal-wrapper .next {
-      right: -1em; }
-    .modal-overlay .modal-wrapper .previous {
-      left: -1em; }
-    .modal-overlay .modal-wrapper img {
-      border: 1px solid #4a4a4a;
-      max-height: 100%; }
+      cursor: pointer;
+      top: 1em;
+      right: 1em; }
+      .gallery .modal-overlay .modal-wrapper .close-modal {
+        top: -1em;
+        right: 0; }
 
 nav a {
   color: inherit; }

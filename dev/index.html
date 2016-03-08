@@ -619,7 +619,7 @@
           </column>
           <column four>
             <h4>Media Queries</h4>
-            See and adjust the different breakpoints in <em>theme.scss</em>. The breakpoints are called <em>small</em>, <em>medium</em>, <em>desktop</em> and large. Instead of writing a full media query each time you need one you can just include <em>on</em> followed by the breakpoint-name, so for example special styling for medium devices would go into <em>onMedium()</em>, followed by brackets and the content.
+            See and adjust the different breakpoints in <em>theme.scss</em>. The breakpoints are called <em>small</em>, <em>medium</em>, <em>desktop</em> and <em>large</em>. Instead of writing a full media query each time you need one you can just include <em>on</em> followed by the breakpoint-name, so for example special styling for medium devices would go into <em>onMedium()</em>, followed by brackets and the content.
           </column>
         </row>
       </section>
@@ -862,6 +862,19 @@
             <h6>Third slide in Carousel</h6>
           </li>
         </carousel>
+      </section>
+    </section>
+    <section id="modal">
+      <h2>Modal</h2>
+      <section class="container">
+        <p>To create a modal, simply use the element <em>modal</em> with a <em>show</em>-attribute. When the value of <em>show</em> evaluates to true, the modal will be displayed. The modal will appear on top of any other content and put an overlay above the rest of the site. It's a box which inherits your theme colors and adds some padding and a close button, and then displays your content within.</p>
+        <p><button ng-click="showModal = !showModal">Click here to preview a modal</button></p>
+        <modal show="showModal">
+          <div>
+            <i class="icon-profile1 show-icon"></i>
+            <p>In sagittis feugiat tortor vitae porta. Nam facilisis, augue vel bibendum sagittis, est eros fermentum metus, porta tempor dui lacus in metus. Vestibulum vehicula at purus vel sollicitudin. Ut eget ipsum quis quam faucibus tristique quis eu velit. Nullam erat neque, lacinia porttitor egestas ut, bibendum id mi. Aliquam ac orci non ligula mollis condimentum. Pellentesque efficitur eros quam, nec bibendum ante sodales eget.</p>
+          </div>
+        </modal>
       </section>
     </section>
      
