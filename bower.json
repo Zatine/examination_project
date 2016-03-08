@@ -1,0 +1,27 @@
+{
+  "name": "examensarbete",
+  "description": "Examination Project at Nackademin",
+  "main": "index.js",
+  "authors": [
+    "Mikaela Grundin"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "framework",
+    "javascript",
+    "angular",
+    "sass"
+  ],
+  "homepage": "https://github.com/Zatine/examination_project",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5.0"
+  }
+}
