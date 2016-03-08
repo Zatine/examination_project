@@ -33,7 +33,7 @@ p{
 /* LINKS */
 a{
   color: $primary-color;
-  &:hover{color: $highlight-primary;}
+  &:hover{color: lighten($primary-color, 10)}
 }
 
 /* BUTTONS */
@@ -223,7 +223,7 @@ fieldset{
       background: none;
       border-radius: 0;
       &:hover, &.active{
-        @include color-bg($highlight-primary);
+        @include color-bg(lighten($primary-color, 10));
       }
       &:first-child{
         color: #333;
@@ -274,7 +274,7 @@ fieldset{
         @include color-bg($blend-color-high);
       }
       &.selected{
-        @include color-bg($highlight-primary);
+        @include color-bg(lighten($primary-color, 10));
       }
       &.selected.active{
         @include color-bg($primary-color);

@@ -10,8 +10,11 @@
 @import 'gallery';
 @import 'carousel';
 
-.grid{
-  @include color-bg($primary-color);
+h1.title{
+  margin: 0 auto;
+  width: $container-width;
+  padding: 50px 0;
+  border-radius: 50px 0 50px 0;
 }
 
 section{

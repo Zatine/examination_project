@@ -12,14 +12,6 @@ $contrast-color: invert($primary-color);
 $blend-color-high: mix($background-color, $text-color, 90);
 $blend-color-low: mix($background-color, $text-color, 60);
 
-$highlight-primary: lighten($primary-color, 10);
-$highlight-secondary: lighten($secondary-color, 10);
-$highlight-contrast: lighten($contrast-color, 10);
-
-$darker-primary: darken($primary-color, 10);
-$darker-secondary: darken($secondary-color, 10);
-$darker-contrast: darken($contrast-color, 10);
-
 /* Fonts */
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,600,700&subset=latin,latin-ext);
 $main-font: sans-serif;
