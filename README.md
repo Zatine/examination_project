@@ -1,5 +1,5 @@
 # Examination Project
-Examination project for Nackademin. A framework built with Angular and SASS to simplify website building for myself and to get a better understanding of how to build components and making them flexible.
+Examination project for Nackademin. A framework built with Angular and SASS to simplify website building for myself and to get a better understanding of how to build components and making them flexible. [Read the documentation here](http://framework.mikaelagrundin.com/).
 
 ##Setup
 You will need [**npm**] (https://www.npmjs.com/) and [**bower**](http://bower.io/) installed on your computer, as well as [**SASS**](http://sass-lang.com/). After cloning the repository, run **npm install** and **bower install** to download all the necessary dependencies.
@@ -14,6 +14,7 @@ You can make your own website with the framework simply by cleaning up this proj
 - Remove all the styling beneath all the ```@import``` in *main.scss*.
 - Remove all the controllers from *app.js*.
 - Remove all images in the img-folder. If you want your images to be optimized for distribution, put any new images you add into the img-folder.
+- Change all the colors and sizes to your liking in *theme.scss*.
 
 You now have a clean slate for your own project.
 
