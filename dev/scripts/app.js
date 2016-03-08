@@ -24,8 +24,7 @@ app.controller('Documentation', function(){
   vm.menu = {
     toggle: false,
     links: [
-    {name: 'Introduction', href: '#intro'},
-    {name: 'Menus', href: '#menus'},
+    {name: 'Icons', href: '#icons'},
     {name: 'Basic Styles', href: '#basic-styles'},
     {name: 'Forms', href: '#forms'},
     {name: 'Grid', href: '#grid'},
